@@ -1,0 +1,129 @@
+body {
+    background-color: #eae7dc;
+    background-image: radial-gradient(#aaa798 1px, transparent 1px);
+    background-size: 16px 16px;
+}
+
+#wrap.neo-brutalism {
+    --ink: #141414;
+    --green: #63f44b;
+    --yellow: #ffdf35;
+    --focus: #253cca;
+    --text: #454545;
+    box-sizing: border-box;
+    max-width: 432px;
+    min-height: 0;
+    margin: clamp(16px, 8vh, 80px) auto;
+    width: calc(100% - 32px);
+    color: var(--ink);
+    background: #fffdf4;
+    border: 3px solid var(--ink);
+    box-shadow: 7px 7px 0 var(--ink);
+}
+
+.neo-brutalism header {
+    margin: 0;
+    height: 52px;
+    border-bottom: 3px solid var(--ink);
+    background: var(--yellow);
+}
+
+/* 원과 사각형을 CSS로 그려 상단 바에 배치한다. */
+.neo-brutalism header::after {
+    content: "";
+    position: absolute;
+    right: 20px;
+    width: 17px;
+    height: 17px;
+    border: 2px solid var(--ink);
+    border-radius: 50%;
+    background: #ff775b;
+    box-shadow: -23px 0 0 -2px var(--green), -23px 0 0 var(--ink);
+}
+
+.neo-brutalism .prev_btn {
+    left: 0;
+    background: none;
+}
+.neo-brutalism .prev_btn::after {
+    content: "←";
+    display: grid;
+    height: 100%;
+    place-items: center;
+    font: bold 28px Arial, sans-serif;
+}
+.neo-brutalism main {
+    padding: 32px clamp(16px, 5vw, 32px);
+}
+.neo-brutalism .title {
+    width: fit-content;
+    height: auto;
+    margin: 0 0 32px;
+    padding: 15px 20px;
+    background: var(--green);
+    border: 3px solid var(--ink);
+    box-shadow: 4px 4px 0 var(--ink);
+    transform: rotate(-2deg);
+}
+.neo-brutalism .title img {
+    display: block;
+    filter: brightness(0);
+}
+.neo-brutalism .input_box {
+    max-width: none;
+    height: 50px;
+    border: 2px solid var(--ink);
+    background: white;
+}
+.neo-brutalism .input_box + .input_box {
+    margin-top: 12px;
+}
+.neo-brutalism .input_box input {
+    height: 100%;
+    padding: 0 12px;
+    color: var(--ink);
+}
+.neo-brutalism .login_btn,
+.neo-brutalism .passkey_btn {
+    border: 3px solid var(--ink);
+    border-radius: 0;
+    box-shadow: 4px 4px 0 var(--ink);
+    color: var(--ink);
+}
+.neo-brutalism .login_btn {
+    margin-top: 20px;
+    background: var(--green);
+}
+.neo-brutalism .passkey_btn {
+    width: 100%;
+    margin-top: 14px;
+    padding: 7px;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #aabaff;
+}
+.neo-brutalism .passkey_btn > span:last-child {
+    padding: 0;
+}
+.neo-brutalism button:active {
+    transform: translate(3px, 3px);
+    box-shadow: 1px 1px 0 var(--ink);
+}
+.neo-brutalism .login_link {
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 4px 8px;
+    border-top: 2px solid var(--ink);
+}
+.neo-brutalism .login_link a::after {
+    display: none;
+}
+.neo-brutalism .login_link a:last-child {
+    color: #263caa;
+    text-decoration: underline;
+}
+.neo-brutalism :focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 2px;
+}
