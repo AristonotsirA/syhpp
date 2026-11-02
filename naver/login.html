@@ -172,6 +172,7 @@
     </style>
     <link rel="stylesheet" href="collage.css">
     <link rel="stylesheet" href="art-deco.css">
+    <link rel="stylesheet" href="swiss.css">
 </head>
 <body data-theme="collage">
     <div class="theme_switcher">
@@ -179,6 +180,7 @@
         <select id="theme_select" aria-controls="wrap">
             <option value="collage" selected>Collage</option>
             <option value="art-deco">Art Deco</option>
+            <option value="swiss">Swiss Style</option>
         </select>
     </div>
     <div id="wrap" class="collage">
@@ -218,7 +220,7 @@
         const themeSelect = document.querySelector('#theme_select');
         const themeWrap = document.querySelector('#wrap');
         themeSelect.addEventListener('change', () => {
-            themeWrap.classList.remove('collage', 'art-deco');
+            themeWrap.classList.remove('collage', 'art-deco', 'swiss');
             themeWrap.classList.add(themeSelect.value);
             document.body.dataset.theme = themeSelect.value;
         });

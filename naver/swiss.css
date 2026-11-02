@@ -1,0 +1,170 @@
+/* Swiss Style — 리플렛의 그리드, 왼쪽 정렬과 빨간 면 */
+body[data-theme="swiss"] {
+    background: #dcdcd7;
+}
+body[data-theme="swiss"] .theme_switcher,
+body[data-theme="swiss"] .theme_switcher select {
+    color: #111;
+    border-color: #111;
+    background: #fafaf6;
+    box-shadow: none;
+}
+#wrap.swiss {
+    --red: #e5271c;
+    --text: #555;
+    --focus: #d62319;
+    --panel: clamp(38px, 12vw, 80px);
+    position: relative;
+    isolation: isolate;
+    box-sizing: border-box;
+    width: calc(100% - 32px);
+    max-width: 520px;
+    min-height: 0;
+    margin: clamp(24px, 6vh, 64px) auto;
+    color: #111;
+    background: #fafaf6;
+    border: 1px solid #111;
+    font-family: Arial, "Noto Sans KR", sans-serif;
+}
+.swiss::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 0 auto 0 0;
+    width: var(--panel);
+    background: linear-gradient(160deg, #f53526, #bd1d16);
+}
+.swiss::after {
+    content: "NAVER / ACCOUNT";
+    position: absolute;
+    top: 80px;
+    left: calc(var(--panel) / 2);
+    writing-mode: vertical-rl;
+    transform: translateX(-50%);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .12em;
+}
+.swiss header {
+    height: 54px;
+    margin: 0 24px 0 calc(var(--panel) + 24px);
+    justify-content: flex-end;
+    border-bottom: 2px solid #111;
+}
+.swiss header::after {
+    content: "01 / LOGIN";
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .06em;
+}
+.swiss .prev_btn {
+    left: -8px;
+    background: none;
+}
+.swiss .prev_btn::after {
+    content: "←";
+    display: grid;
+    height: 100%;
+    place-items: center;
+    font: 28px Arial, sans-serif;
+}
+.swiss main {
+    padding: 28px 24px 32px calc(var(--panel) + 24px);
+}
+.swiss .title {
+    width: 100%;
+    height: auto;
+    margin: 0 0 28px;
+}
+.swiss .title img {
+    display: block;
+    width: 120px;
+    height: 34px;
+    object-fit: contain;
+    object-position: left center;
+}
+.swiss .title::after {
+    content: "Login.";
+    display: block;
+    margin-top: 12px;
+    font: 900 clamp(42px, 10vw, 64px)/.95 Arial, sans-serif;
+    letter-spacing: -.075em;
+}
+.swiss .input_box {
+    max-width: none;
+    height: 50px;
+    border: 1px solid #111;
+    background: transparent;
+}
+.swiss .input_box + .input_box { margin-top: 12px; }
+.swiss .input_box input {
+    height: 100%;
+    padding: 0 12px;
+    color: #111;
+    font-size: 1.5rem;
+    font-family: inherit;
+}
+.swiss .login_btn {
+    height: 50px;
+    margin-top: 20px;
+    padding: 0 14px;
+    border-radius: 0;
+    color: #fff;
+    background: var(--red);
+    text-align: left;
+    font-size: 1.8rem;
+    font-weight: 800;
+    letter-spacing: -.04em;
+}
+.swiss .passkey_btn {
+    width: 100%;
+    min-height: 48px;
+    margin: 12px 0 0;
+    padding: 8px 12px;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    border: 1px solid #111;
+    color: #111;
+    background: transparent;
+    font-size: 1.5rem;
+    letter-spacing: -.03em;
+}
+.swiss .passkey_btn > span:last-child { padding-top: 0; }
+.swiss .passkey_icon {
+    width: 28px;
+    height: 28px;
+    flex: 0 0 28px;
+    overflow: visible;
+}
+.swiss .passkey_icon img {
+    position: static;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.swiss .login_link {
+    width: 100%;
+    margin-top: 28px;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 0 16px;
+    border-top: 2px solid #111;
+    font-family: inherit;
+    font-size: 1.2rem;
+}
+.swiss .login_link a::after { display: none; }
+.swiss .login_link a:last-child { color: #c11c14; }
+.swiss .login_link a:hover { text-decoration: underline; }
+.swiss button:hover { filter: brightness(.92); }
+.swiss :focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 3px;
+}
+.swiss .login_notice {
+    padding-top: 12px;
+    border-top: 1px solid #111;
+    font-family: inherit;
+}
