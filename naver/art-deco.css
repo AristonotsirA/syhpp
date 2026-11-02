@@ -1,0 +1,196 @@
+/* 공통 테마 선택기 */
+.theme_switcher {
+    position: fixed;
+    z-index: 10;
+    top: 16px;
+    right: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    border: 1px solid #8f8064;
+    background: #fffdf5;
+    color: #302d27;
+    box-shadow: 0 3px 12px #0002;
+    font: 700 14px/1.5 Arial, sans-serif;
+}
+.theme_switcher select {
+    min-height: 36px;
+    padding: 4px 28px 4px 10px;
+    border: 1px solid #8f8064;
+    border-radius: 0;
+    color: inherit;
+    background: #fffdf5;
+    font: inherit;
+    cursor: pointer;
+    appearance: auto;
+}
+.theme_switcher select:focus-visible {
+    outline: 2px solid #316749;
+    outline-offset: 3px;
+}
+body {
+    padding-top: 64px;
+}
+/* Art Deco — 대칭과 금색 기하 장식 */
+body[data-theme="art-deco"] {
+    background-color: #101c20;
+    background-image: repeating-linear-gradient(135deg, transparent 0 29px, #c5a35b12 29px 30px),
+        repeating-linear-gradient(45deg, transparent 0 29px, #c5a35b12 29px 30px);
+}
+body[data-theme="art-deco"] .theme_switcher,
+body[data-theme="art-deco"] .theme_switcher select {
+    color: #ecd6a0;
+    border-color: #aa884d;
+    background: #12272c;
+}
+#wrap.art-deco {
+    --text: #bdb8a8;
+    --focus: #f0d796;
+    --gold: #c6a262;
+    --ink: #0b1d22;
+    position: relative;
+    box-sizing: border-box;
+    width: calc(100% - 48px);
+    max-width: 420px;
+    min-height: 0;
+    margin: clamp(24px, 6vh, 64px) auto;
+    border: 1px solid var(--gold);
+    outline: 1px solid #a4864b;
+    outline-offset: 7px;
+    color: #eadbb7;
+    background: #10262c;
+    box-shadow: 0 12px 36px #0004;
+}
+.art-deco header {
+    height: 54px;
+    margin: 0 16px;
+    border-bottom: 1px solid #c6a26266;
+}
+.art-deco header::after {
+    content: "◆";
+    color: var(--gold);
+    font-size: 16px;
+}
+.art-deco .prev_btn {
+    left: 0;
+    background: none;
+}
+.art-deco .prev_btn::after {
+    content: "←";
+    display: grid;
+    height: 100%;
+    place-items: center;
+    color: var(--gold);
+    font: 26px Georgia, serif;
+}
+.art-deco main {
+    padding: 36px clamp(20px, 7vw, 38px);
+}
+.art-deco .title {
+    position: relative;
+    width: fit-content;
+    height: auto;
+    padding: 14px 20px;
+    margin: 0 auto 44px;
+    border-top: 1px solid var(--gold);
+    border-bottom: 1px solid var(--gold);
+}
+.art-deco .title::before,
+.art-deco .title::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    border: 1px solid var(--gold);
+    background: var(--ink);
+    transform: translateX(-50%) rotate(45deg);
+}
+.art-deco .title::before { top: -6px; }
+.art-deco .title::after { bottom: -6px; }
+.art-deco .title img {
+    display: block;
+    width: 144px;
+    height: 40px;
+    object-fit: contain;
+}
+.art-deco .input_box {
+    max-width: none;
+    height: 50px;
+    border: 1px solid #a58d60;
+    background: #0c2026;
+}
+.art-deco .input_box + .input_box {
+    margin-top: 16px;
+}
+.art-deco .input_box input {
+    height: 100%;
+    padding: 0 14px;
+    font-size: 1.6rem;
+    color: #f6e8cb;
+}
+.art-deco .login_btn {
+    height: 50px;
+    margin-top: 28px;
+    border: 1px solid #ebd397;
+    border-radius: 0;
+    outline: 1px solid #aa884d;
+    outline-offset: 4px;
+    color: #17262b;
+    background: linear-gradient(115deg, #a88143, #edda9f 48%, #bc9753);
+    letter-spacing: .3em;
+    text-indent: .3em;
+    font-weight: 800;
+}
+.art-deco .passkey_btn {
+    width: 100%;
+    min-height: 48px;
+    margin: 24px 0 0;
+    padding: 8px;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border: 1px solid #aa884d;
+    background: transparent;
+    color: #e5d2a7;
+    font-size: 1.5rem;
+    letter-spacing: .12em;
+}
+.art-deco .passkey_btn > span:last-child { padding-top: 0; }
+.art-deco .passkey_icon {
+    width: 32px;
+    height: 32px;
+    flex: 0 0 32px;
+    overflow: visible;
+}
+.art-deco .passkey_icon img {
+    position: static;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.art-deco .login_link {
+    width: 100%;
+    margin-top: 28px;
+    gap: 4px 10px;
+    flex-wrap: wrap;
+    border-top: 1px solid #c6a26266;
+    font-size: 1.3rem;
+}
+.art-deco .login_link a::after { display: none; }
+.art-deco .login_link a:last-child { color: #e4c783; }
+.art-deco .login_link a:hover { text-decoration: underline; }
+.art-deco :focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 4px;
+}
+.art-deco button:hover { filter: brightness(1.12); }
+.art-deco button:active { transform: translateY(1px); }
+.art-deco .login_notice {
+    padding: 12px;
+    border: 1px solid #aa884d;
+    color: #eadbb7;
+    font-size: 1.4rem;
+}
