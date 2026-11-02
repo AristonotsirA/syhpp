@@ -1,0 +1,170 @@
+/* Collage — 종이, 노트 줄, 찢긴 가장자리와 테이프 */
+body {
+    background-color: #b9ad98;
+    background-image: radial-gradient(#71665338 .7px, transparent .7px);
+    background-size: 5px 5px;
+}
+#wrap.collage {
+    --ink: #302d27;
+    --text: #655d50;
+    --focus: #316749;
+    position: relative;
+    isolation: isolate;
+    box-sizing: border-box;
+    width: calc(100% - 40px);
+    max-width: 420px;
+    min-height: 0;
+    margin: clamp(24px, 6vh, 64px) auto;
+    color: var(--ink);
+    background-color: #fbf6e8;
+    background-image: linear-gradient(90deg, transparent 29px, #d98e8066 29px, #d98e8066 30px, transparent 30px),
+        repeating-linear-gradient(transparent 0 27px, #8ca8b433 27px 28px);
+    box-shadow: 3px 8px 15px #382e2530;
+    transform: rotate(-.6deg);
+}
+.collage::before,
+.collage::after {
+    content: "";
+    position: absolute;
+    z-index: 2;
+    width: 94px;
+    height: 28px;
+    background: #d6b76c99;
+    border-left: 2px dashed #b0975955;
+    border-right: 2px dashed #b0975955;
+    pointer-events: none;
+}
+.collage::before {
+    top: -10px;
+    right: 24px;
+    transform: rotate(13deg);
+}
+.collage::after {
+    bottom: -9px;
+    left: 16px;
+    transform: rotate(-18deg);
+}
+.collage header {
+    height: 48px;
+    margin: 0;
+    border-bottom: 1px dashed #9f9277;
+}
+.collage .prev_btn {
+    left: 4px;
+    background: none;
+}
+.collage .prev_btn::after {
+    content: "←";
+    display: grid;
+    height: 100%;
+    place-items: center;
+    font: 28px Georgia, serif;
+}
+.collage main {
+    padding: 30px clamp(18px, 6vw, 36px) 34px;
+}
+.collage .title {
+    position: relative;
+    width: fit-content;
+    height: auto;
+    margin: 0 auto 34px;
+    padding: 20px 24px;
+    background: #fff;
+    box-shadow: 2px 4px 5px #352a2522;
+    transform: rotate(-3deg);
+}
+.collage .title::before {
+    content: "";
+    position: absolute;
+    top: -9px;
+    left: 50%;
+    width: 65px;
+    height: 23px;
+    background: #b4c8a8b3;
+    transform: translateX(-50%) rotate(8deg);
+}
+.collage .title img {
+    display: block;
+}
+.collage .input_box {
+    height: 50px;
+    max-width: none;
+    border: 1px solid #b6aa93;
+    background: #fffdf6;
+    box-shadow: 2px 3px 0 #b7a98f55;
+}
+.collage .input_box + .input_box {
+    margin-top: 14px;
+}
+.collage .input_box input {
+    height: 100%;
+    padding: 0 12px;
+    color: var(--ink);
+    font-size: 1.6rem;
+}
+.collage .login_btn {
+    position: relative;
+    height: 56px;
+    margin-top: 24px;
+    border-radius: 0;
+    color: #fffdf3;
+    background: #365d48;
+    letter-spacing: .12em;
+    /* 조각마다 높이가 다른 가장자리로 종이를 찢은 느낌을 만든다. */
+    clip-path: polygon(0 7%, 8% 3%, 17% 8%, 29% 2%, 43% 6%, 57% 1%, 71% 5%, 86% 0, 100% 6%, 99% 91%, 88% 98%, 74% 94%, 59% 100%, 46% 95%, 31% 99%, 17% 94%, 1% 100%);
+    transform: rotate(-1deg);
+}
+.collage .passkey_btn {
+    width: 100%;
+    min-height: 48px;
+    margin: 18px 0 0;
+    padding: 8px 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border: 1px dashed #96846b;
+    color: var(--ink);
+    background: #e8d3a8;
+    font-size: 1.6rem;
+    box-shadow: 2px 3px 4px #4337221a;
+    transform: rotate(1deg);
+}
+.collage .passkey_btn > span:last-child {
+    padding-top: 0;
+}
+.collage .login_link {
+    width: 100%;
+    margin-top: 28px;
+    gap: 4px 10px;
+    flex-wrap: wrap;
+    border-top: 1px dashed #9f9277;
+    font-size: 1.3rem;
+}
+.collage .login_link a::after {
+    display: none;
+}
+.collage .login_link a:last-child {
+    color: #365d48;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+.collage button:hover {
+    filter: brightness(1.07);
+}
+.collage button:active {
+    transform: translateY(2px);
+}
+.collage :focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 3px;
+}
+.collage .login_notice {
+    padding: 12px;
+    background: #fff4b8;
+    border: 1px solid #baac75;
+}
+@media (prefers-reduced-motion: reduce) {
+    #wrap.collage, .collage .title, .collage button {
+        transform: none;
+    }
+}
