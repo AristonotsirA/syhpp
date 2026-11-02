@@ -67,7 +67,6 @@ body {
 }
 .neo-brutalism .title img {
     display: block;
-    filter: brightness(0);
 }
 .neo-brutalism .input_box {
     max-width: none;
