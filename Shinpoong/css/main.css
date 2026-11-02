@@ -501,6 +501,245 @@ footer {
     color: var(--text-secondary);
 }
 
+/* ============================================================
+   서브페이지 공통 (Design.md 11장)
+   메인에서 쓰던 값만 다시 써서 같은 브랜드로 보이게 함
+   ============================================================ */
+/* 지금 보고 있는 메뉴는 hover처럼 밑줄 */
+.gnb .on a {
+    text-decoration: underline;
+}
+
+/* 이미지가 들어갈 자리: 나중에 <img>로 바꿔 넣음 */
+.img-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--border-subtle);
+    color: var(--text-secondary);
+    font-size: 16px;
+}
+
+/* 상단 비주얼: 회사 소개 섹션처럼 사진 배경 + 왼쪽 흰 글자
+   지금은 사진 대신 진한 박스(.img-box)가 깔려 있음 */
+.sub-visual {
+    position: relative;
+    padding: 110px 20px;
+    color: var(--text-inverse);
+}
+.sub-visual .img-box {
+    position: absolute;
+    inset: 0;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 20px;
+    background-color: var(--neutral-600);
+    color: var(--text-inverse);
+}
+.sub-visual .inner {
+    position: relative;
+    z-index: 1;
+}
+/* 어두운 바탕 위 영어 라벨은 밝은 초록(accent/brand) */
+.sub-visual-label {
+    color: var(--accent-brand);
+    font-size: 16px;
+    font-weight: 600;
+}
+.sub-visual h2 {
+    margin-top: 16px;
+    font-size: 54px;
+    font-weight: 800;
+    line-height: 1.45;
+}
+.sub-visual p {
+    margin-top: 24px;
+    font-size: 20px;
+    line-height: 1.5;
+}
+
+/* 현재 위치 표시: HOME > 메뉴 */
+.sub-path {
+    padding: 20px;
+    border-bottom: 1px solid var(--border-subtle);
+    font-size: 16px;
+}
+.sub-path ul {
+    display: flex;
+}
+.sub-path li {
+    color: var(--text-secondary);
+}
+.sub-path li + li::before {
+    content: ">";
+    margin: 0 10px;
+    color: var(--border-subtle);
+    font-weight: 700;
+}
+.sub-path li:last-child {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+/* 서브페이지 섹션: 메인과 같은 위아래 110, 좌우 20 */
+.sub-sec {
+    padding: 110px 20px;
+    text-align: center;
+}
+/* 섹션을 번갈아 구분할 때 연한 바탕 */
+.sub-sec.subtle {
+    background-color: var(--background-subtle);
+}
+.sub-label {
+    color: var(--accent-emphasis);
+    font-size: 16px;
+    font-weight: 600;
+}
+/* 섹션 제목은 메인 .prd-title 규칙 */
+.sub-title {
+    margin-top: 16px;
+    color: var(--text-primary);
+    font-size: 54px;
+    font-weight: 700;
+    line-height: 1.45;
+}
+.sub-desc {
+    margin-top: 20px;
+    color: var(--text-secondary);
+    font-size: 16px;
+    line-height: 1.7;
+}
+/* 제목 아래 내용은 메인처럼 60px 띄움 */
+.sub-body {
+    margin-top: 60px;
+}
+
+/* 사진 + 글 두 칸 (회사 소개, 연구 소개) */
+.sub-intro {
+    display: flex;
+    align-items: center;
+    gap: 53px;
+    text-align: left;
+}
+/* min-width: 0 이 없으면 사진이 원래 크기(1920px)보다 줄어들지 않음 */
+.sub-intro .img-box,
+.sub-intro img {
+    flex: 1;
+    min-width: 0;
+    aspect-ratio: 513 / 414;
+    border-radius: 25px;
+    object-fit: cover;
+}
+.sub-intro-txt {
+    flex: 1;
+    min-width: 0;
+}
+.sub-intro-txt h3 {
+    margin-top: 16px;
+    color: var(--text-primary);
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+/* 카드 목록이 여러 줄이 될 때 (뉴스 등) */
+.ntc-list.wrap {
+    flex-wrap: wrap;
+}
+/* 서브페이지에서는 제목 아래 간격을 .sub-body가 맡음 */
+.sub-body .ntc-tabs,
+.sub-body .ntc-list {
+    margin-top: 0;
+}
+/* 탭 아래 카드 목록은 메인처럼 65px */
+.sub-body .ntc-tabs + .ntc-list {
+    margin-top: 65px;
+}
+/* 투자정보 자료 영역 박스 */
+.ir-box {
+    height: 400px;
+    border-radius: 25px;
+}
+
+/* 제품 목록: 메인 사진 카드(.prd-card) + 아래 제품 설명 */
+.prd-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 45px;
+}
+.prd-list li {
+    width: 420px;
+    text-align: left;
+}
+.prd-info strong {
+    display: block;
+    margin-top: 20px;
+    color: var(--text-primary);
+    font-size: 24px;
+    font-weight: 700;
+}
+.prd-info p {
+    margin-top: 12px;
+    color: var(--text-secondary);
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+/* 연혁: 왼쪽 연도, 오른쪽 내용 */
+.hist-list {
+    border-top: 2px solid var(--border-input);
+    text-align: left;
+}
+.hist-list > li {
+    display: flex;
+    padding: 36px 0;
+    border-bottom: 1px solid var(--border-subtle);
+}
+.hist-year {
+    flex-shrink: 0;
+    width: 225px;
+    color: var(--accent-emphasis);
+    font-size: 30px;
+    font-weight: 700;
+}
+.hist-list ul {
+    color: var(--text-secondary);
+    font-size: 20px;
+    line-height: 1.5;
+}
+
+/* 단계 박스 (채용 절차) */
+.step-list {
+    display: flex;
+    gap: 21px;
+    text-align: left;
+}
+.step-list li {
+    flex: 1;
+    padding: 36px 35px;
+    border-radius: 25px;
+    background-color: var(--background-default);
+}
+.step-list span {
+    color: var(--accent-emphasis);
+    font-size: 16px;
+    font-weight: 600;
+}
+.step-list strong {
+    display: block;
+    margin-top: 12px;
+    color: var(--text-primary);
+    font-size: 24px;
+    font-weight: 700;
+}
+.step-list p {
+    margin-top: 12px;
+    color: var(--text-secondary);
+    font-size: 16px;
+    line-height: 1.7;
+}
+
 @media (max-width: 1024px) {
     .pc {
         display: none;
@@ -683,5 +922,93 @@ footer {
     }
     .ft-copy {
         margin-top: 16px;
+    }
+    /* 서브페이지: 고정 헤더(56px) 아래로 비주얼을 내리고, 두 칸은 위아래로 */
+    /* 위 116px = 고정 헤더 56px + 모바일 섹션 여백 60px */
+    .sub-visual {
+        padding: 116px 20px 60px;
+    }
+    .sub-visual h2 {
+        font-size: 28px;
+    }
+    .sub-visual p {
+        margin-top: 16px;
+        font-size: 15px;
+    }
+    .sub-path {
+        font-size: 13px;
+    }
+    .sub-path li + li::before {
+        margin: 0 6px;
+    }
+    .sub-sec {
+        padding: 60px 20px 80px;
+    }
+    .sub-title {
+        font-size: 24px;
+    }
+    .sub-desc {
+        font-size: 14px;
+    }
+    .sub-body {
+        margin-top: 32px;
+    }
+    .sub-body .ntc-tabs + .ntc-list {
+        margin-top: 32px;
+    }
+    .ir-box {
+        height: 240px;
+        border-radius: 16px;
+    }
+    .sub-intro {
+        flex-direction: column;
+        gap: 32px;
+    }
+    .sub-intro .img-box,
+    .sub-intro img {
+        width: 100%;
+        border-radius: 16px;
+    }
+    .sub-intro-txt h3 {
+        font-size: 24px;
+    }
+    .prd-list {
+        gap: 32px;
+    }
+    .prd-list li {
+        width: 100%;
+        max-width: 420px;
+    }
+    .prd-info strong {
+        font-size: 18px;
+    }
+    .prd-info p {
+        font-size: 14px;
+    }
+    .hist-list > li {
+        flex-direction: column;
+        padding: 24px 0;
+    }
+    .hist-year {
+        width: auto;
+        font-size: 20px;
+    }
+    .hist-list ul {
+        margin-top: 8px;
+        font-size: 15px;
+    }
+    .step-list {
+        flex-direction: column;
+        gap: 16px;
+    }
+    .step-list li {
+        padding: 24px;
+        border-radius: 16px;
+    }
+    .step-list strong {
+        font-size: 20px;
+    }
+    .step-list p {
+        font-size: 14px;
     }
 }

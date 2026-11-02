@@ -30,6 +30,12 @@
 ```text
 Shinpoong/
 ├─ index.html        메인 페이지 (JS는 문서 맨 아래 <script> 안에 작성)
+├─ product.html      서브: 제품정보
+├─ rnd.html          서브: R&D
+├─ ir.html           서브: 투자정보
+├─ recruit.html      서브: 채용정보
+├─ company.html      서브: 기업정보
+├─ news.html         서브: 뉴스
 ├─ css/main.css      이 프로젝트 전용 스타일 (색 변수 :root 포함)
 ├─ img/              이 프로젝트 이미지
 └─ Design.md         이 문서
@@ -251,16 +257,16 @@ Shinpoong/
 ```html
 <header>
     <div class="top-bar">
-        <h1 class="logo"><a href="#"><img src="img/logo.png" alt="신풍제약주식회사 SHIN POONG PHARM. CO., LTD."></a></h1>
+        <h1 class="logo"><a href="index.html"><img src="img/logo.png" alt="신풍제약주식회사 SHIN POONG PHARM. CO., LTD."></a></h1>
     </div>
     <nav class="gnb">
         <ul>
-            <li><a href="#">제품정보</a></li>
-            <li><a href="#">R&amp;D</a></li>
-            <li><a href="#">투자정보</a></li>
-            <li><a href="#">채용정보</a></li>
-            <li><a href="#">기업정보</a></li>
-            <li><a href="#">뉴스</a></li>
+            <li><a href="product.html">제품정보</a></li>
+            <li><a href="rnd.html">R&amp;D</a></li>
+            <li><a href="ir.html">투자정보</a></li>
+            <li><a href="recruit.html">채용정보</a></li>
+            <li><a href="company.html">기업정보</a></li>
+            <li><a href="news.html">뉴스</a></li>
         </ul>
     </nav>
 </header>
@@ -268,7 +274,8 @@ Shinpoong/
 
 - 두 줄 구조: 흰 로고 줄(`--surface-default`, 위아래 padding 10px, 로고 가운데) + 초록 메뉴 줄(`--accent-emphasis`).
 - 메뉴: 흰 글자 15px, `padding: 10px 20px`, hover 시 밑줄.
-- 메뉴 6개와 순서는 모든 페이지에서 똑같이 유지합니다.
+- 메뉴 6개와 순서는 모든 페이지에서 똑같이 유지합니다. 각 메뉴는 같은 폴더의 서브페이지로 연결합니다.
+- 서브페이지에서는 지금 보고 있는 메뉴의 `<li>` 에 `.on` 을 붙입니다. (밑줄로 표시)
 - 1024px 이하: header 가 `position: fixed` (z-index 10), 로고 줄 높이 56px, **GNB 는 숨김**. 고정 헤더 때문에 첫 섹션에 `padding-top: 56px` 를 줍니다. (메인에는 모바일 메뉴 버튼이 아직 없습니다.)
 
 ### 7-2. 버튼
@@ -410,7 +417,7 @@ Shinpoong/
 
 ### Don't
 
-- **링크를 기존 신풍제약 사이트(shinpoong.co.kr 등)로 연결하지 않습니다.** 아직 없는 페이지는 `href="#"` 으로 둡니다.
+- **링크를 기존 신풍제약 사이트(shinpoong.co.kr 등)로 연결하지 않습니다.** 프로젝트 안 페이지(`product.html` 등)로만 연결하고, 아직 없는 페이지는 `href="#"` 으로 둡니다.
 - 메인 페이지(`index.html`, `main.css` 의 기존 규칙)의 디자인을 바꾸지 않습니다.
 - 메인에 없는 색 코드, 글자 크기, 여백, 모서리 값을 새로 만들지 않습니다. 필요하면 먼저 묻습니다.
 - 변수가 있는 색을 `#007a3d` 처럼 코드로 직접 쓰지 않습니다.
@@ -419,3 +426,55 @@ Shinpoong/
 - 실행 코드에서 `new Swiper('.swiper')` 처럼 공통 클래스로 선택하지 않습니다.
 - 사용자가 요청하지 않으면 CSS/JS 파일을 새로 나누지 않습니다. (스타일은 `css/main.css`, 스크립트는 HTML 맨 아래 `<script>`)
 - 사진 배경 섹션에 막이 이미 들어간 사진(`company-bg.png`)이면 CSS 막을 또 덮지 않습니다.
+
+---
+
+## 11. Subpages — 서브페이지 확장 규칙
+
+헤더 메뉴 6개마다 서브페이지가 하나씩 있습니다. 모두 메인과 **같은 헤더, 같은 푸터, 같은 `main.css`** 를 씁니다.
+서브페이지 전용 규칙은 `main.css` 의 "서브페이지 공통" 주석 아래에 모여 있고, 메인의 기존 규칙은 고치지 않았습니다.
+
+### 11-1. 페이지 순서 (정보 구조)
+
+모든 서브페이지는 아래 순서를 지킵니다.
+
+1. 헤더 (현재 메뉴 `.on`)
+2. 상단 비주얼 `.sub-visual` — 영어 라벨, 두 줄 제목, 한두 줄 설명
+3. 현재 위치 `.sub-path` — `HOME > 메뉴명`
+4. 내용 섹션 `.sub-sec` 여러 개 — 가장 중요한 내용을 맨 위에 둡니다. 섹션을 번갈아 구분할 때만 `.sub-sec.subtle`(연한 바탕)
+5. 푸터
+
+| 페이지 | 파일 | 섹션 순서 |
+|---|---|---|
+| 제품정보 | `product.html` | 주요 제품(사진 카드 목록) → 제품 문의 |
+| R&D | `rnd.html` | 연구개발 소개(사진+글) → 연구 분야(글 카드) → 연구 현장(Swiper) |
+| 투자정보 | `ir.html` | 투자정보(글 카드 3개) → IR 자료실 |
+| 채용정보 | `recruit.html` | 인재상(글 카드) → 채용 절차(단계 박스) → 채용 공고(탭 + 글 카드) |
+| 기업정보 | `company.html` | 회사소개(사진+글) → 핵심가치(글 카드) → 연혁 |
+| 뉴스 | `news.html` | 뉴스(탭 + 글 카드 여러 줄) |
+
+### 11-2. 서브페이지 공통 부품
+
+| 부품 | 클래스 | 규칙 (메인의 어떤 값을 따랐는지) |
+|---|---|---|
+| 상단 비주얼 | `.sub-visual` | 회사 소개 섹션처럼 사진 배경 + 왼쪽 흰 글자. padding `110px 20px`, 제목 54px / 800 / 1.45, 설명 20px / 1.5. 라벨은 어두운 바탕이라 `--accent-brand` |
+| 이미지 자리 | `.img-box` | 아직 사진이 없는 곳. 바탕 `--border-subtle`, 글자 `--text-secondary` 16px. 비주얼 안에서는 바탕 `--neutral-600` + 흰 글자. **사진이 준비되면 `<img>` 로 바꿉니다.** |
+| 현재 위치 | `.sub-path` | 16px, 아래 선 1px `--border-subtle`, 구분 기호 `>` 는 푸터 구분선처럼 `--border-subtle` / 700, 마지막 항목만 `--text-primary` / 600 |
+| 섹션 머리 | `.sub-label` + `.sub-title` + `.sub-desc` | 라벨 = `.rnd-label`, 제목 = `.prd-title`(54px / 700), 설명 = `.rnd-desc`(16px / 1.7) |
+| 섹션 내용 | `.sub-body` | 제목 아래 60px (모바일 32px) |
+| 사진 + 글 | `.sub-intro` | flex 두 칸, gap 53px, 사진 비율 513 / 414, 모서리 25px. 글 제목 = `.rnd-txt h2`(36px / 700 / 1.4). 모바일은 위아래로 |
+| 사진 카드 목록 | `.prd-list` + `.prd-card` | 카드 420px, gap 45px, 줄바꿈. 아래 `.prd-info` 에 이름(24px / 700)과 설명(16px / 1.7) |
+| 글 카드 목록 | `.ntc-list` + `.ntc-card` | 메인 공고 카드 그대로. 여러 줄이면 `.ntc-list.wrap` |
+| 탭 | `.ntc-tabs` + `.ntc-tab` | 메인 공고 탭 그대로. 탭 아래 목록은 65px (모바일 32px) |
+| 연혁 | `.hist-list` | 위 선 2px `--border-input`, 항목 사이 1px `--border-subtle`, 연도 30px / 700 `--accent-emphasis`, 너비 225px |
+| 단계 박스 | `.step-list` | flex, gap 21px, 박스 padding `36px 35px`, 모서리 25px, 단계 번호 = `.rnd-label`, 제목 24px / 700 |
+
+### 11-3. 서브페이지 스크립트
+
+- 탭: 메인 공고 탭과 같은 동작. 단, 한 페이지에 카드 목록이 여러 개일 수 있으므로 **탭이 있는 `.sub-body` 안에서만** 카드를 찾습니다.
+- 슬라이더: Swiper 로 만들고, 고유 클래스(`.lab-slider` 등)로 실행합니다. 설정은 메인 제품 슬라이더와 같습니다.
+
+### 11-4. 내용을 채울 때
+
+- `연혁 내용이 들어갈 자리입니다.`, `제목이 들어갈 자리입니다.` 같은 문구와 `.img-box` 는 **실제 내용·사진으로 바꿀 자리**입니다.
+- 사실 확인이 안 된 숫자(매출, 주가, 연도 등)를 지어내서 넣지 않습니다.
