@@ -50,68 +50,132 @@
                     </ul>
                 </div>
             </nav>
-            <section class="sub-sec">
+            <!-- 대표 제품: 메인 제품 슬라이더와 같은 모양 -->
+            <section class="sub-sec subtle">
                 <div class="inner">
-                    <p class="sub-label">Products</p>
-                    <h2 class="sub-title">주요 제품</h2>
-                    <p class="sub-desc">신풍제약의 대표 제품을 확인해 보세요.</p>
+                    <p class="sub-label">Best Products</p>
+                    <h2 class="sub-title">대표 제품</h2>
+                    <p class="sub-desc">신풍제약을 대표하는 제품을 소개합니다.</p>
                     <div class="sub-body">
+                        <div class="prd-wrap">
+                            <div class="swiper prd-slider best-slider">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <a href="#all" class="prd-card">
+                                            <img src="img/product1.png" alt="칸데암로">
+                                            <span class="prd-name">칸데암로</span>
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <a href="#all" class="prd-card">
+                                            <img src="img/product2.png" alt="피라맥스">
+                                            <span class="prd-name">피라맥스</span>
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <a href="#all" class="prd-card">
+                                            <img src="img/product3.png" alt="에제로수">
+                                            <span class="prd-name">에제로수</span>
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <a href="#all" class="prd-card fit">
+                                            <img src="img/product4.png" alt="메디커튼">
+                                            <span class="prd-name">메디커튼</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="button" class="prd-prev" aria-label="이전 제품">&larr;</button>
+                            <button type="button" class="prd-next" aria-label="다음 제품">&rarr;</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- 전체 제품: 분류 탭 + 검색으로 원하는 제품을 찾음 -->
+            <section class="sub-sec" id="all">
+                <div class="inner">
+                    <p class="sub-label">All Products</p>
+                    <h2 class="sub-title">전체 제품</h2>
+                    <p class="sub-desc">분류를 고르거나 제품명·성분명으로 검색해 보세요.</p>
+                    <div class="sub-body">
+                        <div class="prd-filter">
+                            <div class="ntc-tabs">
+                                <button type="button" class="ntc-tab on" data-type="all">전체</button>
+                                <button type="button" class="ntc-tab" data-type="heart">순환기계</button>
+                                <button type="button" class="ntc-tab" data-type="infect">감염질환</button>
+                                <button type="button" class="ntc-tab" data-type="etc">기타</button>
+                            </div>
+                            <form class="prd-search" role="search">
+                                <label for="prdKeyword" class="sr-only">제품 검색</label>
+                                <input type="search" id="prdKeyword" placeholder="제품명 또는 성분명을 입력하세요">
+                                <button type="submit">검색</button>
+                            </form>
+                        </div>
+                        <p class="prd-count">총 <strong>6</strong>개의 제품</p>
                         <ul class="prd-list">
-                            <li>
+                            <li data-type="heart">
                                 <a href="#" class="prd-card">
                                     <img src="img/product1.png" alt="칸데암로">
                                     <span class="prd-name">칸데암로</span>
                                 </a>
                                 <div class="prd-info">
+                                    <span>순환기계 · 고혈압</span>
                                     <strong>칸데암로</strong>
                                     <p>고혈압 복합제<br>칸데사르탄실렉세틸 / 암로디핀베실산염</p>
                                 </div>
                             </li>
-                            <li>
+                            <li data-type="infect">
                                 <a href="#" class="prd-card">
                                     <img src="img/product2.png" alt="피라맥스">
                                     <span class="prd-name">피라맥스</span>
                                 </a>
                                 <div class="prd-info">
+                                    <span>감염질환 · 말라리아</span>
                                     <strong>피라맥스</strong>
                                     <p>말라리아 치료제<br>피로나리딘인산염 / 알테수네이트</p>
                                 </div>
                             </li>
-                            <li>
+                            <li data-type="heart">
                                 <a href="#" class="prd-card">
                                     <img src="img/product3.png" alt="에제로수">
                                     <span class="prd-name">에제로수</span>
                                 </a>
                                 <div class="prd-info">
+                                    <span>순환기계 · 이상지질혈증</span>
                                     <strong>에제로수</strong>
                                     <p>에제티미브 / 로수바스타틴칼슘</p>
                                 </div>
                             </li>
-                            <li>
+                            <li data-type="etc">
                                 <a href="#" class="prd-card fit">
                                     <img src="img/product4.png" alt="메디커튼">
                                     <span class="prd-name">메디커튼</span>
                                 </a>
                                 <div class="prd-info">
+                                    <span>기타</span>
                                     <strong>메디커튼</strong>
                                     <p>Sodium Hyaluronate / HES</p>
                                 </div>
                             </li>
-                            <li>
+                            <li data-type="etc">
                                 <div class="prd-card img-box">제품 이미지 영역</div>
                                 <div class="prd-info">
+                                    <span>분류</span>
                                     <strong>제품명</strong>
                                     <p>제품 설명이 들어갈 자리입니다.</p>
                                 </div>
                             </li>
-                            <li>
+                            <li data-type="etc">
                                 <div class="prd-card img-box">제품 이미지 영역</div>
                                 <div class="prd-info">
+                                    <span>분류</span>
                                     <strong>제품명</strong>
                                     <p>제품 설명이 들어갈 자리입니다.</p>
                                 </div>
                             </li>
                         </ul>
+                        <p class="ntc-empty" hidden>검색 결과가 없습니다.</p>
                     </div>
                 </div>
             </section>
@@ -143,5 +207,57 @@
             </div>
         </footer>
     </div>
+    <script>
+        // 대표 제품 슬라이더: 메인 제품 슬라이더와 같은 설정
+        const bestSlider = new Swiper('.best-slider', {
+            slidesPerView: 'auto',
+            spaceBetween: 16,
+            navigation: {
+                prevEl: '.prd-prev',
+                nextEl: '.prd-next',
+            },
+            breakpoints: {
+                1024: {
+                    spaceBetween: 45,
+                }
+            }
+        });
+
+        // 전체 제품: 고른 분류(탭)와 검색어에 둘 다 맞는 제품만 보여줌
+        const prdTabs = document.querySelectorAll('.prd-filter .ntc-tab');
+        const prdItems = document.querySelectorAll('.prd-list li');
+        const prdForm = document.querySelector('.prd-search');
+        const prdInput = document.querySelector('#prdKeyword');
+
+        function filterProducts() {
+            const type = document.querySelector('.prd-filter .ntc-tab.on').dataset.type;
+            const keyword = prdInput.value.trim().toLowerCase();
+            let count = 0;
+            prdItems.forEach(function (item) {
+                const typeOk = type === 'all' || item.dataset.type === type;
+                const keywordOk = keyword === '' || item.textContent.toLowerCase().includes(keyword);
+                item.hidden = !(typeOk && keywordOk);
+                if (!item.hidden) count++;
+            });
+            document.querySelector('.prd-count strong').textContent = count;
+            // 맞는 제품이 하나도 없으면 안내 문구
+            document.querySelector('#all .ntc-empty').hidden = count > 0;
+        }
+
+        prdTabs.forEach(function (tab) {
+            tab.addEventListener('click', function () {
+                prdTabs.forEach(function (t) {
+                    t.classList.toggle('on', t === tab);
+                });
+                filterProducts();
+            });
+        });
+        // 글자를 입력할 때마다 바로 거르고, 검색 버튼(엔터)은 페이지 이동을 막음
+        prdInput.addEventListener('input', filterProducts);
+        prdForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            filterProducts();
+        });
+    </script>
 </body>
 </html>

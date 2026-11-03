@@ -446,7 +446,7 @@ Shinpoong/
 
 | 페이지 | 파일 | 섹션 순서 |
 |---|---|---|
-| 제품정보 | `product.html` | 주요 제품(사진 카드 목록) → 제품 문의 |
+| 제품정보 | `product.html` | 대표 제품(Swiper, 메인 제품 슬라이더 그대로) → 전체 제품(분류 탭 + 검색 + 사진 카드 목록) → 제품 문의 |
 | R&D | `rnd.html` | 연구개발 소개(사진+글) → 연구 분야(글 카드) → 연구 현장(Swiper) |
 | 투자정보 | `ir.html` | 투자정보(글 카드 3개) → IR 자료실 |
 | 채용정보 | `recruit.html` | 인재상(글 카드) → 채용 절차(단계 박스) → 채용 공고(탭 + 글 카드) |
@@ -463,7 +463,8 @@ Shinpoong/
 | 섹션 머리 | `.sub-label` + `.sub-title` + `.sub-desc` | 라벨 = `.rnd-label`, 제목 = `.prd-title`(54px / 700), 설명 = `.rnd-desc`(16px / 1.7) |
 | 섹션 내용 | `.sub-body` | 제목 아래 60px (모바일 32px) |
 | 사진 + 글 | `.sub-intro` | flex 두 칸, gap 53px, 사진 비율 513 / 414, 모서리 25px. 글 제목 = `.rnd-txt h2`(36px / 700 / 1.4). 모바일은 위아래로 |
-| 사진 카드 목록 | `.prd-list` + `.prd-card` | 카드 420px, gap 45px, 줄바꿈. 아래 `.prd-info` 에 이름(24px / 700)과 설명(16px / 1.7) |
+| 사진 카드 목록 | `.prd-list` + `.prd-card` | 카드 420px, gap 45px, 줄바꿈. 아래 `.prd-info` 에 분류(`span`, 16px / 600 `--accent-emphasis`), 이름(24px / 700), 설명(16px / 1.7) |
+| 제품 검색 | `.prd-filter` + `.prd-search` | 왼쪽 분류 탭(`.ntc-tab`), 오른쪽 검색창. 검색창 = 탭과 같은 높이 75px · 모서리 92px, 테두리 2px `--border-input`, 입력 중 `--border-focus`, 글자 20px. 검색 버튼 = 선택된 탭과 같은 `--blue-600` + 흰 24px / 600. 결과 개수 `.prd-count`(20px, 숫자 `--accent-emphasis`), 결과가 없으면 `.ntc-empty`. 모바일은 위아래로, 높이 44px |
 | 글 카드 목록 | `.ntc-list` + `.ntc-card` | 메인 공고 카드 그대로. 여러 줄이면 `.ntc-list.wrap` |
 | 탭 | `.ntc-tabs` + `.ntc-tab` | 메인 공고 탭 그대로. 탭 아래 목록은 65px (모바일 32px) |
 | 연혁 | `.hist-list` | 위 선 2px `--border-input`, 항목 사이 1px `--border-subtle`, 연도 30px / 700 `--accent-emphasis`, 너비 225px |
@@ -472,7 +473,8 @@ Shinpoong/
 ### 11-3. 서브페이지 스크립트
 
 - 탭: 메인 공고 탭과 같은 동작. 단, 한 페이지에 카드 목록이 여러 개일 수 있으므로 **탭이 있는 `.sub-body` 안에서만** 카드를 찾습니다.
-- 슬라이더: Swiper 로 만들고, 고유 클래스(`.lab-slider` 등)로 실행합니다. 설정은 메인 제품 슬라이더와 같습니다.
+- 제품 검색: 고른 분류 탭(`data-type`)과 검색어(제품명·성분명) **둘 다 맞는** 카드만 보여 주고, 개수를 `.prd-count` 에 씁니다. 글자를 칠 때마다 바로 거르고, 검색 버튼은 페이지 이동을 막습니다.
+- 슬라이더: Swiper 로 만들고, 고유 클래스(`.lab-slider`, `.best-slider` 등)로 실행합니다. 설정은 메인 제품 슬라이더와 같습니다.
 
 ### 11-4. 내용을 채울 때
 
