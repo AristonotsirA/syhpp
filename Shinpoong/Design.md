@@ -154,7 +154,7 @@ Shinpoong/
 |---|---|---|---|---|---|
 | 페이지 대표 제목 (목록·게시판형) | `.ntc-title` | 62px | 900 | 79px | 30px / 1.3 |
 | 섹션 제목 (흰 바탕, 가운데) | `.prd-title` | 54px | 700 | 1.45 | 24px |
-| 섹션 제목 (사진 배경, 왼쪽) | `.cmp-txt h2` | 54px | 800 | 1.45 | 28px |
+| 섹션 제목 (사진 배경, 왼쪽) | `.cmp-txt h2` | 54px | 800 | 1.15 | 28px |
 | 히어로 제목 | `.hero-txt h2` | 48px | 700 | 1.3 | 30px |
 | 소개형 제목 (라벨 아래) | `.rnd-txt h2` | 36px | 700 | 1.4 | 24px |
 | 카드 제목 | `.ntc-name` | 30px | 700 | 1.5 | 20px |
@@ -243,7 +243,7 @@ Shinpoong/
 | 값 | 쓰이는 곳 |
 |---|---|
 | 25px | 큰 카드(`.prd-card`, `.ntc-card`), 슬라이더 화살표 |
-| 92px | 버튼·탭 (`.rnd-btn` `.prd-btn` `.cmp-btn` `.ntc-tab`, 높이 75px 알약) |
+| 92px | 버튼·탭 (`.rnd-btn` `.prd-btn` `.cmp-btn` `.ntc-tab`, 높이 70px 알약) |
 | 16px / 14px | 모바일 카드 / 모바일 화살표 |
 | 4px | 히어로 페이지 표시 활성 점 (CSS만 있고, 지금 HTML에는 페이지 표시 요소가 없음) |
 
@@ -283,7 +283,7 @@ Shinpoong/
 |---|---|---|---|---|---|
 **모든 링크 버튼은 한 규칙**입니다 (선생님 피드백: 버튼이 각자도생하지 않게). 크기·여백·글자는 공고 탭과 같고, 끝에 화살표(→, `::after`)가 붙습니다.
 
-- 공통: `inline-flex`, 높이 75px, 최소 너비 225px, `padding: 0 36px`, 글자와 화살표 사이 12px, 24px / 600, radius 92px, `margin-top: 60px`, 색 바뀜 0.3s
+- 공통: `inline-flex`, 높이 70px, 최소 너비 225px, `padding: 0 36px`, 글자와 화살표 사이 12px, 22px / 600 (선생님 조언: 높이 70 정도, 글자 20~22), radius 92px, `margin-top: 60px`, 색 바뀜 0.3s
 - 모바일: 높이 44px, `padding: 0 20px`, 15px, `margin-top: 32px` (모바일 탭과 같음)
 
 | 종류 | 클래스 | 기본 | hover | 이럴 때 |
@@ -293,7 +293,7 @@ Shinpoong/
 
 | 종류 | 클래스 | 모양 | 기본 | hover | 이럴 때 |
 |---|---|---|---|---|---|
-| 탭 버튼 | `.ntc-tab` | 225×75, 24px / 600, radius 92px (링크 버튼과 같은 크기, 화살표 없음) | `--background-subtle` + `--text-link` | `--blue-600` + 흰 글자 (= `.on`), 0.3s | 목록 분류 전환. 선택은 `.on`. **메인·서브페이지(공고, 뉴스, 제품 분류, 파이프라인) 모두 같은 탭** |
+| 탭 버튼 | `.ntc-tab` | 225×70, 22px / 600, radius 92px (링크 버튼과 같은 크기, 화살표 없음) | `--background-subtle` + `--text-link` | `--blue-600` + 흰 글자 (= `.on`), 0.3s | 목록 분류 전환. 선택은 `.on`. **메인·서브페이지(공고, 뉴스, 제품 분류, 파이프라인) 모두 같은 탭** |
 | 화살표 버튼 | `.prd-prev`, `.prd-next` | 67×67, radius 25px, 글자 `&larr;` `&rarr;` 27px | `--blue-600` + 흰 글자 | (없음) | 슬라이더 이전/다음. 끝이면 `opacity: 0.35` |
 
 - 버튼 글자: "더보기", "자세히 보기", "자세히 보기 →" 중에서 고릅니다.
@@ -401,8 +401,8 @@ Shinpoong/
 | 슬라이더 카드 | 420px | 60vw, 간격 16px |
 | 고정 높이 섹션 | 700px | `height: auto; min-height: 480px` |
 | 글 카드 | 400px 고정 | `height: auto; min-height: 240px; padding: 24px` |
-| 탭 | 225×75, 24px | `width: auto; height: 44px; padding: 0 20px`, 15px |
-| 버튼 | 225×75, 24px | `min-width: 0; height: 44px; padding: 0 20px`, 15px |
+| 탭 | 225×70, 22px | `width: auto; height: 44px; padding: 0 20px`, 15px |
+| 버튼 | 225×70, 22px | `min-width: 0; height: 44px; padding: 0 20px`, 15px |
 
 - 모바일 글자 크기는 5장의 표에 적힌 값을 씁니다.
 - 가로 스크롤이 생기면 안 됩니다. `html, body { overflow-x: clip; }` 을 유지합니다. (`hidden` 으로 바꾸면 sticky 가 깨집니다.)
@@ -472,7 +472,7 @@ Shinpoong/
 | 섹션 내용 | `.sub-body` | 제목 아래 60px (모바일 32px) |
 | 사진 + 글 | `.sub-intro` | flex 두 칸, gap 53px, 사진 비율 513 / 414, 모서리 25px. 글 제목 = `.rnd-txt h2`(36px / 700 / 1.4). 모바일은 위아래로 |
 | 사진 카드 목록 | `.prd-list` + `.prd-card` | 카드 420px, gap 45px, 줄바꿈. 아래 `.prd-info` 에 분류(`span`, 16px / 600 `--accent-emphasis`), 이름(24px / 700), 설명(16px / 1.7). 작은 제품 사진(`img/product/`, 약 280×173px)은 `.prd-card.thumb` — 늘리지 않고 원래 크기로 가운데(`object-fit: none`), 테두리 2px `--border-input`(공고 카드와 같음) |
-| 제품 검색 | `.prd-filter` + `.prd-search` | 위 검색창(가운데, 475px), 아래 분류 탭(`.ntc-tab`), 사이 36px. 검색창 = 탭과 같은 높이 75px · 모서리 92px, 테두리 2px `--border-input`, 입력 중 `--border-focus`, 글자 20px. 검색 버튼 = 선택된 탭과 같은 `--blue-600` + 흰 24px / 600. 결과 개수 `.prd-count`(20px, 숫자 `--accent-emphasis`), 결과가 없으면 `.ntc-empty`. 화면이 좁아지면 탭이 줄바꿈 없이 함께 줄어듭니다. 모바일은 탭 2개씩(마지막은 한 줄 전체), 높이 44px |
+| 제품 검색 | `.prd-filter` + `.prd-search` | 위 검색창(가운데, 475px), 아래 분류 탭(`.ntc-tab`), 사이 36px. 검색창 = 탭과 같은 높이 70px · 모서리 92px, 테두리 2px `--border-input`, 입력 중 `--border-focus`, 글자 20px. 검색 버튼 = 선택된 탭과 같은 `--blue-600` + 흰 22px / 600. 결과 개수 `.prd-count`(20px, 숫자 `--accent-emphasis`), 결과가 없으면 `.ntc-empty`. 화면이 좁아지면 탭이 줄바꿈 없이 함께 줄어듭니다. 모바일은 탭 2개씩(마지막은 한 줄 전체), 높이 44px |
 | 글 카드 목록 | `.ntc-list` + `.ntc-card` | 메인 공고 카드 그대로. 여러 줄이면 `.ntc-list.wrap` |
 | 탭 | `.ntc-tabs` + `.ntc-tab` | 메인 공고 탭 그대로. 탭 아래 목록은 65px (모바일 32px) |
 | 연혁 | `.hist-list` | 위 선 2px `--border-input`, 항목 사이 1px `--border-subtle`, 연도 30px / 700 `--accent-emphasis`, 너비 225px |

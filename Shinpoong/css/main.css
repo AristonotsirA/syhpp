@@ -225,8 +225,8 @@ header {
 }
 /* ============================================================
    버튼 통일 (선생님 피드백: 버튼이 각자도생 → 하나의 규칙으로)
-   크기·여백·글자는 공고 탭(.ntc-tab)과 같음: 높이 75px, 최소 너비 225px,
-   모서리 92px, 글자 24px / 600. 모든 링크 버튼 끝에 화살표(→)
+   크기·여백·글자는 공고 탭(.ntc-tab)과 같음: 높이 70px, 최소 너비 225px,
+   모서리 92px, 글자 22px / 600. 모든 링크 버튼 끝에 화살표(→)
    색: 평소 = 선택 안 된 탭(연한 바탕 + 파란 글자),
        마우스를 올리면 = 선택된 탭(파란 바탕 + 흰 글자)
    ============================================================ */
@@ -238,14 +238,14 @@ header {
     align-items: center;
     gap: 12px;
     min-width: 225px;
-    height: 75px;
+    height: 70px;
     margin-top: 60px;
     padding: 0 36px;
     border: 2px solid transparent;
     border-radius: 92px;
     background-color: var(--background-subtle);
     color: var(--text-link);
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 600;
     transition: background-color 0.3s, color 0.3s;
 }
@@ -379,7 +379,7 @@ header {
 .cmp-txt h2 {
     font-size: 54px;
     font-weight: 800;
-    line-height: 1.45;
+    line-height: 1.15;
 }
 .cmp-txt p {
     margin-top: 54px;
@@ -398,7 +398,7 @@ header {
     color: var(--text-link);
 }
 
-/* 다섯 번째 섹션 - 입찰/채용 공고 (피그마: 탭 225x75, 카드 475x400) */
+/* 다섯 번째 섹션 - 입찰/채용 공고 (피그마: 탭 225x75 → 선생님 조언으로 225x70, 카드 475x400) */
 .ntc-sec {
     padding: 110px 20px;
     background-color: var(--background-default);
@@ -419,13 +419,13 @@ header {
 /* 선택 안 된 탭: 연한 배경 + 파란 글자, 선택된 탭(.on): 파란 배경 + 흰 글자 */
 .ntc-tab {
     width: 225px;
-    height: 75px;
+    height: 70px;
     border: 0;
     border-radius: 92px;
     background-color: var(--background-subtle);
     color: var(--text-link);
     font-family: inherit;
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 600;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
@@ -718,7 +718,7 @@ footer {
     display: none;
 }
 
-/* 제품 검색: 위 검색창(탭과 같은 높이 75px, 둥근 모양 92px), 아래 분류 탭 5개 */
+/* 제품 검색: 위 검색창(탭과 같은 높이 70px, 둥근 모양 92px), 아래 분류 탭 5개 */
 /* 화면이 좁아지면 탭(225px)이 줄바꿈 없이 함께 줄어듦 */
 .prd-filter {
     display: flex;
@@ -740,7 +740,7 @@ footer {
     display: flex;
     width: 475px;
     max-width: 100%;
-    height: 75px;
+    height: 70px;
     border: 2px solid var(--border-input);
     border-radius: 92px;
     overflow: hidden;
@@ -768,7 +768,7 @@ footer {
     background-color: var(--blue-600);
     color: var(--text-inverse);
     font-family: inherit;
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 600;
     cursor: pointer;
 }
