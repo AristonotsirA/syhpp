@@ -718,7 +718,8 @@ footer {
 .prd-filter .ntc-tabs {
     width: 100%;
 }
-.prd-filter .ntc-tab {
+.prd-filter .ntc-tab,
+.pipe-filter .ntc-tab {
     flex: 0 1 225px;
     min-width: 0;
     padding: 0;
@@ -832,6 +833,94 @@ footer {
     color: var(--text-secondary);
     font-size: 16px;
     line-height: 1.7;
+}
+
+/* 서브페이지 안의 버튼(.prd-btn): 제목 아래 간격은 .sub-body가 맡고,
+   연한 바탕 섹션에서는 버튼 바탕을 흰색으로 (바탕과 같은 색이 되지 않게) */
+.sub-body .prd-btn {
+    margin-top: 0;
+}
+.sub-sec.subtle .prd-btn {
+    background-color: var(--background-default);
+}
+
+/* 파이프라인: 왼쪽 과제 이름(공고 카드 너비 475px), 오른쪽 단계 막대 (5단계 = 20%씩)
+   선은 연혁(.hist-list)과 같고, 막대는 탭과 같은 둥근 모양 92px · 모바일 탭 높이 44px */
+.pipe {
+    margin-top: 65px;
+    text-align: left;
+}
+.pipe-head {
+    display: flex;
+    margin-left: 475px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid var(--border-input);
+}
+.pipe-head li {
+    flex: 1;
+    color: var(--text-secondary);
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+}
+.pipe-list li {
+    display: flex;
+    align-items: center;
+    padding: 36px 0;
+    border-bottom: 1px solid var(--border-subtle);
+}
+.pipe-list li[hidden] {
+    display: none;
+}
+.pipe-name {
+    flex: 0 0 475px;
+    padding-right: 35px;
+}
+.pipe-name span {
+    color: var(--accent-emphasis);
+    font-size: 16px;
+    font-weight: 600;
+}
+.pipe-name strong {
+    display: block;
+    margin-top: 12px;
+    color: var(--text-primary);
+    font-size: 24px;
+    font-weight: 700;
+}
+.pipe-name p {
+    margin-top: 12px;
+    color: var(--text-secondary);
+    font-size: 16px;
+    line-height: 1.7;
+}
+.pipe-track {
+    flex: 1;
+    height: 44px;
+    border-radius: 92px;
+    background-color: var(--background-subtle);
+}
+/* 막대 끝에 지금 단계 이름, 시판까지 온 과제는 초록(--accent-emphasis) */
+.pipe-bar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+    padding: 0 20px;
+    border-radius: 92px;
+    background-color: var(--blue-600);
+    color: var(--text-inverse);
+    font-size: 16px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+.pipe-bar.s1 { width: 20%; }
+.pipe-bar.s2 { width: 40%; }
+.pipe-bar.s3 { width: 60%; }
+.pipe-bar.s4 { width: 80%; }
+.pipe-bar.s5 {
+    width: 100%;
+    background-color: var(--accent-emphasis);
 }
 
 @media (max-width: 1024px) {
@@ -1140,5 +1229,50 @@ footer {
     }
     .step-list p {
         font-size: 14px;
+    }
+    /* 파이프라인 탭: 세 개씩 두 줄 */
+    .pipe-filter .ntc-tabs {
+        flex-wrap: wrap;
+    }
+    .pipe-filter .ntc-tab {
+        flex: 1 1 30%;
+    }
+    /* 파이프라인: 이름 아래에 막대를 놓고, 단계 머리는 막대 너비에 맞춤 */
+    .pipe {
+        margin-top: 32px;
+    }
+    .pipe-head {
+        margin-left: 0;
+        padding-bottom: 12px;
+    }
+    .pipe-head li {
+        font-size: 13px;
+    }
+    .pipe-list li {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 24px 0;
+    }
+    .pipe-name {
+        flex: none;
+        padding-right: 0;
+    }
+    .pipe-name span {
+        font-size: 13px;
+    }
+    .pipe-name strong {
+        margin-top: 8px;
+        font-size: 18px;
+    }
+    .pipe-name p {
+        margin-top: 8px;
+        font-size: 14px;
+    }
+    .pipe-track {
+        margin-top: 16px;
+    }
+    .pipe-bar {
+        padding: 0 12px;
+        font-size: 13px;
     }
 }
