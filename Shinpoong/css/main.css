@@ -701,16 +701,27 @@ footer {
 }
 
 /* 제품 검색: 왼쪽 분류 탭, 오른쪽 검색창 (탭과 같은 높이 75px, 둥근 모양 92px) */
+/* 화면이 좁아지면 줄을 바꾸지 않고 탭(225px)과 검색창(475px)이 함께 줄어듦 */
 .prd-filter {
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     gap: 21px;
 }
+.prd-filter .ntc-tabs {
+    flex: 1 1 auto;
+    justify-content: flex-start;
+    min-width: 0;
+}
+.prd-filter .ntc-tab {
+    flex: 0 1 225px;
+    min-width: 0;
+    padding: 0;
+    white-space: nowrap;
+}
 .prd-search {
     display: flex;
-    width: 475px;
+    flex: 0 2 475px;
     height: 75px;
     border: 2px solid var(--border-input);
     border-radius: 92px;
@@ -1075,13 +1086,15 @@ footer {
         align-items: stretch;
         gap: 16px;
     }
-    /* 탭 4개가 한 줄을 똑같이 나눠 씀 (글자가 꺾이지 않게) */
+    /* 탭은 두 개씩 두 줄 (건강기능식품 글자가 꺾이지 않게) */
+    .prd-filter .ntc-tabs {
+        flex-wrap: wrap;
+    }
     .prd-filter .ntc-tab {
-        flex: 1;
-        padding: 0;
-        white-space: nowrap;
+        flex: 1 1 40%;
     }
     .prd-search {
+        flex: none;
         width: 100%;
         height: 44px;
     }

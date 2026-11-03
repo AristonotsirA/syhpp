@@ -464,7 +464,7 @@ Shinpoong/
 | 섹션 내용 | `.sub-body` | 제목 아래 60px (모바일 32px) |
 | 사진 + 글 | `.sub-intro` | flex 두 칸, gap 53px, 사진 비율 513 / 414, 모서리 25px. 글 제목 = `.rnd-txt h2`(36px / 700 / 1.4). 모바일은 위아래로 |
 | 사진 카드 목록 | `.prd-list` + `.prd-card` | 카드 420px, gap 45px, 줄바꿈. 아래 `.prd-info` 에 분류(`span`, 16px / 600 `--accent-emphasis`), 이름(24px / 700), 설명(16px / 1.7) |
-| 제품 검색 | `.prd-filter` + `.prd-search` | 왼쪽 분류 탭(`.ntc-tab`), 오른쪽 검색창. 검색창 = 탭과 같은 높이 75px · 모서리 92px, 테두리 2px `--border-input`, 입력 중 `--border-focus`, 글자 20px. 검색 버튼 = 선택된 탭과 같은 `--blue-600` + 흰 24px / 600. 결과 개수 `.prd-count`(20px, 숫자 `--accent-emphasis`), 결과가 없으면 `.ntc-empty`. 모바일은 위아래로, 높이 44px |
+| 제품 검색 | `.prd-filter` + `.prd-search` | 왼쪽 분류 탭(`.ntc-tab`), 오른쪽 검색창. 검색창 = 탭과 같은 높이 75px · 모서리 92px, 테두리 2px `--border-input`, 입력 중 `--border-focus`, 글자 20px. 검색 버튼 = 선택된 탭과 같은 `--blue-600` + 흰 24px / 600. 결과 개수 `.prd-count`(20px, 숫자 `--accent-emphasis`), 결과가 없으면 `.ntc-empty`. 화면이 좁아지면 줄을 바꾸지 않고 탭과 검색창이 함께 줄어듭니다. 모바일은 위아래로(탭은 2개씩 두 줄), 높이 44px |
 | 글 카드 목록 | `.ntc-list` + `.ntc-card` | 메인 공고 카드 그대로. 여러 줄이면 `.ntc-list.wrap` |
 | 탭 | `.ntc-tabs` + `.ntc-tab` | 메인 공고 탭 그대로. 탭 아래 목록은 65px (모바일 32px) |
 | 연혁 | `.hist-list` | 위 선 2px `--border-input`, 항목 사이 1px `--border-subtle`, 연도 30px / 700 `--accent-emphasis`, 너비 225px |
