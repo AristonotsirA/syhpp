@@ -72,7 +72,7 @@ Shinpoong/
 1. **변수 우선**: 색은 `:root` 의 Figma variables만 씁니다. 쓰임새 이름(Semantic, 예: `--text-primary`)이 있으면 기본 색 이름(Primitive, 예: `--neutral-900`)보다 쓰임새 이름을 먼저 씁니다.
 2. **섹션 = 바깥 여백, `.inner` = 너비**: 섹션에는 padding만 주고, 안쪽 내용은 `.inner`(최대 1530px, 가운데 정렬)로 감쌉니다. 섹션에 왼쪽 padding 을 크게 줘서 위치를 맞추지 않습니다.
 3. **가운데 정렬 기본**: 흰 바탕 섹션의 제목·버튼은 가운데 정렬(`text-align: center`)이 기본입니다. 사진 배경 섹션의 글자는 왼쪽 정렬입니다.
-4. **둥근 모서리**: 큰 카드는 25px, 버튼은 알약 모양(9999px)이 기본입니다.
+4. **둥근 모서리**: 큰 카드는 25px, 버튼과 탭은 알약 모양(92px)이 기본입니다.
 5. **한 섹션 = 한 메시지**: 섹션마다 제목 하나, 짧은 설명, 버튼 하나를 넘지 않게 구성합니다.
 6. **모바일은 같은 내용을 작게**: 1024px 이하에서 내용을 빼지 않고 글자·여백·카드만 줄이고 세로로 쌓습니다.
 
@@ -99,23 +99,23 @@ Shinpoong/
 |---|---|---|---|
 | `--text-primary` | neutral-900 | 제목, 본문의 기본 글자 | body, 섹션 제목, 카드 제목, 푸터 메뉴 |
 | `--text-secondary` | neutral-600 | 설명·날짜·주소 같은 보조 글자 | `.rnd-desc`, `.ntc-card`, `.ft-info` |
-| `--text-link` | blue-600 | 누를 수 있는 글자 | `.prd-btn`, 선택 안 된 `.ntc-tab` |
+| `--text-link` | blue-600 | 누를 수 있는 글자 | 버튼(`.rnd-btn` `.prd-btn`), 선택 안 된 `.ntc-tab`, `.cmp-btn:hover` 글자 |
 | `--text-inverse` | neutral-0 | 어두운 바탕 위 흰 글자 | GNB 메뉴, 히어로·회사 소개 문구, 선택된 탭 |
 | `--background-default` | neutral-0 | 페이지·섹션 기본 바탕 | body, `.rnd-sec`, `.prd-sec`, `.ntc-sec` |
-| `--background-subtle` | neutral-50 | 한 단계 연한 바탕 | 푸터, `.prd-btn`, 선택 안 된 탭 |
+| `--background-subtle` | neutral-50 | 한 단계 연한 바탕 | 푸터, 버튼(`.rnd-btn` `.prd-btn`), 선택 안 된 탭 |
 | `--surface-default` | neutral-0 | 카드·헤더 같은 면 | header, `.prd-card` |
 | `--surface-subtle` | neutral-50 | 연한 면 | (정의만 됨, 메인 미사용) |
-| `--border-subtle` | neutral-200 | 연한 구분선 | 푸터 `|` 구분선, `.prd-btn:hover` 배경 |
+| `--border-subtle` | neutral-200 | 연한 구분선 | 푸터 `|` 구분선, 이미지 자리 바탕 |
 | `--border-input` | neutral-600 | 진한 테두리 | `.ntc-card` 테두리 |
 | `--border-focus` | blue-600 | 포커스 테두리 | (정의만 됨, 메인 미사용) |
-| `--action-primary-background` | green-700 | 주요 버튼 바탕 | `.rnd-btn:hover` |
+| `--action-primary-background` | green-700 | 주요 버튼 바탕 | (버튼 통일 후 지금은 안 씀) |
 | `--action-primary-hover` | neutral-900 | 주요 버튼 hover 바탕 | (정의만 됨, 메인 미사용) |
-| `--action-primary-text` | neutral-0 | 주요 버튼 글자 | `.rnd-btn:hover` |
-| `--action-secondary-background` | neutral-0 | 보조 버튼 바탕 | `.rnd-btn` |
-| `--action-secondary-text` | green-700 | 보조 버튼 글자 | `.rnd-btn` |
-| `--action-secondary-border` | green-700 | 보조 버튼 테두리 | `.rnd-btn` |
+| `--action-primary-text` | neutral-0 | 주요 버튼 글자 | (버튼 통일 후 지금은 안 씀) |
+| `--action-secondary-background` | neutral-0 | 보조 버튼 바탕 | (버튼 통일 후 지금은 안 씀) |
+| `--action-secondary-text` | green-700 | 보조 버튼 글자 | (버튼 통일 후 지금은 안 씀) |
+| `--action-secondary-border` | green-700 | 보조 버튼 테두리 | (버튼 통일 후 지금은 안 씀) |
 | `--accent-brand` | green-500 | 밝은 브랜드 강조 | (정의만 됨, 메인 미사용) |
-| `--accent-emphasis` | green-700 | 브랜드 강조 | GNB 배경, `.rnd-label`, 카드 hover 테두리, `.cmp-btn:hover` 글자 |
+| `--accent-emphasis` | green-700 | 브랜드 강조 | GNB 배경, `.rnd-label`, 카드 hover 테두리 |
 
 **"정의만 됨"인 변수**는 Figma에 있지만 메인에서 아직 쓰지 않은 값입니다. 서브페이지에서 필요하면 **변수 이름의 뜻 그대로만** 씁니다. (예: 입력창 포커스 테두리 → `--border-focus`)
 
@@ -177,7 +177,7 @@ Shinpoong/
 | 영어 섹션 라벨 | `.rnd-label` | 16px | 600 | 1.5 | `--accent-emphasis` | — |
 | 카드 분류 라벨 | `.ntc-label` | 20px | 400 | 1.5 | secondary | 15px |
 | 푸터 글자 | `footer` | 16px | 500~800 | 1.5 | 아래 7-6 참고 | 13px |
-| GNB 메뉴 | `.gnb a` | 15px | 400 | 1.5 | inverse | (모바일 숨김) |
+| GNB 메뉴 | `.gnb a` | 16px | 400 | 1.5 | inverse | (모바일 숨김) |
 
 ### 5-3. 굵기 사용 범위
 
@@ -214,6 +214,7 @@ Shinpoong/
 - 섹션 위아래 여백: **110px** (데스크톱), 좌우: **20px**.
 - 1024px 이하: 위아래 **60px** (아래쪽을 더 두고 싶으면 `60px 20px 80px`), 좌우 20px.
 - 섹션 높이를 고정하는 경우는 사진 배경 섹션뿐입니다. (`.cmp-sec { height: 700px; }`, 모바일은 `height: auto; min-height: 480px;`)
+- 히어로 슬라이더 높이: `.hero-sec .swiper { height: 680px; }` (선생님 피드백: 680px 이상). 모바일은 `calc(100dvh - 56px)`.
 - 예외: 히어로(사진이 화면 전체)와 R&D(스크롤 고정, `height: 300vh`)는 `.inner` 패턴을 쓰지 않습니다.
 
 ### 6-3. 섹션 안 간격
@@ -226,7 +227,7 @@ Shinpoong/
 | 탭 → 카드 목록 | 65px | 32px | `.ntc-list` |
 | 라벨 → 제목 | 16px (소개형) / 12px (카드) | 8px (카드) | `.rnd-txt h2`, `.ntc-name` |
 | 제목 → 설명 | 20px (소개형) / 16px (카드) / 54px (사진 배경) | 12px / 24px | `.rnd-desc`, `.ntc-desc`, `.cmp-txt p` |
-| 설명 → 버튼 | 32px (소개형) / 92px (사진 배경) | 40px | `.rnd-btn`, `.cmp-btn` |
+| 설명 → 버튼 | 60px (모든 버튼 같음) | 32px | `.rnd-btn`, `.cmp-btn` |
 
 ### 6-4. 정렬과 배치
 
@@ -242,9 +243,7 @@ Shinpoong/
 | 값 | 쓰이는 곳 |
 |---|---|
 | 25px | 큰 카드(`.prd-card`, `.ntc-card`), 슬라이더 화살표 |
-| 9999px | 알약 버튼(`.prd-btn`, `.cmp-btn`) |
-| 92px | 탭 버튼(`.ntc-tab`, 높이 75px 알약) |
-| 20px | 작은 테두리 버튼(`.rnd-btn`) |
+| 92px | 버튼·탭 (`.rnd-btn` `.prd-btn` `.cmp-btn` `.ntc-tab`, 높이 75px 알약) |
 | 16px / 14px | 모바일 카드 / 모바일 화살표 |
 | 4px | 히어로 페이지 표시 활성 점 (CSS만 있고, 지금 HTML에는 페이지 표시 요소가 없음) |
 
@@ -273,19 +272,28 @@ Shinpoong/
 ```
 
 - 두 줄 구조: 흰 로고 줄(`--surface-default`, 위아래 padding 10px, 로고 가운데) + 초록 메뉴 줄(`--accent-emphasis`).
-- 메뉴: 흰 글자 15px, `padding: 10px 20px`, hover 시 밑줄.
+- 메뉴: 흰 글자 16px, `padding: 10px 20px`. hover 시 **아래 테두리 2px 흰색** (밑줄 `text-decoration` 은 쓰지 않음). 평소에도 투명 테두리를 깔아 두어 높이가 변하지 않게 합니다.
 - 메뉴 6개와 순서는 모든 페이지에서 똑같이 유지합니다. 각 메뉴는 같은 폴더의 서브페이지로 연결합니다.
-- 서브페이지에서는 지금 보고 있는 메뉴의 `<li>` 에 `.on` 을 붙입니다. (밑줄로 표시)
+- 서브페이지에서는 지금 보고 있는 메뉴의 `<li>` 에 `.on` 을 붙입니다. (hover와 같은 아래 테두리로 표시)
 - 1024px 이하: header 가 `position: fixed` (z-index 10), 로고 줄 높이 56px, **GNB 는 숨김**. 고정 헤더 때문에 첫 섹션에 `padding-top: 56px` 를 줍니다. (메인에는 모바일 메뉴 버튼이 아직 없습니다.)
 
 ### 7-2. 버튼
 
 | 종류 | 클래스 | 모양 | 기본 | hover | 이럴 때 |
 |---|---|---|---|---|---|
-| 보조(테두리) 버튼 | `.rnd-btn` | 14px, `padding: 8px 24px`, 테두리 1px, radius 20px | 흰 바탕 + 초록 글자·테두리 (`--action-secondary-*`) | 초록 바탕 + 흰 글자 (`--action-primary-*`) | 흰 바탕 소개 문단의 "더보기" |
-| 연한 알약 버튼 | `.prd-btn` | 22px / 600, `padding: 12px 20px`, radius 9999px | `--background-subtle` + `--text-link` | 바탕 `--border-subtle` | 흰 바탕 섹션 맨 아래 "자세히 보기" |
-| 흰 테두리 알약 버튼 | `.cmp-btn` | 22px / 600, `padding: 12px 24px`, 테두리 2px `--neutral-0`, radius 9999px | 투명 + 흰 글자 | 흰 바탕 + `--accent-emphasis` 글자 | 사진·어두운 배경 위 "자세히 보기 →" |
-| 탭 버튼 | `.ntc-tab` | 225×75, 24px / 600, radius 92px | `--background-subtle` + `--text-link` | (없음) | 목록 분류 전환. 선택은 `.on` |
+**모든 링크 버튼은 한 규칙**입니다 (선생님 피드백: 버튼이 각자도생하지 않게). 크기·여백·글자는 공고 탭과 같고, 끝에 화살표(→, `::after`)가 붙습니다.
+
+- 공통: `inline-flex`, 높이 75px, 최소 너비 225px, `padding: 0 36px`, 글자와 화살표 사이 12px, 24px / 600, radius 92px, `margin-top: 60px`, 색 바뀜 0.3s
+- 모바일: 높이 44px, `padding: 0 20px`, 15px, `margin-top: 32px` (모바일 탭과 같음)
+
+| 종류 | 클래스 | 기본 | hover | 이럴 때 |
+|---|---|---|---|---|
+| 기본 버튼 | `.rnd-btn`, `.prd-btn` | `--background-subtle` + `--text-link` (= 선택 안 된 탭) | `--blue-600` + 흰 글자 (= 선택된 탭) | 흰 바탕 위 "더보기", "자세히 보기" |
+| 사진 위 버튼 | `.cmp-btn` | 투명 + 흰 테두리 2px + 흰 글자 | 흰 바탕 + `--text-link` 글자 | 사진·어두운 배경 위 "자세히 보기" |
+
+| 종류 | 클래스 | 모양 | 기본 | hover | 이럴 때 |
+|---|---|---|---|---|---|
+| 탭 버튼 | `.ntc-tab` | 225×75, 24px / 600, radius 92px (링크 버튼과 같은 크기, 화살표 없음) | `--background-subtle` + `--text-link` | `--blue-600` + 흰 글자 (= `.on`), 0.3s | 목록 분류 전환. 선택은 `.on`. **메인·서브페이지(공고, 뉴스, 제품 분류, 파이프라인) 모두 같은 탭** |
 | 화살표 버튼 | `.prd-prev`, `.prd-next` | 67×67, radius 25px, 글자 `&larr;` `&rarr;` 27px | `--blue-600` + 흰 글자 | (없음) | 슬라이더 이전/다음. 끝이면 `opacity: 0.35` |
 
 - 버튼 글자: "더보기", "자세히 보기", "자세히 보기 →" 중에서 고릅니다.
@@ -363,10 +371,10 @@ Shinpoong/
 
 | 대상 | 상태 | 변화 | 전환 |
 |---|---|---|---|
-| `.gnb a` | hover | 밑줄 | 즉시 |
-| `.rnd-btn` | hover | secondary → primary 색 | 즉시 |
-| `.prd-btn` | hover | 바탕 `--border-subtle` | 즉시 |
-| `.cmp-btn` | hover | 흰 바탕 + 초록 글자 | 즉시 |
+| `.gnb a` | hover | 아래 테두리 2px 흰색 | 0.3s |
+| `.rnd-btn` `.prd-btn` | hover | 연한 바탕 → 파란 바탕 + 흰 글자 | 0.3s |
+| `.cmp-btn` | hover | 흰 바탕 + 파란 글자 | 0.3s |
+| `.ntc-tab` | hover | 선택된 탭(`.on`)과 같은 파란 바탕 + 흰 글자 | 0.3s |
 | `.prd-card` | hover | 검은 막 + 이름 나타남 | `opacity 0.3s` |
 | `.ntc-card` | hover | 테두리 `--accent-emphasis` | 즉시 |
 | `.ntc-tab` | 선택(`.on`) | 파란 바탕 + 흰 글자 | 즉시 |
@@ -394,7 +402,7 @@ Shinpoong/
 | 고정 높이 섹션 | 700px | `height: auto; min-height: 480px` |
 | 글 카드 | 400px 고정 | `height: auto; min-height: 240px; padding: 24px` |
 | 탭 | 225×75, 24px | `width: auto; height: 44px; padding: 0 20px`, 15px |
-| 버튼 | 22px | 16px, `padding: 10px 20px` |
+| 버튼 | 225×75, 24px | `min-width: 0; height: 44px; padding: 0 20px`, 15px |
 
 - 모바일 글자 크기는 5장의 표에 적힌 값을 씁니다.
 - 가로 스크롤이 생기면 안 됩니다. `html, body { overflow-x: clip; }` 을 유지합니다. (`hidden` 으로 바꾸면 sticky 가 깨집니다.)

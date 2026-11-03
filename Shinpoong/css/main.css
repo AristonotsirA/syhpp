@@ -76,19 +76,23 @@ header {
     max-width: 1200px;
     margin: 0 auto;
 }
+/* 메뉴: 밑줄(text-decoration) 대신 아래 테두리 2px로 표시 (선생님 피드백)
+   평소에도 투명 테두리를 깔아 두어서 마우스를 올려도 높이가 변하지 않음 */
 .gnb a {
     display: block;
     padding: 10px 20px;
+    border-bottom: 2px solid transparent;
     color: var(--text-inverse);
-    font-size: 15px;
+    font-size: 16px;
+    transition: border-color 0.3s;
 }
 .gnb a:hover {
-    text-decoration: underline;
+    border-bottom-color: var(--text-inverse);
 }
 
 .hero-sec .swiper {
     width: 100%;
-    height: 510px;
+    height: 680px;
 }
 /* 높이를 고정하고 싶은 경우는 px값 적용 */
 /* 반응형에 따라 높이값이 점점 줄어들길 바라면 높이값 주지 않기! max-height정도는 가능 */
@@ -219,20 +223,42 @@ header {
     font-size: 16px;
     line-height: 1.7;
 }
-/* 피그마 action/secondary 버튼, 마우스를 올리면 action/primary 색 */
-.rnd-btn {
-    display: inline-block;
-    margin-top: 32px;
-    padding: 8px 24px;
-    border: 1px solid var(--action-secondary-border);
-    border-radius: 20px;
-    background-color: var(--action-secondary-background);
-    color: var(--action-secondary-text);
-    font-size: 14px;
+/* ============================================================
+   버튼 통일 (선생님 피드백: 버튼이 각자도생 → 하나의 규칙으로)
+   크기·여백·글자는 공고 탭(.ntc-tab)과 같음: 높이 75px, 최소 너비 225px,
+   모서리 92px, 글자 24px / 600. 모든 링크 버튼 끝에 화살표(→)
+   색: 평소 = 선택 안 된 탭(연한 바탕 + 파란 글자),
+       마우스를 올리면 = 선택된 탭(파란 바탕 + 흰 글자)
+   ============================================================ */
+.rnd-btn,
+.prd-btn,
+.cmp-btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    min-width: 225px;
+    height: 75px;
+    margin-top: 60px;
+    padding: 0 36px;
+    border: 2px solid transparent;
+    border-radius: 92px;
+    background-color: var(--background-subtle);
+    color: var(--text-link);
+    font-size: 24px;
+    font-weight: 600;
+    transition: background-color 0.3s, color 0.3s;
 }
-.rnd-btn:hover {
-    background-color: var(--action-primary-background);
-    color: var(--action-primary-text);
+.rnd-btn::after,
+.prd-btn::after,
+.cmp-btn::after {
+    content: "\2192";
+}
+.rnd-btn:hover,
+.prd-btn:hover,
+.cmp-btn:hover {
+    background-color: var(--blue-600);
+    color: var(--text-inverse);
 }
 
 /* 세 번째 섹션 - 제품 슬라이더 (피그마: 카드 420px, 간격 45px, 모서리 25px)
@@ -339,20 +365,6 @@ header {
     opacity: 0.35;
     cursor: default;
 }
-/* 피그마 자세히 보기: 연한 배경(background/subtle) + 파란 글자(text/link) */
-.prd-btn {
-    display: inline-block;
-    margin-top: 60px;
-    padding: 12px 20px;
-    border-radius: 9999px;
-    background-color: var(--background-subtle);
-    color: var(--text-link);
-    font-size: 22px;
-    font-weight: 600;
-}
-.prd-btn:hover {
-    background-color: var(--border-subtle);
-}
 
 /* 네 번째 섹션 - 회사 소개 (선생님 피드백: 높이 700px)
    배경 사진에 검은 막(35%)이 이미 들어 있어서 따로 덮지 않음 */
@@ -374,20 +386,16 @@ header {
     font-size: 20px;
     line-height: 1.5;
 }
-/* 흰 테두리 버튼, 마우스를 올리면 흰 바탕에 초록 글자 */
+/* 사진 위 버튼: 크기는 공통 버튼과 같고, 평소엔 흰 테두리 + 흰 글자,
+   마우스를 올리면 흰 바탕 + 파란 글자 */
 .cmp-btn {
-    display: inline-block;
-    margin-top: 92px;
-    padding: 12px 24px;
-    border: 2px solid var(--neutral-0);
-    border-radius: 9999px;
+    border-color: var(--neutral-0);
+    background-color: transparent;
     color: var(--text-inverse);
-    font-size: 22px;
-    font-weight: 600;
 }
 .cmp-btn:hover {
     background-color: var(--neutral-0);
-    color: var(--accent-emphasis);
+    color: var(--text-link);
 }
 
 /* 다섯 번째 섹션 - 입찰/채용 공고 (피그마: 탭 225x75, 카드 475x400) */
@@ -420,7 +428,10 @@ header {
     font-size: 24px;
     font-weight: 600;
     cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
 }
+/* 버튼(.prd-btn 등)과 같은 규칙: 마우스를 올려도 선택된 탭과 같은 색 (메인·서브 탭 모두) */
+.ntc-tab:hover,
 .ntc-tab.on {
     background-color: var(--blue-600);
     color: var(--text-inverse);
@@ -512,9 +523,9 @@ footer {
    서브페이지 공통 (Design.md 11장)
    메인에서 쓰던 값만 다시 써서 같은 브랜드로 보이게 함
    ============================================================ */
-/* 지금 보고 있는 메뉴는 hover처럼 밑줄 */
+/* 지금 보고 있는 메뉴는 hover처럼 아래 테두리 */
 .gnb .on a {
-    text-decoration: underline;
+    border-bottom-color: var(--text-inverse);
 }
 
 /* 이미지가 들어갈 자리: 나중에 <img>로 바꿔 넣음 */
@@ -843,6 +854,9 @@ footer {
 .sub-sec.subtle .prd-btn {
     background-color: var(--background-default);
 }
+.sub-sec.subtle .prd-btn:hover {
+    background-color: var(--blue-600);
+}
 
 /* 파이프라인: 왼쪽 과제 이름(공고 카드 너비 475px), 오른쪽 단계 막대 (5단계 = 20%씩)
    선은 연혁(.hist-list)과 같고, 막대는 탭과 같은 둥근 모양 92px · 모바일 탭 높이 44px */
@@ -1018,10 +1032,16 @@ footer {
     .prd-next {
         right: -10px;
     }
-    .prd-btn {
+    /* 버튼: 모바일 탭(.ntc-tab)과 같은 높이 44px, 글자 15px */
+    .rnd-btn,
+    .prd-btn,
+    .cmp-btn {
+        min-width: 0;
+        height: 44px;
         margin-top: 32px;
-        padding: 10px 20px;
-        font-size: 16px;
+        padding: 0 20px;
+        gap: 8px;
+        font-size: 15px;
     }
     /* 회사 소개: 높이를 줄이고 글자를 작게 */
     .cmp-sec {
@@ -1035,11 +1055,6 @@ footer {
     .cmp-txt p {
         margin-top: 24px;
         font-size: 15px;
-    }
-    .cmp-btn {
-        margin-top: 40px;
-        padding: 10px 20px;
-        font-size: 16px;
     }
     /* 입찰/채용 공고: 탭은 한 줄에 작게, 카드는 위아래로 쌓기 */
     .ntc-sec {
