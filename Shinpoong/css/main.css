@@ -317,6 +317,8 @@ header {
 /* 제품 사진(신풍제약 제품정보 사진, 약 282x173): 상자를 사진 비율로 만들어 사진이 꽉 차게 */
 .prd-card.thumb {
     aspect-ratio: 282 / 173;
+    /* 사진 상자에만 초록 테두리 (아래 글씨와는 떨어져 있음) */
+    border: 2px solid var(--accent-emphasis);
 }
 /* 마우스를 올리면 검은 막(70%)과 흰 제품 이름이 나타남 */
 .prd-card::after {
