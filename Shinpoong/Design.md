@@ -129,6 +129,7 @@ Shinpoong/
 | `linear-gradient(90deg, rgba(5, 25, 60, 0.8), rgba(5, 25, 60, 0.4) 40%, rgba(5, 25, 60, 0) 65%)` | `.hero-sec .dark::after` | 어두운 사진 왼쪽에 흰 글자를 올릴 때 |
 | `linear-gradient(90deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.6) 40%, rgba(255, 255, 255, 0) 65%)` | `.hero-sec .light::after` | 밝은 사진 왼쪽에 검은 글자를 올릴 때 |
 | `text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3)` | `.hero-sec .dark .hero-txt` | 사진 위 흰 글자 가독성 |
+| `rgba(0, 122, 61, 0.2)` | `.prd-card.thumb` 테두리 | `--accent-emphasis`(#007a3d)를 20%만 — 제품 사진 상자의 연한 초록 테두리 (선생님 피드백) |
 | `drop-shadow(0 10px 20px rgba(0, 0, 0, 0.15))` | `.rnd-stack img` | 떠 있는 사진 카드 그림자 |
 
 회사 소개 배경(`img/company-bg.png`)은 **검은 막(35%)이 이미 사진에 들어 있어서** CSS로 막을 또 덮지 않습니다.
@@ -472,7 +473,7 @@ Shinpoong/
 | 섹션 머리 | `.sub-label` + `.sub-title` + `.sub-desc` | 라벨 = `.rnd-label`, 제목 = `.prd-title`(54px / 700), 설명 = `.rnd-desc`(16px / 1.7) |
 | 섹션 내용 | `.sub-body` | 제목 아래 60px (모바일 32px) |
 | 사진 + 글 | `.sub-intro` | flex 두 칸, gap 53px, 사진 비율 513 / 414, 모서리 25px. 글 제목 = `.rnd-txt h2`(36px / 700 / 1.4). 모바일은 위아래로 |
-| 사진 카드 목록 | `.prd-list` + `.prd-card` | 한 줄에 4개(`width: calc((100% - 135px) / 4)`), gap 45px, 줄바꿈. 모바일은 한 줄에 1개(최대 420px). 아래 `.prd-info` 에 분류(`span`, 16px / 600 `--accent-emphasis`), 이름(24px / 700), 설명(16px / 1.7). 제품 사진(`img/product/`, 약 282×173px)은 `.prd-card.thumb` — 상자를 사진 비율(282 / 173)로 만들어 사진이 꽉 차게(`object-fit: cover`), 사진 상자에만 초록 테두리 2px `--accent-emphasis`(아래 글씨에는 닿지 않음) |
+| 사진 카드 목록 | `.prd-list` + `.prd-card` | 한 줄에 4개(`width: calc((100% - 135px) / 4)`), gap 45px, 줄바꿈. 모바일은 한 줄에 1개(최대 420px). 아래 `.prd-info` 에 분류(`span`, 16px / 600 `--accent-emphasis`), 이름(24px / 700), 설명(16px / 1.7). 제품 사진(`img/product/`, 약 282×173px)은 `.prd-card.thumb` — 상자를 사진 비율(282 / 173)로 만들어 사진이 꽉 차게(`object-fit: cover`), 사진 상자에만 연한 초록 테두리 2px `rgba(0, 122, 61, 0.2)`(아래 글씨에는 닿지 않음) |
 | 제품 검색 | `.prd-filter` + `.prd-search` | 위 검색창(가운데, 475px), 아래 분류 탭(`.ntc-tab`), 사이 36px. 검색창 = 탭과 같은 높이 70px · 모서리 92px, 테두리 2px `--border-input`, 입력 중 `--border-focus`, 글자 20px. 검색 버튼 = 선택된 탭과 같은 `--action-primary-background`(초록) + 흰 22px / 600. 결과 개수 `.prd-count`(20px, 숫자 `--accent-emphasis`), 결과가 없으면 `.ntc-empty`. 화면이 좁아지면 탭이 줄바꿈 없이 함께 줄어듭니다. 모바일은 탭 2개씩(마지막은 한 줄 전체), 높이 44px |
 | 글 카드 목록 | `.ntc-list` + `.ntc-card` | 메인 공고 카드 그대로. 여러 줄이면 `.ntc-list.wrap` |
 | 탭 | `.ntc-tabs` + `.ntc-tab` | 메인 공고 탭 그대로. 탭 아래 목록은 65px (모바일 32px) |
