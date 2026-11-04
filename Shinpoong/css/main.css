@@ -314,12 +314,9 @@ header {
 .prd-card.fit img {
     object-fit: contain;
 }
-/* 작은 제품 사진(신풍제약 제품정보 사진): 늘리지 않고 원래 크기로 가운데, 테두리는 공고 카드와 같음 */
+/* 제품 사진(신풍제약 제품정보 사진, 약 282x173): 상자를 사진 비율로 만들어 사진이 꽉 차게 */
 .prd-card.thumb {
-    border: 2px solid var(--border-input);
-}
-.prd-card.thumb img {
-    object-fit: none;
+    aspect-ratio: 282 / 173;
 }
 /* 마우스를 올리면 검은 막(70%)과 흰 제품 이름이 나타남 */
 .prd-card::after {
@@ -690,14 +687,15 @@ footer {
 }
 
 /* 제품 목록: 메인 사진 카드(.prd-card) + 아래 제품 설명 */
+/* 4개씩 왼쪽부터 채움 (마지막 줄이 가운데로 몰리지 않게) */
 .prd-list {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
     gap: 45px;
 }
+/* 한 줄에 4개: (전체 너비 - 간격 45px x 3) / 4 */
 .prd-list li {
-    width: 420px;
+    width: calc((100% - 135px) / 4);
     text-align: left;
 }
 .prd-info strong {
@@ -1181,6 +1179,7 @@ footer {
         font-size: 24px;
     }
     .prd-list {
+        justify-content: center;
         gap: 32px;
     }
     .prd-list li {

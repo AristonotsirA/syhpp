@@ -472,7 +472,7 @@ Shinpoong/
 | 섹션 머리 | `.sub-label` + `.sub-title` + `.sub-desc` | 라벨 = `.rnd-label`, 제목 = `.prd-title`(54px / 700), 설명 = `.rnd-desc`(16px / 1.7) |
 | 섹션 내용 | `.sub-body` | 제목 아래 60px (모바일 32px) |
 | 사진 + 글 | `.sub-intro` | flex 두 칸, gap 53px, 사진 비율 513 / 414, 모서리 25px. 글 제목 = `.rnd-txt h2`(36px / 700 / 1.4). 모바일은 위아래로 |
-| 사진 카드 목록 | `.prd-list` + `.prd-card` | 카드 420px, gap 45px, 줄바꿈. 아래 `.prd-info` 에 분류(`span`, 16px / 600 `--accent-emphasis`), 이름(24px / 700), 설명(16px / 1.7). 작은 제품 사진(`img/product/`, 약 280×173px)은 `.prd-card.thumb` — 늘리지 않고 원래 크기로 가운데(`object-fit: none`), 테두리 2px `--border-input`(공고 카드와 같음) |
+| 사진 카드 목록 | `.prd-list` + `.prd-card` | 한 줄에 4개(`width: calc((100% - 135px) / 4)`), gap 45px, 줄바꿈. 모바일은 한 줄에 1개(최대 420px). 아래 `.prd-info` 에 분류(`span`, 16px / 600 `--accent-emphasis`), 이름(24px / 700), 설명(16px / 1.7). 제품 사진(`img/product/`, 약 282×173px)은 `.prd-card.thumb` — 상자를 사진 비율(282 / 173)로 만들어 사진이 꽉 차게(`object-fit: cover`) |
 | 제품 검색 | `.prd-filter` + `.prd-search` | 위 검색창(가운데, 475px), 아래 분류 탭(`.ntc-tab`), 사이 36px. 검색창 = 탭과 같은 높이 70px · 모서리 92px, 테두리 2px `--border-input`, 입력 중 `--border-focus`, 글자 20px. 검색 버튼 = 선택된 탭과 같은 `--action-primary-background`(초록) + 흰 22px / 600. 결과 개수 `.prd-count`(20px, 숫자 `--accent-emphasis`), 결과가 없으면 `.ntc-empty`. 화면이 좁아지면 탭이 줄바꿈 없이 함께 줄어듭니다. 모바일은 탭 2개씩(마지막은 한 줄 전체), 높이 44px |
 | 글 카드 목록 | `.ntc-list` + `.ntc-card` | 메인 공고 카드 그대로. 여러 줄이면 `.ntc-list.wrap` |
 | 탭 | `.ntc-tabs` + `.ntc-tab` | 메인 공고 탭 그대로. 탭 아래 목록은 65px (모바일 32px) |
