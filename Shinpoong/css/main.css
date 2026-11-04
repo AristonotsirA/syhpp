@@ -11,7 +11,7 @@
 
     /* 피그마 variables - 쓰임새별 색(Sementic) */
     --text-primary: var(--neutral-900);
-    --text-link: var(--blue-600);
+    --text-link: var(--green-700);
     --text-secondary: var(--neutral-600);
     --text-inverse: var(--neutral-0);
     --background-default: var(--neutral-0);
@@ -20,7 +20,7 @@
     --surface-subtle: var(--neutral-50);
     --border-subtle: var(--neutral-200);
     --border-input: var(--neutral-600);
-    --border-focus: var(--blue-600);
+    --border-focus: var(--green-700);
     --action-primary-background: var(--green-700);
     --action-primary-hover: var(--neutral-900);
     --action-primary-text: var(--neutral-0);
@@ -227,8 +227,8 @@ header {
    버튼 통일 (선생님 피드백: 버튼이 각자도생 → 하나의 규칙으로)
    크기·여백·글자는 공고 탭(.ntc-tab)과 같음: 높이 70px, 최소 너비 225px,
    모서리 92px, 글자 22px / 600. 모든 링크 버튼 끝에 화살표(→)
-   색: 평소 = 선택 안 된 탭(연한 바탕 + 파란 글자),
-       마우스를 올리면 = 선택된 탭(파란 바탕 + 흰 글자)
+   색: 평소 = 선택 안 된 탭(연한 바탕 + 초록 글자),
+       마우스를 올리면 = 선택된 탭(초록 바탕 + 흰 글자)
    ============================================================ */
 .rnd-btn,
 .prd-btn,
@@ -257,7 +257,7 @@ header {
 .rnd-btn:hover,
 .prd-btn:hover,
 .cmp-btn:hover {
-    background-color: var(--blue-600);
+    background-color: var(--action-primary-background);
     color: var(--text-inverse);
 }
 
@@ -268,6 +268,16 @@ header {
     background-color: var(--background-default);
     text-align: center;
     overflow: clip;
+}
+/* 소제목(.rnd-label) 아래 큰제목은 16px 띄움 (R&D 섹션과 같음) */
+.rnd-label + .prd-title,
+.rnd-label + .ntc-title,
+.cmp-txt .rnd-label + h2 {
+    margin-top: 16px;
+}
+/* 사진 위 소제목은 서브 비주얼 라벨처럼 밝은 초록 */
+.cmp-txt .rnd-label {
+    color: var(--accent-brand);
 }
 .prd-title {
     color: var(--text-primary);
@@ -336,7 +346,7 @@ header {
 .prd-card:hover .prd-name {
     opacity: 1;
 }
-/* 파란 화살표 버튼: 첫 카드 왼쪽 끝, 셋째 카드 오른쪽 끝에 걸쳐 놓임 */
+/* 초록 화살표 버튼: 첫 카드 왼쪽 끝, 셋째 카드 오른쪽 끝에 걸쳐 놓임 */
 .prd-prev,
 .prd-next {
     position: absolute;
@@ -347,7 +357,7 @@ header {
     margin-top: -33px;
     border: 0;
     border-radius: 25px;
-    background-color: var(--blue-600);
+    background-color: var(--action-primary-background);
     color: var(--text-inverse);
     font-size: 27px;
     font-weight: 700;
@@ -387,7 +397,7 @@ header {
     line-height: 1.5;
 }
 /* 사진 위 버튼: 크기는 공통 버튼과 같고, 평소엔 흰 테두리 + 흰 글자,
-   마우스를 올리면 흰 바탕 + 파란 글자 */
+   마우스를 올리면 흰 바탕 + 초록 글자 */
 .cmp-btn {
     border-color: var(--neutral-0);
     background-color: transparent;
@@ -416,7 +426,7 @@ header {
     gap: 21px;
     margin-top: 81px;
 }
-/* 선택 안 된 탭: 연한 배경 + 파란 글자, 선택된 탭(.on): 파란 배경 + 흰 글자 */
+/* 선택 안 된 탭: 연한 배경 + 초록 글자, 선택된 탭(.on): 초록 배경 + 흰 글자 */
 .ntc-tab {
     width: 225px;
     height: 70px;
@@ -433,7 +443,7 @@ header {
 /* 버튼(.prd-btn 등)과 같은 규칙: 마우스를 올려도 선택된 탭과 같은 색 (메인·서브 탭 모두) */
 .ntc-tab:hover,
 .ntc-tab.on {
-    background-color: var(--blue-600);
+    background-color: var(--action-primary-background);
     color: var(--text-inverse);
 }
 .ntc-list {
@@ -765,7 +775,7 @@ footer {
     padding: 0 36px;
     border: 0;
     border-radius: 92px;
-    background-color: var(--blue-600);
+    background-color: var(--action-primary-background);
     color: var(--text-inverse);
     font-family: inherit;
     font-size: 22px;
@@ -855,7 +865,7 @@ footer {
     background-color: var(--background-default);
 }
 .sub-sec.subtle .prd-btn:hover {
-    background-color: var(--blue-600);
+    background-color: var(--action-primary-background);
 }
 
 /* 파이프라인: 왼쪽 과제 이름(공고 카드 너비 475px), 오른쪽 단계 막대 (5단계 = 20%씩)
@@ -914,7 +924,7 @@ footer {
     border-radius: 92px;
     background-color: var(--background-subtle);
 }
-/* 막대 끝에 지금 단계 이름, 시판까지 온 과제는 초록(--accent-emphasis) */
+/* 막대 끝에 지금 단계 이름, 시판까지 온 과제는 밝은 브랜드 초록(--accent-brand) */
 .pipe-bar {
     display: flex;
     justify-content: flex-end;
@@ -922,7 +932,7 @@ footer {
     height: 100%;
     padding: 0 20px;
     border-radius: 92px;
-    background-color: var(--blue-600);
+    background-color: var(--action-primary-background);
     color: var(--text-inverse);
     font-size: 16px;
     font-weight: 600;
@@ -934,7 +944,7 @@ footer {
 .pipe-bar.s4 { width: 80%; }
 .pipe-bar.s5 {
     width: 100%;
-    background-color: var(--accent-emphasis);
+    background-color: var(--accent-brand);
 }
 
 @media (max-width: 1024px) {

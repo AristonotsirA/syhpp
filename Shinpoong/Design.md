@@ -21,7 +21,7 @@
 **디자인 방향**
 
 - 제약회사다운 **깨끗하고 신뢰감 있는** 인상: 흰 바탕, 넓은 여백, 짙은 초록빛 검정 글자.
-- 브랜드 색은 **초록**(로고·메뉴 줄·강조), 행동 유도는 **파랑**(링크·탭·화살표)으로 역할을 나눕니다.
+- 강조색은 **초록 하나**입니다 (선생님 피드백: 초록·파랑 두 색 → 하나로 통일). 로고·메뉴 줄·소제목·링크·버튼·탭·화살표 모두 초록 계열을 씁니다.
 - 큰 사진(연구실, 공장, 제품)을 크게 보여 주고, 그 위나 옆에 짧고 굵은 문구를 둡니다.
 - 모서리가 둥근 카드와 알약(pill) 모양 버튼으로 부드러운 느낌을 줍니다.
 
@@ -61,7 +61,7 @@ Shinpoong/
 - **로고**: `img/logo.png` (초록 S 심볼 + "신풍제약주식회사 / SHIN POONG PHARM. CO., LTD.").
   헤더 가운데에 `width: 160px` 로 둡니다. `<h1 class="logo">` 안의 링크로 감싸고, `alt` 에 회사 이름을 씁니다.
 - **브랜드 초록**: `--accent-emphasis`(#007a3d)가 사이트 전체의 대표 색입니다. GNB 배경, R&D 라벨, 버튼 테두리, 카드 hover 테두리에 쓰입니다.
-- **신뢰의 파랑**: `--blue-600`(#0056b8)은 "누를 수 있는 것"을 알려 줍니다. 텍스트 링크, 선택된 탭, 슬라이더 화살표에 씁니다.
+- **누를 수 있는 것도 초록**: 텍스트 링크, 선택된 탭, 슬라이더 화살표, 버튼 hover는 `--action-primary-background`(green-700)를 씁니다. `--blue-600` 은 변수로만 남아 있고 **쓰지 않습니다.**
 - **사진 톤**: 실제 연구실·공장·제품 사진을 씁니다. 사진 위에 글자를 올릴 때는 어두운 막을 깔고 흰 글자를 씁니다.
 - **말투**: 짧은 두세 줄 제목에 `<br>` 로 줄을 직접 나눕니다. (예: "끊임 없는 연구와 혁신으로,<br>인류의 건강한 미래를 만들어 갑니다.")
 
@@ -86,7 +86,7 @@ Shinpoong/
 |---|---|---|
 | `--green-500` | #00ab51 | `--accent-brand` 로만 연결됨 |
 | `--green-700` | #007a3d | 브랜드 대표 초록 |
-| `--blue-600` | #0056b8 | 링크·선택 상태 파랑 |
+| `--blue-600` | #0056b8 | (색 통일 후 쓰지 않음 — 새로 쓰지 말 것) |
 | `--neutral-0` | #ffffff | 흰색 |
 | `--neutral-50` | #f5f8f7 | 아주 연한 회녹색 배경 |
 | `--neutral-200` | #d7e1dc | 연한 선 |
@@ -99,7 +99,7 @@ Shinpoong/
 |---|---|---|---|
 | `--text-primary` | neutral-900 | 제목, 본문의 기본 글자 | body, 섹션 제목, 카드 제목, 푸터 메뉴 |
 | `--text-secondary` | neutral-600 | 설명·날짜·주소 같은 보조 글자 | `.rnd-desc`, `.ntc-card`, `.ft-info` |
-| `--text-link` | blue-600 | 누를 수 있는 글자 | 버튼(`.rnd-btn` `.prd-btn`), 선택 안 된 `.ntc-tab`, `.cmp-btn:hover` 글자 |
+| `--text-link` | green-700 | 누를 수 있는 글자 | 버튼(`.rnd-btn` `.prd-btn`), 선택 안 된 `.ntc-tab`, `.cmp-btn:hover` 글자 |
 | `--text-inverse` | neutral-0 | 어두운 바탕 위 흰 글자 | GNB 메뉴, 히어로·회사 소개 문구, 선택된 탭 |
 | `--background-default` | neutral-0 | 페이지·섹션 기본 바탕 | body, `.rnd-sec`, `.prd-sec`, `.ntc-sec` |
 | `--background-subtle` | neutral-50 | 한 단계 연한 바탕 | 푸터, 버튼(`.rnd-btn` `.prd-btn`), 선택 안 된 탭 |
@@ -107,7 +107,7 @@ Shinpoong/
 | `--surface-subtle` | neutral-50 | 연한 면 | (정의만 됨, 메인 미사용) |
 | `--border-subtle` | neutral-200 | 연한 구분선 | 푸터 `|` 구분선, 이미지 자리 바탕 |
 | `--border-input` | neutral-600 | 진한 테두리 | `.ntc-card` 테두리 |
-| `--border-focus` | blue-600 | 포커스 테두리 | (정의만 됨, 메인 미사용) |
+| `--border-focus` | green-700 | 포커스 테두리 | 제품 검색창 입력 중 |
 | `--action-primary-background` | green-700 | 주요 버튼 바탕 | (버튼 통일 후 지금은 안 씀) |
 | `--action-primary-hover` | neutral-900 | 주요 버튼 hover 바탕 | (정의만 됨, 메인 미사용) |
 | `--action-primary-text` | neutral-0 | 주요 버튼 글자 | (버튼 통일 후 지금은 안 씀) |
@@ -137,7 +137,7 @@ Shinpoong/
 
 - 흰 바탕 섹션: 제목 `--text-primary`, 설명 `--text-secondary`.
 - 사진·초록 바탕: 글자는 모두 `--text-inverse`.
-- 선택된 것(탭 등): 바탕 `--blue-600` + 글자 `--text-inverse`.
+- 선택된 것(탭 등): 바탕 `--action-primary-background`(초록) + 글자 `--text-inverse`.
 - 선택 안 된 것: 바탕 `--background-subtle` + 글자 `--text-link`.
 
 ---
@@ -166,6 +166,7 @@ Shinpoong/
 - 흰 바탕에서 섹션을 여는 제목 → `.prd-title` 규칙.
 - 사진 배경 위 제목 → `.cmp-txt h2` 규칙 (흰 글자, 800).
 - 영어 라벨과 함께 쓰는 소개 문단 → `.rnd-label` + `.rnd-txt h2` 규칙.
+- **모든 섹션 제목은 "소제목(영어 라벨) + 큰제목"** 입니다 (선생님 피드백: 제목 방식 통일). 메인은 R&D `Research & Development`, 제품 `Products`, 회사 소개 `Company`, 공고 `Notice`. 서브페이지는 `.sub-label` + `.sub-title`. 소제목 → 큰제목 간격 16px. 사진 위 소제목만 밝은 초록 `--accent-brand`.
 
 ### 5-2. 본문·라벨
 
@@ -288,13 +289,13 @@ Shinpoong/
 
 | 종류 | 클래스 | 기본 | hover | 이럴 때 |
 |---|---|---|---|---|
-| 기본 버튼 | `.rnd-btn`, `.prd-btn` | `--background-subtle` + `--text-link` (= 선택 안 된 탭) | `--blue-600` + 흰 글자 (= 선택된 탭) | 흰 바탕 위 "더보기", "자세히 보기" |
+| 기본 버튼 | `.rnd-btn`, `.prd-btn` | `--background-subtle` + `--text-link` (= 선택 안 된 탭) | `--action-primary-background`(초록) + 흰 글자 (= 선택된 탭) | 흰 바탕 위 "더보기", "자세히 보기" |
 | 사진 위 버튼 | `.cmp-btn` | 투명 + 흰 테두리 2px + 흰 글자 | 흰 바탕 + `--text-link` 글자 | 사진·어두운 배경 위 "자세히 보기" |
 
 | 종류 | 클래스 | 모양 | 기본 | hover | 이럴 때 |
 |---|---|---|---|---|---|
-| 탭 버튼 | `.ntc-tab` | 225×70, 22px / 600, radius 92px (링크 버튼과 같은 크기, 화살표 없음) | `--background-subtle` + `--text-link` | `--blue-600` + 흰 글자 (= `.on`), 0.3s | 목록 분류 전환. 선택은 `.on`. **메인·서브페이지(공고, 뉴스, 제품 분류, 파이프라인) 모두 같은 탭** |
-| 화살표 버튼 | `.prd-prev`, `.prd-next` | 67×67, radius 25px, 글자 `&larr;` `&rarr;` 27px | `--blue-600` + 흰 글자 | (없음) | 슬라이더 이전/다음. 끝이면 `opacity: 0.35` |
+| 탭 버튼 | `.ntc-tab` | 225×70, 22px / 600, radius 92px (링크 버튼과 같은 크기, 화살표 없음) | `--background-subtle` + `--text-link` | `--action-primary-background`(초록) + 흰 글자 (= `.on`), 0.3s | 목록 분류 전환. 선택은 `.on`. **메인·서브페이지(공고, 뉴스, 제품 분류, 파이프라인) 모두 같은 탭** |
+| 화살표 버튼 | `.prd-prev`, `.prd-next` | 67×67, radius 25px, 글자 `&larr;` `&rarr;` 27px | `--action-primary-background`(초록) + 흰 글자 | (없음) | 슬라이더 이전/다음. 끝이면 `opacity: 0.35` |
 
 - 버튼 글자: "더보기", "자세히 보기", "자세히 보기 →" 중에서 고릅니다.
 - 이동하는 링크는 `<a>`, 화면 안에서 동작만 하는 것(탭, 화살표)은 `<button type="button">` 을 씁니다.
@@ -372,12 +373,12 @@ Shinpoong/
 | 대상 | 상태 | 변화 | 전환 |
 |---|---|---|---|
 | `.gnb a` | hover | 아래 테두리 2px 흰색 | 0.3s |
-| `.rnd-btn` `.prd-btn` | hover | 연한 바탕 → 파란 바탕 + 흰 글자 | 0.3s |
-| `.cmp-btn` | hover | 흰 바탕 + 파란 글자 | 0.3s |
-| `.ntc-tab` | hover | 선택된 탭(`.on`)과 같은 파란 바탕 + 흰 글자 | 0.3s |
+| `.rnd-btn` `.prd-btn` | hover | 연한 바탕 → 초록 바탕 + 흰 글자 | 0.3s |
+| `.cmp-btn` | hover | 흰 바탕 + 초록 글자 | 0.3s |
+| `.ntc-tab` | hover | 선택된 탭(`.on`)과 같은 초록 바탕 + 흰 글자 | 0.3s |
 | `.prd-card` | hover | 검은 막 + 이름 나타남 | `opacity 0.3s` |
 | `.ntc-card` | hover | 테두리 `--accent-emphasis` | 즉시 |
-| `.ntc-tab` | 선택(`.on`) | 파란 바탕 + 흰 글자 | 즉시 |
+| `.ntc-tab` | 선택(`.on`) | 초록 바탕 + 흰 글자 | 즉시 |
 | `.prd-prev/next` | 끝(`.swiper-button-disabled`) | `opacity: 0.35`, 기본 커서 | — |
 | 모든 요소 | focus | `default.css` 의 `:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }` | — |
 | R&D 사진 | 스크롤 | 양옆 사진 3장이 차례로 앞으로 나옴 (JS, sticky) | 스크롤 연동 |
@@ -472,11 +473,11 @@ Shinpoong/
 | 섹션 내용 | `.sub-body` | 제목 아래 60px (모바일 32px) |
 | 사진 + 글 | `.sub-intro` | flex 두 칸, gap 53px, 사진 비율 513 / 414, 모서리 25px. 글 제목 = `.rnd-txt h2`(36px / 700 / 1.4). 모바일은 위아래로 |
 | 사진 카드 목록 | `.prd-list` + `.prd-card` | 카드 420px, gap 45px, 줄바꿈. 아래 `.prd-info` 에 분류(`span`, 16px / 600 `--accent-emphasis`), 이름(24px / 700), 설명(16px / 1.7). 작은 제품 사진(`img/product/`, 약 280×173px)은 `.prd-card.thumb` — 늘리지 않고 원래 크기로 가운데(`object-fit: none`), 테두리 2px `--border-input`(공고 카드와 같음) |
-| 제품 검색 | `.prd-filter` + `.prd-search` | 위 검색창(가운데, 475px), 아래 분류 탭(`.ntc-tab`), 사이 36px. 검색창 = 탭과 같은 높이 70px · 모서리 92px, 테두리 2px `--border-input`, 입력 중 `--border-focus`, 글자 20px. 검색 버튼 = 선택된 탭과 같은 `--blue-600` + 흰 22px / 600. 결과 개수 `.prd-count`(20px, 숫자 `--accent-emphasis`), 결과가 없으면 `.ntc-empty`. 화면이 좁아지면 탭이 줄바꿈 없이 함께 줄어듭니다. 모바일은 탭 2개씩(마지막은 한 줄 전체), 높이 44px |
+| 제품 검색 | `.prd-filter` + `.prd-search` | 위 검색창(가운데, 475px), 아래 분류 탭(`.ntc-tab`), 사이 36px. 검색창 = 탭과 같은 높이 70px · 모서리 92px, 테두리 2px `--border-input`, 입력 중 `--border-focus`, 글자 20px. 검색 버튼 = 선택된 탭과 같은 `--action-primary-background`(초록) + 흰 22px / 600. 결과 개수 `.prd-count`(20px, 숫자 `--accent-emphasis`), 결과가 없으면 `.ntc-empty`. 화면이 좁아지면 탭이 줄바꿈 없이 함께 줄어듭니다. 모바일은 탭 2개씩(마지막은 한 줄 전체), 높이 44px |
 | 글 카드 목록 | `.ntc-list` + `.ntc-card` | 메인 공고 카드 그대로. 여러 줄이면 `.ntc-list.wrap` |
 | 탭 | `.ntc-tabs` + `.ntc-tab` | 메인 공고 탭 그대로. 탭 아래 목록은 65px (모바일 32px) |
 | 연혁 | `.hist-list` | 위 선 2px `--border-input`, 항목 사이 1px `--border-subtle`, 연도 30px / 700 `--accent-emphasis`, 너비 225px |
-| 파이프라인 | `.pipe` (`.pipe-head` + `.pipe-list`) | 왼쪽 과제 이름 칸 475px(공고 카드 너비, 분류·이름·설명은 `.prd-info` 와 같은 글자), 오른쪽 단계 막대. 막대 칸 = 높이 44px · 모서리 92px · 바탕 `--background-subtle`, 막대 = `--blue-600` + 흰 16px / 600, 5단계라 한 단계 20%(`.s1`~`.s5`). **시판(`.s5`)만 `--accent-emphasis`(초록)**. 선은 연혁과 같음. 위에 분야 탭(`.pipe-filter`), 탭 아래 65px. 모바일은 이름 아래 막대, 탭 3개씩 |
+| 파이프라인 | `.pipe` (`.pipe-head` + `.pipe-list`) | 왼쪽 과제 이름 칸 475px(공고 카드 너비, 분류·이름·설명은 `.prd-info` 와 같은 글자), 오른쪽 단계 막대. 막대 칸 = 높이 44px · 모서리 92px · 바탕 `--background-subtle`, 막대 = `--action-primary-background`(초록) + 흰 16px / 600, 5단계라 한 단계 20%(`.s1`~`.s5`). **시판(`.s5`)만 밝은 초록 `--accent-brand`**. 선은 연혁과 같음. 위에 분야 탭(`.pipe-filter`), 탭 아래 65px. 모바일은 이름 아래 막대, 탭 3개씩 |
 | 서브 버튼 | `.prd-btn` | 메인 버튼 그대로. `.sub-body` 안에서는 위 간격 0, 연한 바탕 섹션(`.subtle`)에서는 바탕을 `--background-default`(흰색)로 |
 | 단계 박스 | `.step-list` | flex, gap 21px, 박스 padding `36px 35px`, 모서리 25px, 단계 번호 = `.rnd-label`, 제목 24px / 700 |
 
