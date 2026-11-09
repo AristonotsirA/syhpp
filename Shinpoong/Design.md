@@ -36,6 +36,11 @@ Shinpoong/
 ├─ recruit.html      서브: 채용정보
 ├─ company.html      서브: 기업정보
 ├─ news.html         서브: 뉴스
+├─ product-view.html 상세: 제품 상세 (product-view.html?id=제품id)
+├─ view.html         상세: 게시글 (채용 공고·뉴스·IR, view.html?id=글id)
+├─ policy.html       새 페이지: 사이트 이용 안내 (푸터 링크 3개가 오는 곳)
+├─ js/products.js    제품 상세 데이터 (PRODUCTS)
+├─ js/board.js       게시글 데이터 (BOARD_MENU, BOARD)
 ├─ css/main.css      이 프로젝트 전용 스타일 (색 변수 :root 포함)
 ├─ img/              이 프로젝트 이미지
 └─ Design.md         이 문서
@@ -351,6 +356,7 @@ Shinpoong/
         <ul class="ft-links">…</ul>
         <address class="ft-info">…</address>
         <p class="ft-copy"><b>&copy;</b>SHINPOONG.CO,.LTD ALL RIGHTS RESERVED.</p>
+        <p class="ft-notice">이 사이트는 상업적 목적이 아닌 개인 포트폴리오 용도로 제작한 사이트입니다.</p>
     </div>
 </footer>
 ```
@@ -360,6 +366,8 @@ Shinpoong/
 - 회사 정보: `<address>`, `--text-secondary`, 500, 메뉴 아래 33px. 저작권 줄은 24px 아래.
 - 1024px 이하: `padding: 40px 20px`, 13px, 간격 20px / 16px.
 - 회사 정보 문구는 모든 페이지에서 똑같이 씁니다.
+- **포트폴리오 안내 문구(`.ft-notice`)를 모든 페이지에 넣습니다** (선생님 체크리스트). `--text-secondary`, 저작권 줄 아래 8px.
+- 메뉴 링크: 개인정보처리방침 → `policy.html#privacy`, 고객센터 → `policy.html#customer`, 이메일무단수집거부 → `policy.html#email`.
 
 ### 7-7. 이름 규칙 (클래스)
 
@@ -392,7 +400,8 @@ Shinpoong/
 
 ## 9. Responsive Rules — 반응형 레이아웃 기준
 
-- **기준점은 하나**: `@media (max-width: 1024px)` (CSS). Swiper 는 `breakpoints: { 1024: … }` (1024px 이상).
+- **기준점은 1024px**: `@media (max-width: 1024px)` (CSS). Swiper 는 `breakpoints: { 1024: … }` (1024px 이상).
+- 예외로 제품 목록 grid만 `@media (max-width: 1280px)` 에서 3칸이 됩니다 (선생님 grid 수업 내용).
 - 데스크톱 디자인 기준 폭: 1920px (Figma).
 
 | 항목 | 데스크톱 | 1024px 이하 |
@@ -427,14 +436,14 @@ Shinpoong/
 
 ### Don't
 
-- **링크를 기존 신풍제약 사이트(shinpoong.co.kr 등)로 연결하지 않습니다.** 프로젝트 안 페이지(`product.html` 등)로만 연결하고, 아직 없는 페이지는 `href="#"` 으로 둡니다.
+- **링크를 기존 신풍제약 사이트(shinpoong.co.kr 등)로 연결하지 않습니다.** 프로젝트 안 페이지로만 연결합니다. **`href="#"` 도 남기지 않습니다** — 갈 곳이 없으면 상세페이지·모달·새 페이지를 만들고, 누를 필요가 없는 정보 카드는 `<a>` 대신 `<div class="ntc-card">` 로 씁니다.
 - 메인 페이지(`index.html`, `main.css` 의 기존 규칙)의 디자인을 바꾸지 않습니다.
 - 메인에 없는 색 코드, 글자 크기, 여백, 모서리 값을 새로 만들지 않습니다. 필요하면 먼저 묻습니다.
 - 변수가 있는 색을 `#007a3d` 처럼 코드로 직접 쓰지 않습니다.
 - 섹션에 큰 왼쪽 padding(예: 171px, 205px)을 줘서 위치를 맞추지 않습니다. `.inner` 로 맞춥니다.
 - `html, body` 에 `overflow-x: hidden` 을 다시 넣지 않습니다.
 - 실행 코드에서 `new Swiper('.swiper')` 처럼 공통 클래스로 선택하지 않습니다.
-- 사용자가 요청하지 않으면 CSS/JS 파일을 새로 나누지 않습니다. (스타일은 `css/main.css`, 스크립트는 HTML 맨 아래 `<script>`)
+- 사용자가 요청하지 않으면 CSS/JS 파일을 새로 나누지 않습니다. (스타일은 `css/main.css`, 스크립트는 HTML 맨 아래 `<script>`. 예외: 상세페이지 데이터 `js/products.js`, `js/board.js`)
 - 사진 배경 섹션에 막이 이미 들어간 사진(`company-bg.png`)이면 CSS 막을 또 덮지 않습니다.
 
 ---
@@ -463,23 +472,40 @@ Shinpoong/
 | 기업정보 | `company.html` | 회사소개(사진+글) → 핵심가치(글 카드) → 연혁 |
 | 뉴스 | `news.html` | 뉴스(탭 + 글 카드 여러 줄) |
 
+#### 서브에서 한 번 더 들어가는 페이지 (선생님 체크리스트: 모달 · 상세페이지 · 네비에 없는 새 페이지)
+
+| 누르는 곳 | 가는 곳 | 종류 |
+|---|---|---|
+| 메인 제품 슬라이더, 대표 제품, 전체 제품 카드 | `product-view.html?id=rx10` 등 | 상세페이지 (헤더 `.on` = 제품정보, 위치 `HOME > 제품정보 > 제품명`) |
+| 메인 공고 카드, 채용 공고 카드 | `view.html?id=job01~03` | 상세페이지 (헤더 `.on` = 채용정보) |
+| 뉴스 카드 | `view.html?id=news01~06` | 상세페이지 (헤더 `.on` = 뉴스) |
+| 투자정보 카드 | `view.html?id=ir01~03` | 상세페이지 (헤더 `.on` = 투자정보) |
+| 파이프라인 과제 줄 | 같은 페이지 안 `#pipeModal` | 모달 |
+| 푸터 링크 3개, 고객센터 바로가기, 파트너십 문의하기 | `policy.html#privacy` / `#customer` / `#email` | 네비에 없는 새 페이지 |
+| 메인 R&D 더보기 / 제품 자세히 보기 / 회사 자세히 보기 | `rnd.html` / `product.html` / `company.html` | 서브페이지 |
+| 핵심가치·인재상 카드 | (링크 없음, `div`) | 정보만 보여 줌 |
+
 ### 11-2. 서브페이지 공통 부품
 
 | 부품 | 클래스 | 규칙 (메인의 어떤 값을 따랐는지) |
 |---|---|---|
-| 상단 비주얼 | `.sub-visual` | 회사 소개 섹션처럼 사진 배경 + 왼쪽 흰 글자. padding `110px 20px`, 제목 54px / 800 / 1.45, 설명 20px / 1.5. 라벨은 어두운 바탕이라 `--accent-brand` |
+| 상단 비주얼 | `.sub-visual` | 사진 배경 + 왼쪽 흰 글자. padding `110px 20px`. **글자는 메인 히어로(`.hero-txt`)와 같게**: 제목 48px / 700 / 1.3, 설명 18px / 1.6 (모바일 30px / 14px). 라벨은 어두운 바탕이라 `--accent-brand` (서브 상단 디자인 통일) |
 | 이미지 자리 | `.img-box` | 아직 사진이 없는 곳. 바탕 `--border-subtle`, 글자 `--text-secondary` 16px. 비주얼 안에서는 바탕 `--neutral-600` + 흰 글자. **사진이 준비되면 `<img>` 로 바꿉니다.** |
 | 현재 위치 | `.sub-path` | 16px, 아래 선 1px `--border-subtle`, 구분 기호 `>` 는 푸터 구분선처럼 `--border-subtle` / 700, 마지막 항목만 `--text-primary` / 600 |
 | 섹션 머리 | `.sub-label` + `.sub-title` + `.sub-desc` | 라벨 = `.rnd-label`, 제목 = `.prd-title`(54px / 700), 설명 = `.rnd-desc`(16px / 1.7) |
 | 섹션 내용 | `.sub-body` | 제목 아래 60px (모바일 32px) |
 | 사진 + 글 | `.sub-intro` | flex 두 칸, gap 53px, 사진 비율 513 / 414, 모서리 25px. 글 제목 = `.rnd-txt h2`(36px / 700 / 1.4). 모바일은 위아래로 |
-| 사진 카드 목록 | `.prd-list` + `.prd-card` | 한 줄에 4개(`width: calc((100% - 135px) / 4)`), gap 45px, 줄바꿈. 모바일은 한 줄에 1개(최대 420px). 아래 `.prd-info` 에 분류(`span`, 16px / 600 `--accent-emphasis`), 이름(24px / 700), 설명(16px / 1.7). 제품 사진(`img/product/`, 약 282×173px)은 `.prd-card.thumb` — 상자를 사진 비율(282 / 173)로 만들어 사진이 꽉 차게(`object-fit: cover`), 사진 상자에만 연한 초록 테두리 2px `rgba(0, 122, 61, 0.2)`(아래 글씨에는 닿지 않음) |
+| 사진 카드 목록 | `.prd-list` + `.prd-card` | **CSS grid**: `grid-template-columns: repeat(4, 1fr)`, gap 45px → 1280px 이하 `repeat(3, 1fr)` → 1024px 이하 `repeat(auto-fill, minmax(260px, 1fr))`(태블릿 2칸, 휴대폰 1칸), gap 32px. 아래 `.prd-info` 에 분류(`span`, 16px / 600 `--accent-emphasis`), 이름(24px / 700), 설명(16px / 1.7). 제품 사진(`img/product/`, 약 282×173px)은 `.prd-card.thumb` — 상자를 사진 비율(282 / 173)로 만들어 사진이 꽉 차게(`object-fit: cover`), 사진 상자에만 연한 초록 테두리 2px `rgba(0, 122, 61, 0.2)`(아래 글씨에는 닿지 않음) |
 | 제품 검색 | `.prd-filter` + `.prd-search` | 위 검색창(가운데, 475px), 아래 분류 탭(`.ntc-tab`), 사이 36px. 검색창 = 탭과 같은 높이 70px · 모서리 92px, 테두리 2px `--border-input`, 입력 중 `--border-focus`, 글자 20px. 검색 버튼 = 선택된 탭과 같은 `--action-primary-background`(초록) + 흰 22px / 600. 결과 개수 `.prd-count`(20px, 숫자 `--accent-emphasis`), 결과가 없으면 `.ntc-empty`. 화면이 좁아지면 탭이 줄바꿈 없이 함께 줄어듭니다. 모바일은 탭 2개씩(마지막은 한 줄 전체), 높이 44px |
 | 글 카드 목록 | `.ntc-list` + `.ntc-card` | 메인 공고 카드 그대로. 여러 줄이면 `.ntc-list.wrap` |
 | 탭 | `.ntc-tabs` + `.ntc-tab` | 메인 공고 탭 그대로. 탭 아래 목록은 65px (모바일 32px) |
 | 연혁 | `.hist-list` | 위 선 2px `--border-input`, 항목 사이 1px `--border-subtle`, 연도 30px / 700 `--accent-emphasis`, 너비 225px |
 | 파이프라인 | `.pipe` (`.pipe-head` + `.pipe-list`) | 왼쪽 과제 이름 칸 475px(공고 카드 너비, 분류·이름·설명은 `.prd-info` 와 같은 글자), 오른쪽 단계 막대. 막대 칸 = 높이 44px · 모서리 92px · 바탕 `--background-subtle`, 막대 = `--action-primary-background`(초록) + 흰 16px / 600, 5단계라 한 단계 20%(`.s1`~`.s5`). **시판(`.s5`)만 밝은 초록 `--accent-brand`**. 선은 연혁과 같음. 위에 분야 탭(`.pipe-filter`), 탭 아래 65px. 모바일은 이름 아래 막대, 탭 3개씩 |
 | 서브 버튼 | `.prd-btn` | 메인 버튼 그대로. `.sub-body` 안에서는 위 간격 0, 연한 바탕 섹션(`.subtle`)에서는 바탕을 `--background-default`(흰색)로 |
+| 제품 상세 위쪽 | `.view-intro` + `.view-thumb` | `.sub-intro` 처럼 두 칸 gap 53px. 사진 상자 = `.prd-card.thumb` 와 같은 비율 282 / 173, 테두리 `rgba(0, 122, 61, 0.2)`, 모서리 25px. 제목 `.view-title` = 36px / 700 / 1.4, 설명 20px / 1.5. 사진이 없으면 `.img-box` |
+| 정보 표 | `.info-table` (`dl > div > dt + dd`) | 위 2px `--text-primary`, 줄마다 1px `--border-subtle`, 줄 padding 24px 0, 16px / 1.7, 항목 이름 칸 225px(탭 너비). 내용이 있는 줄만 보여 줌. 모바일은 위아래로 |
+| 게시글 | `.view-article` (`.view-head` + `.view-body`) | 제목 줄 아래 2px `--text-primary`, 본문 20px / 1.5 `--text-secondary`, 위아래 60px, 사진 자리 `.view-img` 400px · 모서리 25px |
+| 모달 | `.modal` + `.modal-box` | 막 `rgba(0, 0, 0, 0.7)`(제품 카드 hover 값), 상자 최대 720px · padding `36px 35px` · 모서리 25px(공고 카드 값). 닫기 44px 원(hover 초록). 단계 = 초록 알약(모서리 92px), 목록 점 `--accent-brand`. 닫기 버튼 · 바깥 클릭 · Esc 로 닫힘 |
 | 단계 박스 | `.step-list` | flex, gap 21px, 박스 padding `36px 35px`, 모서리 25px, 단계 번호 = `.rnd-label`, 제목 24px / 700 |
 
 ### 11-3. 서브페이지 스크립트
@@ -488,6 +514,8 @@ Shinpoong/
 - 파이프라인 탭: 고른 분야(`data-type`)의 과제만 보여 줍니다.
 - 제품 검색: 고른 분류 탭(`data-type`)과 검색어(제품명·성분명) **둘 다 맞는** 카드만 보여 주고, 개수를 `.prd-count` 에 씁니다. 글자를 칠 때마다 바로 거르고, 검색 버튼은 페이지 이동을 막습니다.
 - 슬라이더: Swiper 로 만들고, 고유 클래스(`.lab-slider`, `.best-slider` 등)로 실행합니다. 설정은 메인 제품 슬라이더와 같습니다.
+- 상세페이지: 주소의 `?id=` 값(`new URLSearchParams(location.search).get('id')`)으로 데이터 파일에서 찾아 채웁니다. 글자는 `textContent` 로 넣습니다. 없는 id면 "찾을 수 없습니다" 문구가 그대로 보입니다.
+- 파이프라인 모달: 과제 줄을 누르거나 Tab으로 가서 Enter/Space. 열리면 닫기 버튼에 포커스, 닫히면 누른 줄로 포커스가 돌아갑니다. 열려 있는 동안 `body.modal-open` 으로 뒤 스크롤을 막습니다.
 
 ### 11-4. 내용을 채울 때
 

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제품 상세 | 신풍제약리뉴얼포트폴리오</title>
+    <link rel="stylesheet" href="../css/default.css">
+    <link rel="stylesheet" href="../npm/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="../font/css/pretendardvariable.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="../npm/swiper/swiper-bundle.min.js"></script>
+</head>
+<body>
+    <div id="wrap">
+        <header>
+            <div class="top-bar">
+                <h1 class="logo">
+                    <a href="index.html">
+                        <img src="img/logo.png" alt="신풍제약주식회사 SHIN POONG PHARM. CO., LTD.">
+                    </a>
+                </h1>
+            </div>
+            <nav class="gnb">
+                <ul>
+                    <li class="on"><a href="product.html">제품정보</a></li>
+                    <li><a href="rnd.html">R&amp;D</a></li>
+                    <li><a href="ir.html">투자정보</a></li>
+                    <li><a href="recruit.html">채용정보</a></li>
+                    <li><a href="company.html">기업정보</a></li>
+                    <li><a href="news.html">뉴스</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <!-- 상단 비주얼: 제품정보와 같음 -->
+            <div class="sub-visual">
+                <div class="img-box">비주얼 이미지 영역 (1920 x 500)</div>
+                <div class="inner">
+                    <p class="sub-visual-label">PRODUCT</p>
+                    <h2>당신의 건강을 위해,<br>신풍이 함께합니다.</h2>
+                    <p>신풍제약이 만드는 의약품과 의료제품을 소개합니다.</p>
+                </div>
+            </div>
+            <!-- 현재 위치: HOME > 제품정보 > 제품 이름 -->
+            <nav class="sub-path" aria-label="현재 위치">
+                <div class="inner">
+                    <ul>
+                        <li><a href="index.html">HOME</a></li>
+                        <li><a href="product.html">제품정보</a></li>
+                        <li id="pvPath">제품 상세</li>
+                    </ul>
+                </div>
+            </nav>
+            <!-- 제품 상세: 주소의 ?id= 값으로 js/products.js 에서 제품을 찾아 채움 -->
+            <section class="sub-sec">
+                <div class="inner">
+                    <div class="view-intro">
+                        <div class="view-thumb" id="pvThumb"></div>
+                        <div class="view-intro-txt">
+                            <p class="sub-label" id="pvCat"></p>
+                            <h2 class="view-title" id="pvName">제품을 찾을 수 없습니다.</h2>
+                            <p class="view-desc" id="pvDesc">제품 목록에서 다시 골라 주세요.</p>
+                        </div>
+                    </div>
+                    <dl class="info-table" id="pvInfo"></dl>
+                    <a href="product.html#all" class="prd-btn">목록으로</a>
+                </div>
+            </section>
+                </main>
+        <footer>
+            <div class="inner">
+            <ul class="ft-links">
+                <li><a href="policy.html#privacy" class="ft-privacy">개인정보처리방침</a></li>
+                <li><a href="policy.html#customer">고객센터</a></li>
+                <li><a href="policy.html#email">이메일무단수집거부</a></li>
+            </ul>
+            <address class="ft-info">
+                신풍제약주식회사 | 대표 : 유제만<br>
+                본사 : 서울특별시 강남구 역삼로 161(역삼동, 신풍제약 사옥)<br>
+                사업자등록번호 : 134-81-03819<br>
+                신풍제약 고객센터 : 080-200-0101
+            </address>
+            <p class="ft-copy"><b>&copy;</b>SHINPOONG.CO,.LTD ALL RIGHTS RESERVED.</p>
+            <p class="ft-notice">이 사이트는 상업적 목적이 아닌 개인 포트폴리오 용도로 제작한 사이트입니다.</p>
+            </div>
+        </footer>
+    </div>
+    <script src="js/products.js"></script>
+    <script>
+        // 주소의 ?id= 값 (예: product-view.html?id=rx10)
+        const productId = new URLSearchParams(location.search).get('id');
+        const product = PRODUCTS[productId];
+
+        // 줄 배열을 <br>로 이어서 넣기 (글자는 textContent로 넣어 안전하게)
+        function fillLines(el, lines) {
+            el.textContent = '';
+            lines.forEach(function (line, i) {
+                if (i > 0) el.appendChild(document.createElement('br'));
+                el.appendChild(document.createTextNode(line));
+            });
+        }
+
+        if (product) {
+            document.title = product.name + ' | 신풍제약리뉴얼포트폴리오';
+            document.querySelector('#pvPath').textContent = product.name;
+            document.querySelector('#pvCat').textContent = product.cat;
+            document.querySelector('#pvName').textContent = product.name;
+            fillLines(document.querySelector('#pvDesc'), product.desc);
+
+            // 사진: 없으면 이미지 영역 박스
+            const thumb = document.querySelector('#pvThumb');
+            if (product.img) {
+                const img = document.createElement('img');
+                img.src = product.img;
+                img.alt = product.name;
+                thumb.appendChild(img);
+            } else {
+                thumb.classList.add('img-box');
+                thumb.textContent = '제품 이미지 영역';
+            }
+
+            // 정보 표: 내용이 있는 줄만
+            const rows = [
+                ['구분', product.type],
+                ['약품계열', product.family],
+                ['성상', product.shape],
+                ['성분·함량', product.ing],
+                ['효능·효과', product.eff],
+                ['섭취방법', product.use],
+            ];
+            const info = document.querySelector('#pvInfo');
+            rows.forEach(function (row) {
+                if (!row[1]) return;
+                const div = document.createElement('div');
+                const dt = document.createElement('dt');
+                const dd = document.createElement('dd');
+                dt.textContent = row[0];
+                dd.textContent = row[1];
+                div.append(dt, dd);
+                info.appendChild(div);
+            });
+        }
+    </script>
+</body>
+</html>

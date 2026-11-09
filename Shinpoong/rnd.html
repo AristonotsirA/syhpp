@@ -124,7 +124,7 @@
                 <div class="inner">
                     <p class="sub-label">Pipeline</p>
                     <h2 class="sub-title">파이프라인</h2>
-                    <p class="sub-desc">분야별 연구 과제가 어느 단계까지 왔는지 확인해 보세요.</p>
+                    <p class="sub-desc">분야별 연구 과제가 어느 단계까지 왔는지 확인해 보세요.<br>과제를 누르면 자세한 내용을 볼 수 있습니다.</p>
                     <div class="sub-body">
                         <div class="pipe-filter">
                             <div class="ntc-tabs">
@@ -369,7 +369,7 @@
                     <h2 class="sub-title">인류의 밝은 미래를 위하여</h2>
                     <p class="sub-desc">새로운 아이디어와 함께 새로운 치료법을 만들어 갈 파트너를 찾습니다.<br>학계·비영리 단체와의 연구 협력도 열려 있습니다.</p>
                     <div class="sub-body">
-                        <a href="#" class="prd-btn">파트너십 문의하기</a>
+                        <a href="policy.html#customer" class="prd-btn">파트너십 문의하기</a>
                     </div>
                 </div>
             </section>
@@ -377,9 +377,9 @@
         <footer>
             <div class="inner">
             <ul class="ft-links">
-                <li><a href="#" class="ft-privacy">개인정보처리방침</a></li>
-                <li><a href="#">고객센터</a></li>
-                <li><a href="#">이메일무단수집거부</a></li>
+                <li><a href="policy.html#privacy" class="ft-privacy">개인정보처리방침</a></li>
+                <li><a href="policy.html#customer">고객센터</a></li>
+                <li><a href="policy.html#email">이메일무단수집거부</a></li>
             </ul>
             <address class="ft-info">
                 신풍제약주식회사 | 대표 : 유제만<br>
@@ -388,8 +388,20 @@
                 신풍제약 고객센터 : 080-200-0101
             </address>
             <p class="ft-copy"><b>&copy;</b>SHINPOONG.CO,.LTD ALL RIGHTS RESERVED.</p>
+            <p class="ft-notice">이 사이트는 상업적 목적이 아닌 개인 포트폴리오 용도로 제작한 사이트입니다.</p>
             </div>
         </footer>
+    </div>
+    <!-- 파이프라인 상세 모달: 과제를 누르면 열림 (내용은 아래 스크립트가 채움) -->
+    <div class="modal" id="pipeModal" hidden>
+        <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="pipeModalTitle">
+            <button type="button" class="modal-close" aria-label="닫기">&times;</button>
+            <span class="modal-label"></span>
+            <strong class="modal-title" id="pipeModalTitle"></strong>
+            <p class="modal-sub"></p>
+            <p class="modal-stage"></p>
+            <ul class="modal-list"></ul>
+        </div>
     </div>
     <script>
         // 연구 현장 사진 슬라이더: 메인 제품 슬라이더와 같은 설정
@@ -419,6 +431,213 @@
                     item.hidden = type !== 'all' && item.dataset.type !== type;
                 });
             });
+        });
+        // 파이프라인 상세: 목록 순서대로 (신풍제약 파이프라인 안내 내용을 정리함)
+        // note = 자세한 단계 (비어 있으면 막대에 쓴 단계), list = 모달 안 내용
+        const pipeDetail = [
+            {
+                "note": "",
+                "list": [
+                    "뇌졸중 치료를 위한 혁신신약 후보물질",
+                    "신경보호 및 뇌손상 억제 기전 연구"
+                ]
+            },
+            {
+                "note": "임상 1상 완료",
+                "list": [
+                    "허혈성 뇌졸중 및 동맥경화증 치료를 위한 혁신신약 후보물질",
+                    "신규 Verbenone 유도체 기반 다중기전 치료제",
+                    "항염증 및 항산화 효능 보유",
+                    "다양한 병태생리 기전 조절을 통한 치료 효과 기대",
+                    "뇌혈관 및 심혈관 질환 치료제로 개발 중"
+                ]
+            },
+            {
+                "note": "임상 3상",
+                "list": [
+                    "급성 허혈성 뇌졸중 치료를 위한 혁신신약 후보물질",
+                    "항염증 작용을 포함한 다중 신경보호 기전 보유",
+                    "흥분독성, 산화 스트레스, 염증반응 등 복합적 뇌손상 기전 동시 조절",
+                    "신경세포 보호를 통한 허혈성 뇌손상 억제",
+                    "52개국 특허 출원, 44개국 특허 등록 완료",
+                    "차세대 신경보호 기반 뇌졸중 치료 전략 제시"
+                ]
+            },
+            {
+                "note": "시판",
+                "list": [
+                    "칸데사르탄·암로디핀 기반 항고혈압 복합제 개량신약",
+                    "식약처 허가 및 국내 판매 중",
+                    "ARB와 CCB의 시너지로 우수한 혈압 강하 효과 제공",
+                    "부작용 감소 및 복약 편의성 향상",
+                    "비조절 본태성 고혈압 환자 대상 임상 3상 2건 완료",
+                    "유효성과 안전성이 입증된 복합제 개량신약 제품"
+                ]
+            },
+            {
+                "note": "임상 3상",
+                "list": [
+                    "ARB, CCB 및 이뇨제를 저용량으로 조합한 3제 복합 고혈압 치료제",
+                    "기존 표준치료 대비 동등 또는 우수한 혈압 조절 효과 확인",
+                    "안전성 향상 및 복약 편의성 개선",
+                    "효과와 안전성을 동시에 고려한 차세대 고혈압 치료 전략"
+                ]
+            },
+            {
+                "note": "시판",
+                "list": [
+                    "에제티미브·로수바스타틴 기반 항고지혈증 복합제 개량신약",
+                    "식약처 허가 및 국내 판매 중",
+                    "콜레스테롤 흡수 억제 + 생합성 억제의 Dual Action 기전",
+                    "LDL-C 감소 효과 극대화",
+                    "고콜레스테롤혈증 환자의 1차 치료 옵션",
+                    "스타틴 단독요법의 한계 보완",
+                    "유효성과 안전성을 확보한 복합제 개량신약 제품"
+                ]
+            },
+            {
+                "note": "",
+                "list": [
+                    "mTORC2 조절 기전 기반의 근감소증 치료제 후보물질",
+                    "노화로 인한 근육량 감소 및 근력 저하 개선을 목표로 개발",
+                    "근육 기능 유지 및 회복을 통한 삶의 질 향상 기대",
+                    "근감소증의 근본적인 병태생리를 표적으로 하는 신규 치료 전략 제시"
+                ]
+            },
+            {
+                "note": "임상 3상",
+                "list": [
+                    "가교(Cross-linked) 및 비가교(Non-cross-linked) 히알루론산 복합 제형",
+                    "1회 주사로 치료 가능한 골관절염 치료제",
+                    "간편하면서도 효과적인 골관절염 치료제",
+                    "초기 통증 완화에 도움을 주는 새로운 골관절염 치료 옵션"
+                ]
+            },
+            {
+                "note": "품목허가 완료",
+                "list": [
+                    "신규 가교 기술을 적용한 히알루론산 기반 골관절염 치료제",
+                    "1회 투여로 장기간 효과를 제공하도록 설계",
+                    "히알루로니다아제 분해 저항성을 높여 체내 지속성 향상",
+                    "안전성과 생체적합성 우수한 차세대 가교 히알루론산 제형"
+                ]
+            },
+            {
+                "note": "",
+                "list": [
+                    "산학연, 산자부 월드클래스+ 과제",
+                    "수술 후 조직 간 유착을 효과적으로 방지하는 의료기기",
+                    "항염증 기능을 통해 수술 부위의 염증 반응 감소에 도움",
+                    "조직 치유 환경 개선 및 환자 회복 지원",
+                    "수술 후 합병증 감소를 위한 차세대 유착방지 솔루션"
+                ]
+            },
+            {
+                "note": "시판",
+                "list": [
+                    "히알루론산·하이드록시에틸스타치 기반 유착방지 의료기기",
+                    "자궁경 수술 임상을 통한 제품 허가 획득",
+                    "복부 수술 적응증 임상으로 유착방지 효과 및 안전성 입증",
+                    "점도 개선 및 수술 부위 염증 감소 효과 확인",
+                    "자궁강, 복부수술, 척추수술, 갑상선수술 및 비부비동 수술 분야에 적용 가능",
+                    "적용 범위 확대를 통해 제품 경쟁력 강화",
+                    "지속적인 시장 성장세를 보이는 유착방지 의료기기"
+                ]
+            },
+            {
+                "note": "글로벌 임상 3상",
+                "list": [
+                    "기존 허가 의약품의 새로운 적응증 개발을 위한 약물재창출 프로젝트",
+                    "COVID-19 치료 가능성 평가한 혁신 치료제 개발 프로그램",
+                    "감염성 질환 치료 영역 확대를 목표로 개발"
+                ]
+            },
+            {
+                "note": "임상 4상, 시판",
+                "list": [
+                    "피로나리딘과 아르테수네이트를 결합한 복합 항말라리아 치료제",
+                    "EMA Positive Scientific Opinion(Article 58) 획득 및 다수 국가 허가",
+                    "복용 편의성이 우수하고 음식 섭취 제한이 없음",
+                    "WHO 사전적격성평가(PQ) 및 WHO 필수의약품 목록 등재"
+                ]
+            },
+            {
+                "note": "임상 4상, 시판",
+                "list": [
+                    "EMA Positive Scientific Opinion을 획득한 최초의 소아용 항말라리아 치료제",
+                    "21개국 허가 획득한 글로벌 소아용 말라리아 치료제",
+                    "현탁용 과립 제형으로 소아 환자의 복용 편의성 향상",
+                    "1일 1회, 3일 투여 요법의 간편한 복용법"
+                ]
+            },
+            {
+                "note": "",
+                "list": [
+                    "siRNA 및 펩타이드 기반의 장기 지속형 전달 기술",
+                    "단회 투여로 수개월간 지속 효과를 목표로 개발",
+                    "투약 편의성 향상 및 치료 순응도 개선 기대",
+                    "다양한 질환에 적용 가능한 차세대 플랫폼 기술"
+                ]
+            },
+            {
+                "note": "",
+                "list": [
+                    "약물 방출을 제어하고 복약 편의성을 향상시키기 위한 제형기술 플랫폼",
+                    "Controlled Release, GRDDS, Double Layer Formulation, Tablet-in-Capsule 등 다양한 DDS 기술 연구·개발",
+                    "최적의 약물 방출 프로파일 구현",
+                    "치료 효과 및 복약 순응도 향상"
+                ]
+            }
+        ];
+        const modal = document.querySelector('#pipeModal');
+        const modalClose = modal.querySelector('.modal-close');
+        let lastItem = null;
+
+        function openModal(item, index) {
+            const detail = pipeDetail[index];
+            const stage = item.querySelector('.pipe-bar').textContent;
+            modal.querySelector('.modal-label').textContent = item.querySelector('.pipe-name span').textContent;
+            modal.querySelector('.modal-title').textContent = item.querySelector('.pipe-name strong').textContent;
+            modal.querySelector('.modal-sub').textContent = item.querySelector('.pipe-name p').textContent;
+            modal.querySelector('.modal-stage').textContent = detail.note || stage;
+            const list = modal.querySelector('.modal-list');
+            list.innerHTML = '';
+            detail.list.forEach(function (text) {
+                const li = document.createElement('li');
+                li.textContent = text;
+                list.appendChild(li);
+            });
+            lastItem = item;
+            modal.hidden = false;
+            document.body.classList.add('modal-open');
+            modalClose.focus();
+        }
+        function closeModal() {
+            modal.hidden = true;
+            document.body.classList.remove('modal-open');
+            if (lastItem) lastItem.focus();
+        }
+        // 과제 줄 전체가 버튼처럼 동작 (키보드 Tab으로 가서 Enter/Space로도 열림)
+        pipeItems.forEach(function (item, index) {
+            item.tabIndex = 0;
+            item.setAttribute('role', 'button');
+            item.addEventListener('click', function () {
+                openModal(item, index);
+            });
+            item.addEventListener('keydown', function (e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    openModal(item, index);
+                }
+            });
+        });
+        modalClose.addEventListener('click', closeModal);
+        // 어두운 바깥을 누르거나 Esc를 누르면 닫힘
+        modal.addEventListener('click', function (e) {
+            if (e.target === modal) closeModal();
+        });
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && !modal.hidden) closeModal();
         });
     </script>
 </body>

@@ -470,7 +470,8 @@ header {
     line-height: 1.5;
     text-align: left;
 }
-.ntc-card:hover {
+/* 누를 수 있는 카드(a)만 마우스를 올리면 초록 테두리 (정보만 보여 주는 div 카드는 그대로) */
+a.ntc-card:hover {
     border-color: var(--accent-emphasis);
 }
 .ntc-name {
@@ -527,6 +528,11 @@ footer {
     margin-top: 24px;
     color: var(--text-secondary);
 }
+/* 포트폴리오 안내 문구 (선생님 체크리스트) */
+.ft-notice {
+    margin-top: 8px;
+    color: var(--text-secondary);
+}
 
 /* ============================================================
    서브페이지 공통 (Design.md 11장)
@@ -573,16 +579,17 @@ footer {
     font-size: 16px;
     font-weight: 600;
 }
+/* 제목·설명 글자는 메인 히어로(.hero-txt)와 같게 (서브 상단 디자인 통일) */
 .sub-visual h2 {
     margin-top: 16px;
-    font-size: 54px;
-    font-weight: 800;
-    line-height: 1.45;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.3;
 }
 .sub-visual p {
     margin-top: 24px;
-    font-size: 20px;
-    line-height: 1.5;
+    font-size: 18px;
+    line-height: 1.6;
 }
 
 /* 현재 위치 표시: HOME > 메뉴 */
@@ -689,15 +696,15 @@ footer {
 }
 
 /* 제품 목록: 메인 사진 카드(.prd-card) + 아래 제품 설명 */
-/* 4개씩 왼쪽부터 채움 (마지막 줄이 가운데로 몰리지 않게) */
+/* CSS grid: 한 줄에 같은 너비(1fr) 4칸, 칸 사이 45px
+   grid는 칸 너비를 grid-template-columns가 정하므로 li에 width 계산이 필요 없음 */
 .prd-list {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     gap: 45px;
 }
-/* 한 줄에 4개: (전체 너비 - 간격 45px x 3) / 4 */
 .prd-list li {
-    width: calc((100% - 135px) / 4);
+    min-width: 0;
     text-align: left;
 }
 .prd-info strong {
@@ -947,6 +954,232 @@ footer {
     background-color: var(--accent-brand);
 }
 
+/* 노트북(1280px 이하): 제품 목록 3칸 */
+@media (max-width: 1280px) {
+    .prd-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+/* ============================================================
+   상세페이지 (product-view.html, view.html, policy.html)
+   ============================================================ */
+/* 제품 상세 위쪽: 사진 + 이름 두 칸 (.sub-intro와 같은 간격 53px) */
+.view-intro {
+    display: flex;
+    align-items: center;
+    gap: 53px;
+    text-align: left;
+}
+/* 제품 사진 상자: 목록 사진 카드(.prd-card.thumb)와 같은 비율·테두리·모서리 */
+.view-thumb {
+    flex: 1;
+    min-width: 0;
+    aspect-ratio: 282 / 173;
+    border: 2px solid rgba(0, 122, 61, 0.2);
+    border-radius: 25px;
+    overflow: hidden;
+}
+.view-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.view-intro-txt {
+    flex: 1;
+    min-width: 0;
+}
+/* 상세 제목 = .sub-intro-txt h3 (36 / 700) */
+.view-title {
+    margin-top: 16px;
+    color: var(--text-primary);
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.4;
+}
+.view-desc {
+    margin-top: 20px;
+    color: var(--text-secondary);
+    font-size: 20px;
+    line-height: 1.5;
+}
+/* 정보 표: 위 굵은 선 + 줄마다 연한 선, 왼쪽 항목 이름 225px(탭 너비) */
+.info-table {
+    margin-top: 60px;
+    border-top: 2px solid var(--text-primary);
+    text-align: left;
+}
+.info-table div {
+    display: flex;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--border-subtle);
+    font-size: 16px;
+    line-height: 1.7;
+}
+.info-table dt {
+    flex: 0 0 225px;
+    color: var(--text-primary);
+    font-weight: 600;
+}
+.info-table dd {
+    flex: 1;
+    min-width: 0;
+    color: var(--text-secondary);
+}
+/* 게시글: 제목 줄 아래 선, 본문 */
+.view-article {
+    text-align: left;
+}
+.view-head {
+    padding-bottom: 36px;
+    border-bottom: 2px solid var(--text-primary);
+}
+.view-date {
+    margin-top: 16px;
+    color: var(--text-secondary);
+    font-size: 16px;
+}
+.view-body {
+    color: var(--text-secondary);
+    font-size: 20px;
+    line-height: 1.5;
+    text-align: left;
+}
+/* 이용 안내처럼 가운데 제목 아래 글은 가운데 정렬 */
+.sub-body .view-body {
+    text-align: center;
+}
+.view-head + .view-body {
+    padding: 60px 0;
+    border-bottom: 1px solid var(--border-subtle);
+}
+.view-body p + p {
+    margin-top: 16px;
+}
+.view-img {
+    height: 400px;
+    margin-top: 36px;
+    border-radius: 25px;
+}
+
+/* 파이프라인 과제 줄: 누르면 상세 모달이 열림 */
+.pipe-list li {
+    cursor: pointer;
+}
+.pipe-list li:hover .pipe-name strong,
+.pipe-list li:focus-visible .pipe-name strong {
+    color: var(--text-link);
+}
+.pipe-list li:focus-visible {
+    outline: 2px solid var(--border-focus);
+    outline-offset: 4px;
+}
+
+/* 모달: 화면 전체를 검은 막(70%, 제품 카드 hover와 같은 값)으로 덮고 가운데 흰 상자 */
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+.modal[hidden] {
+    display: none;
+}
+/* 모달이 열려 있는 동안 뒤 화면은 스크롤되지 않게 */
+body.modal-open {
+    overflow: hidden;
+}
+/* 상자 = 공고 카드(.ntc-card)와 같은 여백 36px 35px, 모서리 25px */
+.modal-box {
+    position: relative;
+    width: 100%;
+    max-width: 720px;
+    max-height: 100%;
+    overflow-y: auto;
+    padding: 36px 35px;
+    border-radius: 25px;
+    background-color: var(--surface-default);
+    text-align: left;
+}
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: var(--background-subtle);
+    color: var(--text-primary);
+    font-size: 28px;
+    line-height: 1;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+.modal-close:hover {
+    background-color: var(--action-primary-background);
+    color: var(--text-inverse);
+}
+.modal-label {
+    color: var(--accent-emphasis);
+    font-size: 16px;
+    font-weight: 600;
+}
+.modal-title {
+    display: block;
+    margin-top: 12px;
+    padding-right: 50px;
+    color: var(--text-primary);
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.4;
+}
+.modal-sub {
+    margin-top: 12px;
+    color: var(--text-secondary);
+    font-size: 16px;
+    line-height: 1.7;
+}
+/* 지금 단계: 파이프라인 막대처럼 초록 알약 */
+.modal-stage {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 8px 20px;
+    border-radius: 92px;
+    background-color: var(--action-primary-background);
+    color: var(--text-inverse);
+    font-size: 16px;
+    font-weight: 600;
+}
+.modal-list {
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border-subtle);
+    color: var(--text-secondary);
+    font-size: 16px;
+    line-height: 1.7;
+}
+/* 목록 앞 점(ㆍ)은 초록 */
+.modal-list li {
+    position: relative;
+    padding-left: 16px;
+}
+.modal-list li + li {
+    margin-top: 8px;
+}
+.modal-list li::before {
+    content: "";
+    position: absolute;
+    top: 0.75em;
+    left: 0;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--accent-brand);
+}
+
 @media (max-width: 1024px) {
     .pc {
         display: none;
@@ -1137,11 +1370,11 @@ footer {
         padding: 116px 20px 60px;
     }
     .sub-visual h2 {
-        font-size: 28px;
+        font-size: 30px;
     }
     .sub-visual p {
         margin-top: 16px;
-        font-size: 15px;
+        font-size: 14px;
     }
     .sub-path {
         font-size: 13px;
@@ -1180,13 +1413,11 @@ footer {
     .sub-intro-txt h3 {
         font-size: 24px;
     }
+    /* auto-fill + minmax: 한 칸이 최소 260px이 되도록 들어가는 만큼 칸을 만듦
+       (태블릿 2칸, 휴대폰 1칸) */
     .prd-list {
-        justify-content: center;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
         gap: 32px;
-    }
-    .prd-list li {
-        width: 100%;
-        max-width: 420px;
     }
     .prd-info strong {
         font-size: 18px;
@@ -1300,5 +1531,64 @@ footer {
     .pipe-bar {
         padding: 0 12px;
         font-size: 13px;
+    }
+    /* 상세페이지 모바일: 두 칸은 위아래로, 글자 작게 */
+    .view-intro {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 32px;
+    }
+    .view-thumb {
+        width: 100%;
+        border-radius: 16px;
+    }
+    .view-title {
+        font-size: 24px;
+    }
+    .view-desc,
+    .view-body {
+        font-size: 15px;
+    }
+    .info-table {
+        margin-top: 32px;
+    }
+    .info-table div {
+        flex-direction: column;
+        gap: 4px;
+        padding: 16px 0;
+        font-size: 14px;
+    }
+    .info-table dt {
+        flex: none;
+    }
+    .view-head {
+        padding-bottom: 24px;
+    }
+    .view-date {
+        font-size: 13px;
+    }
+    .view-head + .view-body {
+        padding: 32px 0;
+    }
+    .view-img {
+        height: 240px;
+        margin-top: 24px;
+        border-radius: 16px;
+    }
+    .modal-box {
+        padding: 24px;
+        border-radius: 16px;
+    }
+    .modal-close {
+        top: 12px;
+        right: 12px;
+    }
+    .modal-title {
+        font-size: 20px;
+    }
+    .modal-sub,
+    .modal-stage,
+    .modal-list {
+        font-size: 14px;
     }
 }
