@@ -110,7 +110,7 @@ Shinpoong/
 | `--background-subtle` | neutral-50 | 한 단계 연한 바탕 | 푸터, 버튼(`.rnd-btn` `.prd-btn`), 선택 안 된 탭 |
 | `--surface-default` | neutral-0 | 카드·헤더 같은 면 | header, `.prd-card` |
 | `--surface-subtle` | neutral-50 | 연한 면 | (정의만 됨, 메인 미사용) |
-| `--border-subtle` | neutral-200 | 연한 구분선 | 푸터 `|` 구분선, 이미지 자리 바탕 |
+| `--border-subtle` | neutral-200 | 연한 구분선 | 푸터 위 선, 푸터 `|` 구분선, 이미지 자리 바탕 |
 | `--border-input` | neutral-600 | 진한 테두리 | `.ntc-card` 테두리 |
 | `--border-focus` | green-700 | 포커스 테두리 | 제품 검색창 입력 중 |
 | `--action-primary-background` | green-700 | 주요 버튼 바탕 | (버튼 통일 후 지금은 안 씀) |
@@ -362,6 +362,7 @@ Shinpoong/
 ```
 
 - 바탕 `--background-subtle`, `min-height: 325px`, `padding: 65px 20px 40px`, 글자 16px / 행간 1.5.
+- **위 선 `border-top: 1px solid var(--border-subtle)`** — 위 섹션과 바탕색이 같아 경계가 안 보여서 넣었습니다 (선생님 피드백).
 - 메뉴: `--text-primary`, 600. "개인정보처리방침"만 800(`.ft-privacy`). 사이 구분선 `|` 는 `--border-subtle`, 좌우 10px.
 - 회사 정보: `<address>`, `--text-secondary`, 500, 메뉴 아래 33px. 저작권 줄은 24px 아래.
 - 1024px 이하: `padding: 40px 20px`, 13px, 간격 20px / 16px.

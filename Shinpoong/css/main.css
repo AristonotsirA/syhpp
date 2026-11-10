@@ -496,6 +496,7 @@ a.ntc-card:hover {
 footer {
     min-height: 325px;
     padding: 65px 20px 40px;
+    border-top: 1px solid var(--border-subtle); /* 위 섹션과 배경색이 같아서 경계선 (선생님 피드백) */
     background-color: var(--background-subtle);
     font-size: 16px;
     line-height: 1.5;
