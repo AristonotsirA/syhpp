@@ -42,11 +42,13 @@
                             <img src="img/hero-lab.png" alt="시험관에 시약을 떨어뜨리는 연구 장면">
                             <div class="hero-txt">
                                 <h2>인류의 건강을 향한<br>신풍의 위대한 도전</h2>
-                                <p>자체 연구개발을 통해 축적한 기술과 경험으로<br>더 나은 치료의 가능성을 탐구합니다.</p>
+                                <p>원료의약품부터 완제의약품까지 직접 연구하고 생산하며,<br>신약 연구개발로 더 나은 치료의 가능성을 탐구합니다.</p>
                             </div>
                         </div>
                     </div>
                 </div>
+                <!-- 보고서: 히어로 하단에 기업 슬로건 -->
+                <p class="hero-slogan">민족의 슬기와 긍지로 인류의 건강을 위하여</p>
             </div>
             <!-- 스크롤하는 동안 화면에 고정되고, 양옆 사진이 차례대로 앞으로 나옴 -->
             <section class="rnd-sec">
@@ -60,6 +62,15 @@
                     <p class="rnd-label">Research &amp; Development</p>
                     <h2>끊임 없는 연구와 혁신으로,<br>인류의 건강한 미래를 만들어 갑니다.</h2>
                     <p class="rnd-desc">신풍제약은 신약개발과 의약품 연구를 통해<br>치료의 가능성을 넓히고 더 나은 의료 환경을 만들어갑니다.</p>
+                    <!-- 보고서: 어떤 분야를 연구하는지 보여주기 (R&D 파이프라인 분류) -->
+                    <ul class="rnd-field">
+                        <li>심혈관계</li>
+                        <li>근골격계</li>
+                        <li>감염성 질환</li>
+                        <li>의료기기</li>
+                        <li>플랫폼기술</li>
+                    </ul>
+                    <p class="rnd-point">항말라리아 신약 <b>피라맥스</b> · 허혈성 뇌졸중 치료제 <b>Otaplimastat</b> 임상3상</p>
                     <a href="rnd.html" class="rnd-btn">더보기</a>
                 </div>
                 <div class="rnd-stack right">
@@ -74,6 +85,20 @@
                 <div class="inner">
                 <p class="rnd-label">Products</p>
                 <h2 class="prd-title">당신의 건강을 위해,<br>신풍이 언제나 보이지 않는 곳에서 함께합니다.</h2>
+                <!-- 보고서: 제품군을 바로 고르거나 검색해서 제품정보로 이동 -->
+                <div class="prd-filter main-filter">
+                    <form class="prd-search" role="search" action="product.html">
+                        <label for="mainKeyword" class="sr-only">제품 검색</label>
+                        <input type="search" id="mainKeyword" name="q" placeholder="제품명·성분명 검색">
+                        <button type="submit">검색</button>
+                    </form>
+                    <ul class="ntc-tabs">
+                        <li><a href="product.html?type=rx" class="ntc-tab">전문의약품</a></li>
+                        <li><a href="product.html?type=otc" class="ntc-tab">의약품</a></li>
+                        <li><a href="product.html?type=device" class="ntc-tab">의료기기</a></li>
+                        <li><a href="product.html?type=food" class="ntc-tab">건강기능식품</a></li>
+                    </ul>
+                </div>
                 <div class="prd-wrap">
                     <!-- Slider main container -->
                     <div class="swiper prd-slider">
@@ -118,21 +143,29 @@
                     <p class="rnd-label">Company</p>
                     <h2>신풍제약은<br>사람을 향한 진심으로<br>건강한 내일을 이어갑니다.</h2>
                     <p>의약품을 통해 더 나은 삶에 기여한다는 마음으로,<br>오늘의 역할에 충실하며 내일의 가능성을 넓혀갑니다.</p>
+                    <!-- 보고서: 경영이념 다음에 사업·생산 역량 -->
+                    <ul class="cmp-cap">
+                        <li><span>Production</span><strong>원료부터 완제까지</strong>원료의약품과 완제의약품을 한 라인에서 생산</li>
+                        <li><span>Antibiotics</span><strong>항생제 전용공장</strong>세파계 항생제 전용공장 운영</li>
+                        <li><span>Global</span><strong>피라맥스 EMA 등록</strong>MMV와 협력해 개발한 항말라리아 신약</li>
+                    </ul>
                     <a href="company.html" class="cmp-btn">자세히 보기</a>
                 </div>
             </section>
-            <!-- 입찰/채용 공고: 탭을 누르면 그 종류의 공고만 보임 -->
+            <!-- 채용: 보고서대로 주요 직무를 먼저 보여 주고 채용 공고로 연결
+                 직무를 누르면 그 직무의 공고만 보임 -->
             <section class="ntc-sec">
                 <div class="inner">
-                <p class="rnd-label">Notice</p>
-                <h2 class="ntc-title">입찰/채용 공고</h2>
+                <p class="rnd-label">Careers</p>
+                <h2 class="ntc-title">채용</h2>
                 <div class="ntc-tabs">
-                    <button type="button" class="ntc-tab on" data-type="all">전체공고</button>
-                    <button type="button" class="ntc-tab" data-type="bid">입찰공고</button>
-                    <button type="button" class="ntc-tab" data-type="job">채용공고</button>
+                    <button type="button" class="ntc-tab on" data-type="all">전체 직무</button>
+                    <button type="button" class="ntc-tab" data-type="dev">개발본부</button>
+                    <button type="button" class="ntc-tab" data-type="prod">생산본부</button>
+                    <button type="button" class="ntc-tab" data-type="always">상시채용</button>
                 </div>
                 <ul class="ntc-list">
-                    <li data-type="job">
+                    <li data-type="dev">
                         <a href="view.html?id=job01" class="ntc-card">
                             <span class="ntc-label">채용공고</span>
                             <strong class="ntc-name">2026년 하반기 개발본부<br>사업개발팀 경력 채용</strong>
@@ -140,7 +173,7 @@
                             <span class="ntc-date">2026.10.23 ~ 2026.11.08</span>
                         </a>
                     </li>
-                    <li data-type="job">
+                    <li data-type="always">
                         <a href="view.html?id=job02" class="ntc-card">
                             <span class="ntc-label">채용공고</span>
                             <strong class="ntc-name">신풍제약 상시채용(인재DB)</strong>
@@ -148,7 +181,7 @@
                             <span class="ntc-date">2018.01.01 ~ 2028.12.31</span>
                         </a>
                     </li>
-                    <li data-type="job">
+                    <li data-type="prod">
                         <a href="view.html?id=job03" class="ntc-card">
                             <span class="ntc-label">채용공고</span>
                             <strong class="ntc-name">2026년 생산본부 기술경영팀<br>경력 채용(오송)</strong>
@@ -158,6 +191,7 @@
                     </li>
                 </ul>
                 <p class="ntc-empty" hidden>등록된 공고가 없습니다.</p>
+                <a href="recruit.html" class="prd-btn">채용정보 더보기</a>
                 </div>
             </section>
         </main>
@@ -248,7 +282,7 @@
                 });
             });
         }
-        // 입찰/채용 공고 탭: 누른 탭만 파랗게, 같은 종류의 카드만 보이게
+        // 채용 직무 탭: 누른 탭만 초록으로, 같은 직무의 공고 카드만 보이게
         const ntcTabs = document.querySelectorAll('.ntc-tab');
         const ntcItems = document.querySelectorAll('.ntc-list li');
         ntcTabs.forEach(function (tab) {

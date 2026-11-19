@@ -560,6 +560,20 @@
             e.preventDefault();
             filterProducts();
         });
+
+        // 메인에서 검색하거나 제품군을 눌러 넘어오면 (product.html?q=..., ?type=...)
+        // 그 검색어·분류로 바로 걸러서 전체 제품 목록을 보여 줌
+        const params = new URLSearchParams(location.search);
+        const startType = params.get('type');
+        const startKeyword = params.get('q');
+        if (startType || startKeyword) {
+            prdTabs.forEach(function (t) {
+                t.classList.toggle('on', t.dataset.type === (startType || 'all'));
+            });
+            prdInput.value = startKeyword || '';
+            filterProducts();
+            document.querySelector('#all').scrollIntoView();
+        }
     </script>
 </body>
 </html>
