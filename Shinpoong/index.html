@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +11,7 @@
     <script src="../npm/swiper/swiper-bundle.min.js"></script>
 </head>
 <body>
+    <a class="skip-link" href="#mainContent">본문 바로가기</a>
     <div id="wrap">
         <header>
             <div class="top-bar">
@@ -20,7 +21,7 @@
                     </a>
                 </h1>
             </div>
-            <nav class="gnb">
+            <nav class="gnb" aria-label="주요 메뉴">
                 <ul>
                     <li><a href="product.html">제품정보</a></li>
                     <li><a href="rnd.html">R&amp;D</a></li>
@@ -30,8 +31,22 @@
                     <li><a href="news.html">뉴스</a></li>
                 </ul>
             </nav>
+            <!-- 모바일에서도 모든 메뉴로 이동할 수 있는 기본 펼침 메뉴 -->
+            <details class="mobile-menu">
+                <summary>메뉴</summary>
+                <nav aria-label="모바일 주요 메뉴">
+                    <ul>
+                        <li><a href="product.html">제품정보</a></li>
+                        <li><a href="rnd.html">R&amp;D</a></li>
+                        <li><a href="ir.html">투자정보</a></li>
+                        <li><a href="recruit.html">채용정보</a></li>
+                        <li><a href="company.html">기업정보</a></li>
+                        <li><a href="news.html">뉴스</a></li>
+                    </ul>
+                </nav>
+            </details>
         </header>
-        <main>
+        <main id="mainContent">
             <div class="hero-sec">
                 <!-- Slider main container -->
                 <div class="swiper visual">
@@ -159,10 +174,10 @@
                 <p class="rnd-label">Careers</p>
                 <h2 class="ntc-title">채용</h2>
                 <div class="ntc-tabs">
-                    <button type="button" class="ntc-tab on" data-type="all">전체 직무</button>
-                    <button type="button" class="ntc-tab" data-type="dev">개발본부</button>
-                    <button type="button" class="ntc-tab" data-type="prod">생산본부</button>
-                    <button type="button" class="ntc-tab" data-type="always">상시채용</button>
+                    <button type="button" class="ntc-tab on" data-type="all" aria-pressed="true">전체 직무</button>
+                    <button type="button" class="ntc-tab" data-type="dev" aria-pressed="false">개발본부</button>
+                    <button type="button" class="ntc-tab" data-type="prod" aria-pressed="false">생산본부</button>
+                    <button type="button" class="ntc-tab" data-type="always" aria-pressed="false">상시채용</button>
                 </div>
                 <ul class="ntc-list">
                     <li data-type="dev">
@@ -190,7 +205,7 @@
                         </a>
                     </li>
                 </ul>
-                <p class="ntc-empty" hidden>등록된 공고가 없습니다.</p>
+                <p role="status" class="ntc-empty" hidden>등록된 공고가 없습니다.</p>
                 <a href="recruit.html" class="prd-btn">채용정보 더보기</a>
                 </div>
             </section>
@@ -219,7 +234,7 @@
             direction: 'horizontal',
         });
 
-        // 제품 슬라이더: 카드 너비는 CSS에서 정하고(auto), 파란 화살표로 넘김
+        // 제품 슬라이더: 카드 너비는 CSS에서 정하고(auto), 초록 화살표로 넘김
         const prdSlider = new Swiper('.prd-slider', {
             slidesPerView: 'auto',
             spaceBetween: 16,
@@ -262,6 +277,15 @@
         }
 
         function updateRnd() {
+            // 모바일은 여섯 사진을 일반 흐름에 놓아 문구와 겹치지 않게 함
+            if (window.matchMedia('(max-width: 1024px)').matches) {
+                document.querySelectorAll('.rnd-stack img').forEach(function (img) {
+                    img.style.transform = '';
+                    img.style.opacity = '';
+                    img.style.zIndex = '';
+                });
+                return;
+            }
             const rect = rndSec.getBoundingClientRect();
             const total = rndSec.offsetHeight - window.innerHeight;
             const p = Math.min(Math.max(-rect.top / total, 0), 1);
@@ -283,7 +307,7 @@
             });
         }
         // 채용 직무 탭: 누른 탭만 초록으로, 같은 직무의 공고 카드만 보이게
-        const ntcTabs = document.querySelectorAll('.ntc-tab');
+        const ntcTabs = document.querySelectorAll('.ntc-sec .ntc-tab');
         const ntcItems = document.querySelectorAll('.ntc-list li');
         ntcTabs.forEach(function (tab) {
             tab.addEventListener('click', function () {
@@ -291,6 +315,7 @@
                 let count = 0;
                 ntcTabs.forEach(function (t) {
                     t.classList.toggle('on', t === tab);
+                    t.setAttribute('aria-pressed', String(t === tab));
                 });
                 ntcItems.forEach(function (item) {
                     const show = type === 'all' || item.dataset.type === type;

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +11,7 @@
     <script src="../npm/swiper/swiper-bundle.min.js"></script>
 </head>
 <body>
+    <a class="skip-link" href="#mainContent">본문 바로가기</a>
     <div id="wrap">
         <header>
             <div class="top-bar">
@@ -20,7 +21,7 @@
                     </a>
                 </h1>
             </div>
-            <nav class="gnb">
+            <nav class="gnb" aria-label="주요 메뉴">
                 <ul>
                     <li><a href="product.html">제품정보</a></li>
                     <li><a href="rnd.html">R&amp;D</a></li>
@@ -30,11 +31,30 @@
                     <li class="on"><a href="news.html">뉴스</a></li>
                 </ul>
             </nav>
+            <!-- 모바일에서도 모든 메뉴로 이동할 수 있는 기본 펼침 메뉴 -->
+            <details class="mobile-menu">
+                <summary>메뉴</summary>
+                <nav aria-label="모바일 주요 메뉴">
+                    <ul>
+                        <li><a href="product.html">제품정보</a></li>
+                        <li><a href="rnd.html">R&amp;D</a></li>
+                        <li><a href="ir.html">투자정보</a></li>
+                        <li><a href="recruit.html">채용정보</a></li>
+                        <li><a href="company.html">기업정보</a></li>
+                        <li><a href="news.html" aria-current="page">뉴스</a></li>
+                    </ul>
+                </nav>
+            </details>
         </header>
-        <main>
-            <!-- 상단 비주얼: .img-box 자리에 나중에 사진을 넣음 -->
+        <main id="mainContent">
+            <!-- 서브 상단 비주얼: 페이지 성격에 맞는 연구·의료 영상 -->
             <div class="sub-visual">
-                <div class="img-box">비주얼 이미지 영역 (1920 x 500)</div>
+                <!-- 장식용 배경 영상과 재생 실패·모션 감소 설정에 대비한 포스터 -->
+                <div class="sub-media" aria-hidden="true">
+                    <img class="sub-poster" src="video/researcher.jpg" alt="">
+                    <video class="sub-video" src="video/researcher.mp4" poster="video/researcher.jpg" muted loop playsinline preload="none" tabindex="-1"></video>
+                </div>
+                <button type="button" class="sub-video-toggle" hidden>배경 영상 재생</button>
                 <div class="inner">
                     <p class="sub-visual-label">NEWS</p>
                     <h2>신풍제약의<br>새로운 소식을 전합니다.</h2>
@@ -56,61 +76,61 @@
                     <h2 class="sub-title">뉴스</h2>
                     <div class="sub-body">
                         <div class="ntc-tabs">
-                            <button type="button" class="ntc-tab on" data-type="all">전체</button>
-                            <button type="button" class="ntc-tab" data-type="press">보도자료</button>
-                            <button type="button" class="ntc-tab" data-type="notice">공지사항</button>
+                            <button type="button" class="ntc-tab on" data-type="all" aria-pressed="true">전체</button>
+                            <button type="button" class="ntc-tab" data-type="press" aria-pressed="false">보도자료</button>
+                            <button type="button" class="ntc-tab" data-type="notice" aria-pressed="false">공지사항</button>
                         </div>
                         <ul class="ntc-list wrap">
                         <li data-type="press">
                             <a href="view.html?id=news01" class="ntc-card">
                                 <span class="ntc-label">보도자료</span>
-                                <strong class="ntc-name">보도자료 제목이 들어갈 자리입니다.</strong>
-                                <p class="ntc-desc">소식 내용 요약이 들어갈 자리입니다.<br>두 줄까지 들어갑니다.</p>
-                                <span class="ntc-date">2026.10.30</span>
+                                <strong class="ntc-name">보도자료 · 실제 자료 필요</strong>
+                                <p class="ntc-desc">원문과 이미지를 확인한 후 소식을 등록합니다.</p>
+                                <span class="ntc-date">실제 자료 필요</span>
                             </a>
                         </li>
                         <li data-type="notice">
                             <a href="view.html?id=news02" class="ntc-card">
                                 <span class="ntc-label">공지사항</span>
-                                <strong class="ntc-name">공지사항 제목이 들어갈 자리입니다.</strong>
-                                <p class="ntc-desc">소식 내용 요약이 들어갈 자리입니다.<br>두 줄까지 들어갑니다.</p>
-                                <span class="ntc-date">2026.10.28</span>
+                                <strong class="ntc-name">공지사항 · 실제 자료 필요</strong>
+                                <p class="ntc-desc">원문과 이미지를 확인한 후 소식을 등록합니다.</p>
+                                <span class="ntc-date">실제 자료 필요</span>
                             </a>
                         </li>
                         <li data-type="press">
                             <a href="view.html?id=news03" class="ntc-card">
                                 <span class="ntc-label">보도자료</span>
-                                <strong class="ntc-name">보도자료 제목이 들어갈 자리입니다.</strong>
-                                <p class="ntc-desc">소식 내용 요약이 들어갈 자리입니다.<br>두 줄까지 들어갑니다.</p>
-                                <span class="ntc-date">2026.10.21</span>
+                                <strong class="ntc-name">보도자료 · 실제 자료 필요</strong>
+                                <p class="ntc-desc">원문과 이미지를 확인한 후 소식을 등록합니다.</p>
+                                <span class="ntc-date">실제 자료 필요</span>
                             </a>
                         </li>
                         <li data-type="press">
                             <a href="view.html?id=news04" class="ntc-card">
                                 <span class="ntc-label">보도자료</span>
-                                <strong class="ntc-name">보도자료 제목이 들어갈 자리입니다.</strong>
-                                <p class="ntc-desc">소식 내용 요약이 들어갈 자리입니다.<br>두 줄까지 들어갑니다.</p>
-                                <span class="ntc-date">2026.10.14</span>
+                                <strong class="ntc-name">보도자료 · 실제 자료 필요</strong>
+                                <p class="ntc-desc">원문과 이미지를 확인한 후 소식을 등록합니다.</p>
+                                <span class="ntc-date">실제 자료 필요</span>
                             </a>
                         </li>
                         <li data-type="notice">
                             <a href="view.html?id=news05" class="ntc-card">
                                 <span class="ntc-label">공지사항</span>
-                                <strong class="ntc-name">공지사항 제목이 들어갈 자리입니다.</strong>
-                                <p class="ntc-desc">소식 내용 요약이 들어갈 자리입니다.<br>두 줄까지 들어갑니다.</p>
-                                <span class="ntc-date">2026.10.07</span>
+                                <strong class="ntc-name">공지사항 · 실제 자료 필요</strong>
+                                <p class="ntc-desc">원문과 이미지를 확인한 후 소식을 등록합니다.</p>
+                                <span class="ntc-date">실제 자료 필요</span>
                             </a>
                         </li>
                         <li data-type="press">
                             <a href="view.html?id=news06" class="ntc-card">
                                 <span class="ntc-label">보도자료</span>
-                                <strong class="ntc-name">보도자료 제목이 들어갈 자리입니다.</strong>
-                                <p class="ntc-desc">소식 내용 요약이 들어갈 자리입니다.<br>두 줄까지 들어갑니다.</p>
-                                <span class="ntc-date">2026.09.30</span>
+                                <strong class="ntc-name">보도자료 · 실제 자료 필요</strong>
+                                <p class="ntc-desc">원문과 이미지를 확인한 후 소식을 등록합니다.</p>
+                                <span class="ntc-date">실제 자료 필요</span>
                             </a>
                         </li>
                         </ul>
-                        <p class="ntc-empty" hidden>등록된 소식이 없습니다.</p>
+                        <p role="status" class="ntc-empty" hidden>등록된 소식이 없습니다.</p>
                     </div>
                 </div>
             </section>
@@ -144,6 +164,7 @@
                 let count = 0;
                 ntcTabs.forEach(function (t) {
                     t.classList.toggle('on', t === tab);
+                    t.setAttribute('aria-pressed', String(t === tab));
                 });
                 ntcItems.forEach(function (item) {
                     const show = type === 'all' || item.dataset.type === type;
@@ -154,6 +175,52 @@
                 ntcBox.querySelector('.ntc-empty').hidden = count > 0;
             });
         });
+    </script>
+
+    <script>
+        // 배경 영상은 화면에 보일 때만 재생하고, 모션 감소 설정이면 정지 이미지로 시작
+        (function () {
+            const visual = document.querySelector('.sub-visual');
+            const video = visual.querySelector('.sub-video');
+            const button = visual.querySelector('.sub-video-toggle');
+            const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+            let userPaused = motion.matches;
+            let inView = false;
+            video.muted = true;
+            button.hidden = false;
+
+            function updateButton() {
+                button.textContent = video.paused ? '배경 영상 재생' : '배경 영상 일시정지';
+            }
+            function syncPlayback() {
+                if (userPaused || !inView || document.hidden) {
+                    video.pause();
+                    return;
+                }
+                video.play().catch(updateButton);
+            }
+            button.addEventListener('click', function () {
+                userPaused = !video.paused;
+                syncPlayback();
+            });
+            video.addEventListener('playing', updateButton);
+            video.addEventListener('pause', updateButton);
+            video.addEventListener('error', function () {
+                // 재생할 수 없는 환경에서는 뒤에 놓인 포스터 이미지를 유지
+                video.hidden = true;
+                button.hidden = true;
+            });
+            document.addEventListener('visibilitychange', syncPlayback);
+            motion.addEventListener('change', function () {
+                userPaused = motion.matches;
+                syncPlayback();
+            });
+            const observer = new IntersectionObserver(function (entries) {
+                inView = entries[0].isIntersecting;
+                syncPlayback();
+            });
+            observer.observe(visual);
+        })();
     </script>
 </body>
 </html>

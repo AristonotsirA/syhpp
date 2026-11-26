@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +11,7 @@
     <script src="../npm/swiper/swiper-bundle.min.js"></script>
 </head>
 <body>
+    <a class="skip-link" href="#mainContent">본문 바로가기</a>
     <div id="wrap">
         <header>
             <div class="top-bar">
@@ -20,7 +21,7 @@
                     </a>
                 </h1>
             </div>
-            <nav class="gnb">
+            <nav class="gnb" aria-label="주요 메뉴">
                 <ul>
                     <li><a href="product.html">제품정보</a></li>
                     <li class="on"><a href="rnd.html">R&amp;D</a></li>
@@ -30,11 +31,30 @@
                     <li><a href="news.html">뉴스</a></li>
                 </ul>
             </nav>
+            <!-- 모바일에서도 모든 메뉴로 이동할 수 있는 기본 펼침 메뉴 -->
+            <details class="mobile-menu">
+                <summary>메뉴</summary>
+                <nav aria-label="모바일 주요 메뉴">
+                    <ul>
+                        <li><a href="product.html">제품정보</a></li>
+                        <li><a href="rnd.html" aria-current="page">R&amp;D</a></li>
+                        <li><a href="ir.html">투자정보</a></li>
+                        <li><a href="recruit.html">채용정보</a></li>
+                        <li><a href="company.html">기업정보</a></li>
+                        <li><a href="news.html">뉴스</a></li>
+                    </ul>
+                </nav>
+            </details>
         </header>
-        <main>
-            <!-- 상단 비주얼: .img-box 자리에 나중에 사진을 넣음 -->
+        <main id="mainContent">
+            <!-- 서브 상단 비주얼: 페이지 성격에 맞는 연구·의료 영상 -->
             <div class="sub-visual">
-                <div class="img-box">비주얼 이미지 영역 (1920 x 500)</div>
+                <!-- 장식용 배경 영상과 재생 실패·모션 감소 설정에 대비한 포스터 -->
+                <div class="sub-media" aria-hidden="true">
+                    <img class="sub-poster" src="video/laboratory.jpg" alt="">
+                    <video class="sub-video" src="video/laboratory.mp4" poster="video/laboratory.jpg" muted loop playsinline preload="none" tabindex="-1"></video>
+                </div>
+                <button type="button" class="sub-video-toggle" hidden>배경 영상 재생</button>
                 <div class="inner">
                     <p class="sub-visual-label">RESEARCH &amp; DEVELOPMENT</p>
                     <h2>끊임 없는 연구와 혁신으로,<br>인류의 건강한 미래를 만들어 갑니다.</h2>
@@ -128,12 +148,12 @@
                     <div class="sub-body">
                         <div class="pipe-filter">
                             <div class="ntc-tabs">
-                                <button type="button" class="ntc-tab on" data-type="all">전체</button>
-                                <button type="button" class="ntc-tab" data-type="heart">심혈관계</button>
-                                <button type="button" class="ntc-tab" data-type="bone">근골격계</button>
-                                <button type="button" class="ntc-tab" data-type="device">의료기기</button>
-                                <button type="button" class="ntc-tab" data-type="infect">감염질환</button>
-                                <button type="button" class="ntc-tab" data-type="platform">플랫폼기술</button>
+                                <button type="button" class="ntc-tab on" data-type="all" aria-pressed="true">전체</button>
+                                <button type="button" class="ntc-tab" data-type="heart" aria-pressed="false">심혈관계</button>
+                                <button type="button" class="ntc-tab" data-type="bone" aria-pressed="false">근골격계</button>
+                                <button type="button" class="ntc-tab" data-type="device" aria-pressed="false">의료기기</button>
+                                <button type="button" class="ntc-tab" data-type="infect" aria-pressed="false">감염질환</button>
+                                <button type="button" class="ntc-tab" data-type="platform" aria-pressed="false">플랫폼기술</button>
                             </div>
                         </div>
                         <div class="pipe">
@@ -426,6 +446,7 @@
                 const type = tab.dataset.type;
                 pipeTabs.forEach(function (t) {
                     t.classList.toggle('on', t === tab);
+                    t.setAttribute('aria-pressed', String(t === tab));
                 });
                 pipeItems.forEach(function (item) {
                     item.hidden = type !== 'all' && item.dataset.type !== type;
@@ -637,8 +658,60 @@
             if (e.target === modal) closeModal();
         });
         document.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape' && !modal.hidden) closeModal();
+            if (modal.hidden) return;
+            if (e.key === 'Escape') closeModal();
+            // 현재 조작 요소는 닫기 버튼 하나이므로 키보드 포커스를 안에 유지
+            if (e.key === 'Tab') {
+                e.preventDefault();
+                modalClose.focus();
+            }
         });
+    </script>
+
+    <script>
+        // 배경 영상은 화면에 보일 때만 재생하고, 모션 감소 설정이면 정지 이미지로 시작
+        (function () {
+            const visual = document.querySelector('.sub-visual');
+            const video = visual.querySelector('.sub-video');
+            const button = visual.querySelector('.sub-video-toggle');
+            const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+            let userPaused = motion.matches;
+            let inView = false;
+            video.muted = true;
+            button.hidden = false;
+
+            function updateButton() {
+                button.textContent = video.paused ? '배경 영상 재생' : '배경 영상 일시정지';
+            }
+            function syncPlayback() {
+                if (userPaused || !inView || document.hidden) {
+                    video.pause();
+                    return;
+                }
+                video.play().catch(updateButton);
+            }
+            button.addEventListener('click', function () {
+                userPaused = !video.paused;
+                syncPlayback();
+            });
+            video.addEventListener('playing', updateButton);
+            video.addEventListener('pause', updateButton);
+            video.addEventListener('error', function () {
+                // 재생할 수 없는 환경에서는 뒤에 놓인 포스터 이미지를 유지
+                video.hidden = true;
+                button.hidden = true;
+            });
+            document.addEventListener('visibilitychange', syncPlayback);
+            motion.addEventListener('change', function () {
+                userPaused = motion.matches;
+                syncPlayback();
+            });
+            const observer = new IntersectionObserver(function (entries) {
+                inView = entries[0].isIntersecting;
+                syncPlayback();
+            });
+            observer.observe(visual);
+        })();
     </script>
 </body>
 </html>

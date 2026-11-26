@@ -11,6 +11,7 @@
     <script src="../npm/swiper/swiper-bundle.min.js"></script>
 </head>
 <body>
+    <a class="skip-link" href="#mainContent">본문 바로가기</a>
     <div id="wrap">
         <header>
             <div class="top-bar">
@@ -20,7 +21,7 @@
                     </a>
                 </h1>
             </div>
-            <nav class="gnb">
+            <nav class="gnb" aria-label="주요 메뉴">
                 <ul>
                     <li><a href="product.html">제품정보</a></li>
                     <li><a href="rnd.html">R&amp;D</a></li>
@@ -30,11 +31,30 @@
                     <li><a href="news.html">뉴스</a></li>
                 </ul>
             </nav>
+            <!-- 모바일에서도 모든 메뉴로 이동할 수 있는 기본 펼침 메뉴 -->
+            <details class="mobile-menu">
+                <summary>메뉴</summary>
+                <nav aria-label="모바일 주요 메뉴">
+                    <ul>
+                        <li><a href="product.html">제품정보</a></li>
+                        <li><a href="rnd.html">R&amp;D</a></li>
+                        <li><a href="ir.html">투자정보</a></li>
+                        <li><a href="recruit.html">채용정보</a></li>
+                        <li><a href="company.html">기업정보</a></li>
+                        <li><a href="news.html">뉴스</a></li>
+                    </ul>
+                </nav>
+            </details>
         </header>
-        <main>
-            <!-- 상단 비주얼: 글이 속한 메뉴(채용정보/뉴스/투자정보)와 같게 스크립트가 채움 -->
+        <main id="mainContent">
+            <!-- 서브 상단 비주얼: 페이지 성격에 맞는 연구·의료 영상 -->
             <div class="sub-visual">
-                <div class="img-box">비주얼 이미지 영역 (1920 x 500)</div>
+                <!-- 장식용 배경 영상과 재생 실패·모션 감소 설정에 대비한 포스터 -->
+                <div class="sub-media" aria-hidden="true">
+                    <img class="sub-poster" src="video/researcher.jpg" alt="">
+                    <video class="sub-video" src="video/researcher.mp4" poster="video/researcher.jpg" muted loop playsinline preload="none" tabindex="-1"></video>
+                </div>
+                <button type="button" class="sub-video-toggle" hidden>배경 영상 재생</button>
                 <div class="inner">
                     <p class="sub-visual-label" id="vwVisualLabel">NOTICE</p>
                     <h2 id="vwVisualTitle">게시글</h2>
@@ -90,7 +110,7 @@
     <script>
         // 주소의 ?id= 값 (예: view.html?id=job01)
         const postId = new URLSearchParams(location.search).get('id');
-        const post = BOARD[postId];
+        const post = Object.prototype.hasOwnProperty.call(BOARD, postId) ? BOARD[postId] : null;
 
         function fillLines(el, lines) {
             el.textContent = '';
@@ -102,9 +122,16 @@
 
         if (post) {
             const menu = BOARD_MENU[post.menu];
+            const background = post.menu === 'ir' ? 'consultation' : 'researcher';
+            const backgroundVideo = document.querySelector('.sub-video');
+            backgroundVideo.src = 'video/' + background + '.mp4';
+            backgroundVideo.poster = 'video/' + background + '.jpg';
+            document.querySelector('.sub-poster').src = 'video/' + background + '.jpg';
             document.title = post.title + ' | 신풍제약리뉴얼포트폴리오';
             // 위쪽 메뉴: 글이 속한 메뉴를 선택 표시
             document.querySelectorAll('.gnb li')[menu.gnb].classList.add('on');
+            document.querySelectorAll('.gnb a')[menu.gnb].setAttribute('aria-current', 'page');
+            document.querySelectorAll('.mobile-menu a')[menu.gnb].setAttribute('aria-current', 'page');
             // 상단 비주얼과 현재 위치는 그 메뉴 페이지와 같게
             document.querySelector('#vwVisualLabel').textContent = menu.label;
             fillLines(document.querySelector('#vwVisualTitle'), menu.title);
@@ -131,6 +158,52 @@
             box.textContent = post.img;
             body.appendChild(box);
         }
+    </script>
+
+    <script>
+        // 배경 영상은 화면에 보일 때만 재생하고, 모션 감소 설정이면 정지 이미지로 시작
+        (function () {
+            const visual = document.querySelector('.sub-visual');
+            const video = visual.querySelector('.sub-video');
+            const button = visual.querySelector('.sub-video-toggle');
+            const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+            let userPaused = motion.matches;
+            let inView = false;
+            video.muted = true;
+            button.hidden = false;
+
+            function updateButton() {
+                button.textContent = video.paused ? '배경 영상 재생' : '배경 영상 일시정지';
+            }
+            function syncPlayback() {
+                if (userPaused || !inView || document.hidden) {
+                    video.pause();
+                    return;
+                }
+                video.play().catch(updateButton);
+            }
+            button.addEventListener('click', function () {
+                userPaused = !video.paused;
+                syncPlayback();
+            });
+            video.addEventListener('playing', updateButton);
+            video.addEventListener('pause', updateButton);
+            video.addEventListener('error', function () {
+                // 재생할 수 없는 환경에서는 뒤에 놓인 포스터 이미지를 유지
+                video.hidden = true;
+                button.hidden = true;
+            });
+            document.addEventListener('visibilitychange', syncPlayback);
+            motion.addEventListener('change', function () {
+                userPaused = motion.matches;
+                syncPlayback();
+            });
+            const observer = new IntersectionObserver(function (entries) {
+                inView = entries[0].isIntersecting;
+                syncPlayback();
+            });
+            observer.observe(visual);
+        })();
     </script>
 </body>
 </html>
