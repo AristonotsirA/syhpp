@@ -1875,3 +1875,21 @@ body.modal-open {
     .sub-intro > img { flex: none; }
 
 }
+
+/* 공식 자료 상세: 기존 제목·본문 크기와 선 색상을 사용해 본문을 읽기 쉽게 구성 */
+.view-article { max-width: 1100px; margin: 0 auto; }
+.article-section { margin-top: 36px; }
+.article-section h3 { margin-bottom: 16px; font-size: 24px; font-weight: 700; color: var(--text-primary); }
+/* 표는 화면 안에서만 가로로 이동하며 문서 전체의 가로 넘침을 방지 */
+.article-table-wrap { max-width: 100%; overflow-x: auto; margin-top: 24px; }
+.article-table { width: 100%; min-width: 475px; border-collapse: collapse; font-size: 16px; line-height: 1.7; text-align: left; }
+.article-table caption { padding-bottom: 16px; color: var(--text-secondary); text-align: left; }
+.article-table th, .article-table td { padding: 16px; border-bottom: 1px solid var(--border-subtle); vertical-align: top; }
+.article-table th { white-space: nowrap; word-break: keep-all; font-weight: 600; color: var(--text-primary); }
+.article-table thead { background: var(--background-subtle); border-top: 2px solid var(--text-primary); }
+.article-table a { color: var(--text-link); }
+/* 공고·보도 사진은 원본 비율을 유지해 글자나 사진이 잘리지 않게 */
+.article-media { max-width: 720px; margin: 36px auto 0; }
+.article-media img { display: block; width: 100%; height: auto; border-radius: 16px; }
+.article-media figcaption, .view-body .view-source { margin-top: 16px; font-size: 14px; line-height: 1.7; color: var(--text-secondary); }
+.view-source { padding-top: 24px; border-top: 1px solid var(--border-subtle); }

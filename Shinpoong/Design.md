@@ -565,3 +565,28 @@ Shinpoong/
 - 뉴스는 신문 영상 3944852-uhd_4096_2160_25fps.mp4를 video/press.mp4와 press.jpg로 연결합니다.
 - 두 페이지는 전용 파일을 사용합니다. 기존 laboratory·researcher 영상은 기업정보·채용 등의 배경으로 계속 사용합니다.
 - 기존과 같은 가로 1920px H.264, 무음, 최대 16초, faststart 설정과 1초 지점 JPG 포스터를 사용합니다.
+
+## 14. 2026-11-26 공식 자료 기반 뉴스·채용·투자정보
+
+- 공식 신풍소식 3건과 공지사항 3건을 확인해 제목·날짜·요약·상세를 반영했습니다. 오래된 공지는 당시 발표임을 표시합니다.
+- 뉴스 사진은 게시글에 사용된 원본을 img/news에 저장했습니다. 채용 공식 포스터는 img/recruit에 저장했습니다.
+- 채용 job01은 종료된 개발본부 공고 대신 현재 공식 게시판의 품질본부 공고(863)로 바꿨습니다. 메인·채용 목록의 직무 탭과 제목·기간을 함께 맞췄습니다. job02 상시채용과 job03 오송 기술경영 공고도 실제 기간과 안내를 반영했습니다.
+- 투자 상세는 기준 시각을 적은 주가 기록, 연도별 재무표, 공시 목록으로 구성했습니다. 주가를 실시간 데이터처럼 표시하지 않습니다.
+- view.html은 확인된 데이터의 sections/table/image/source를 렌더링합니다. 원문 전문 대신 요약을 사용하며, 출처와 확인일을 본문에 표시합니다. 실제 사이트로 가는 링크 없이 내부 상세페이지를 사용합니다.
+- 서식은 기존 색 변수와 제목·본문·표·카드 값을 재사용했습니다. 사진은 원본 비율, 표는 모바일에서 영역 내부 가로 스크롤을 사용합니다.
+
+### 원문 기록 (확인일 2026-11-26)
+- job01 · 2026년 하반기 품질본부 품질보증/품질관리팀 신입 및 경력 채용 · https://recruiter.shinpoong.co.kr/sub1/1_3_v.php?num=863
+- job02 · 신풍제약 상시채용(인재DB) · https://recruiter.shinpoong.co.kr/sub1/1_3_v.php?num=19
+- job03 · 2026년 생산본부 기술경영팀 경력 채용(오송) · https://recruiter.shinpoong.co.kr/sub1/1_3_v.php?num=848
+- news01 · 신풍제약 '애드마일스', 약국 플랫폼 '편한가' 입점 · https://www.shinpoong.co.kr/sub5/5_1.php?b_name=news&mode=view&number=731&page=1
+- news02 · COVID-19 치료제 피라맥스정의 임상 3상 시험 결과 관련 · https://www.shinpoong.co.kr/sub6/6_1.php?b_name=notice&mode=view&number=538&page=1
+- news03 · 신풍제약, 한마음 걷기 캠페인 후원금 안산빈센트 의원 전달 · https://www.shinpoong.co.kr/sub5/5_1.php?b_name=news&mode=view&number=730&page=1
+- news04 · 신풍제약 애드마일스, 오프뷰티 5개 매장 입점 · https://www.shinpoong.co.kr/sub5/5_1.php?b_name=news&mode=view&number=729&page=1
+- news05 · 의약품 회수 공표 · 클로신정250밀리그램 · https://www.shinpoong.co.kr/sub6/6_1.php?b_name=notice&mode=view&number=516&page=1
+- news06 · 의약품 회수 공표 · 포타솔주 · https://www.shinpoong.co.kr/sub6/6_1.php?b_name=notice&mode=view&number=513&page=1
+- ir01 · 주가정보 · 2026년 11월 26일 기준 · https://www.shinpoong.co.kr/sub4/stockInfo.php
+- ir02 · 요약 재무정보 · 2023~2025년 · https://www.shinpoong.co.kr/sub4/4_2.php
+- ir03 · 공시자료 · 최근 주요 공시 목록 · https://www.shinpoong.co.kr/sub4/4_1_1.php
+
+- 검증: 뉴스 분류 3건씩, 상세 12곳의 제목·표·출처, 공식 사진 3장과 채용 포스터 2장의 로딩을 확인했습니다. 모바일 재무표는 최소 너비 475px과 영역 내부 스크롤로 항목명 줄바꿈을 보완했습니다.
