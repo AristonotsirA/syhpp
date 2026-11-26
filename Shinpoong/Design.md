@@ -561,7 +561,7 @@ Shinpoong/
 - 색은 기존 변수와 기존 rgba(0, 0, 0, 0.7)만 사용합니다. 모바일은 제어 버튼이 설명과 겹치지 않도록 하단 여백을 기존 값 110px로 확보합니다.
 
 ### R&D·뉴스 개별 영상 교체 (2026-11-26)
-- R&D는 제공 파일 3944852-uhd_4096_2160_25fps.mp4를 video/rnd.mp4와 rnd.jpg로 연결합니다.
-- 뉴스는 제공 파일 13814893_3840_2160_30fps.mp4를 video/news.mp4와 news.jpg로 연결합니다.
+- R&D는 연구시설 영상 13814893_3840_2160_30fps.mp4를 video/facility.mp4와 facility.jpg로 연결합니다.
+- 뉴스는 신문 영상 3944852-uhd_4096_2160_25fps.mp4를 video/press.mp4와 press.jpg로 연결합니다.
 - 두 페이지는 전용 파일을 사용합니다. 기존 laboratory·researcher 영상은 기업정보·채용 등의 배경으로 계속 사용합니다.
 - 기존과 같은 가로 1920px H.264, 무음, 최대 16초, faststart 설정과 1초 지점 JPG 포스터를 사용합니다.
