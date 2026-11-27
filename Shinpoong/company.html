@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../css/default.css">
     <link rel="stylesheet" href="../npm/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="../font/css/pretendardvariable.css">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/main.css?v=20261127">
     <script src="../npm/swiper/swiper-bundle.min.js"></script>
 </head>
 <body>
@@ -70,7 +70,8 @@
                     </ul>
                 </div>
             </nav>
-            <section class="sub-sec">
+            <nav class="company-nav" aria-label="기업정보 페이지 내 메뉴"><a href="#about">회사소개</a><a href="#history">연혁</a></nav>
+            <section class="sub-sec" id="about">
                 <div class="inner">
                     <p class="sub-label">About Us</p>
                     <h2 class="sub-title">회사소개</h2>
@@ -87,74 +88,56 @@
                     </div>
                 </div>
             </section>
-            <section class="sub-sec subtle">
+
+            <section class="sub-sec subtle history-sec" id="history">
                 <div class="inner">
-                    <p class="sub-label">Core Value</p>
-                    <h2 class="sub-title">핵심가치</h2>
-                    <p class="sub-desc">신풍제약이 일하는 방식을 이끄는 세 가지 가치입니다.</p>
-                    <div class="sub-body">
-                        <ul class="ntc-list">
-                        <li>
-                            <div class="ntc-card">
-                                <span class="ntc-label">Value 01</span>
-                                <strong class="ntc-name">인류의 건강</strong>
-                                <p class="ntc-desc">의약품을 통해 더 나은 삶에 기여한다는<br>마음으로 일합니다.</p>
-                                <span class="ntc-date">HEALTH</span>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="ntc-card">
-                                <span class="ntc-label">Value 02</span>
-                                <strong class="ntc-name">끊임 없는 연구</strong>
-                                <p class="ntc-desc">자체 연구개발을 통해 축적한 기술과 경험으로<br>더 나은 치료의 가능성을 탐구합니다.</p>
-                                <span class="ntc-date">RESEARCH</span>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="ntc-card">
-                                <span class="ntc-label">Value 03</span>
-                                <strong class="ntc-name">사람을 향한 진심</strong>
-                                <p class="ntc-desc">오늘의 역할에 충실하며<br>내일의 가능성을 넓혀갑니다.</p>
-                                <span class="ntc-date">TRUST</span>
-                            </div>
-                        </li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-            <section class="sub-sec">
-                <div class="inner">
-                    <p class="sub-label">History</p>
                     <h2 class="sub-title">연혁</h2>
-                    <div class="sub-body">
-                        <ul class="hist-list">
-                            <li>
-                                <strong class="hist-year">2024</strong>
-                                <ul>
-                                    <li>창립 60주년 (1964 - 2024)</li>
-                                    <li>실제 자료 필요</li>
-                                </ul>
-                            </li>
-                            <li>
-                                <strong class="hist-year">2010s</strong>
-                                <ul>
-                                    <li>실제 자료 필요</li>
-                                    <li>실제 자료 필요</li>
-                                </ul>
-                            </li>
-                            <li>
-                                <strong class="hist-year">2000s</strong>
-                                <ul>
-                                    <li>실제 자료 필요</li>
-                                </ul>
-                            </li>
-                            <li>
-                                <strong class="hist-year">1964</strong>
-                                <ul>
-                                    <li>신풍제약 창립</li>
-                                </ul>
-                            </li>
-                        </ul>
+                    <p class="sub-desc">1962년 창립부터 이어 온 연구와 성장의 주요 발자취입니다.</p>
+                    <nav class="history-nav" aria-label="연혁 시대별 바로가기">
+                        <a href="#foundation">1962–1989<span>창립과 생산 기반의 확립</span></a>
+                        <a href="#global">1990–2009<span>세계로 넓혀 온 발자취</span></a>
+                        <a href="#innovation">2010–2015<span>항말라리아 신약 개발의 결실</span></a>
+                    </nav>
+                    <div class="history-eras">
+                        <article class="history-era" id="foundation" aria-labelledby="foundationTitle">
+                            <div class="history-summary">
+                                <p class="history-range">1962–1989</p>
+                                <h3 id="foundationTitle">창립과 생산 기반의 확립</h3>
+                                <img src="img/company-bg.png" alt="신풍제약 공장 전경" loading="lazy" decoding="async">
+                            </div>
+                            <ol class="history-events">
+                                <li><time datetime="1962-06"><strong>1962</strong><span>06</span></time><p>신풍제약사 창립</p></li>
+                                <li><time datetime="1972-05"><strong>1972</strong><span>05</span></time><p>메벤다졸 원료합성 성공</p></li>
+                                <li><time datetime="1982-12"><strong>1982</strong><span>12</span></time><p>안산 반월공단 KGMP 공장 준공</p></li>
+                                <li><time datetime="1988-02"><strong>1988</strong><span>02</span></time><p>중앙연구소 설립</p></li>
+                            </ol>
+                        </article>
+                        <article class="history-era" id="global" aria-labelledby="globalTitle">
+                            <div class="history-summary">
+                                <p class="history-range">1990–2009</p>
+                                <h3 id="globalTitle">세계로 넓혀 온 발자취</h3>
+                                <img src="img/rnd-left2.png" alt="의약품 연구 실험 이미지" loading="lazy" decoding="async">
+                            </div>
+                            <ol class="history-events">
+                                <li><time datetime="1990-01"><strong>1990</strong><span>01</span></time><p>증권거래소 주식 상장</p></li>
+                                <li><time datetime="1996-05"><strong>1996</strong><span>05</span></time><p>신풍대우파마베트남 합작공장 설립</p></li>
+                                <li><time datetime="2000-02"><strong>2000</strong><span>02</span></time><p>WHO와 항말라리아 신약 공동개발 협약</p></li>
+                                <li><time datetime="2009-08"><strong>2009</strong><span>08</span></time><p>오송 세파항생제 전용공장 기공</p></li>
+                            </ol>
+                        </article>
+                        <article class="history-era" id="innovation" aria-labelledby="innovationTitle">
+                            <div class="history-summary">
+                                <p class="history-range">2010–2015</p>
+                                <h3 id="innovationTitle">항말라리아 신약 개발의 결실</h3>
+                                <img src="img/product/rx11.jpg" alt="피라맥스 제품 사진" loading="lazy" decoding="async" class="product-image">
+                            </div>
+                            <ol class="history-events">
+                                <li><time datetime="2011-09"><strong>2011</strong><span>09</span></time><p>피라맥스 공장 EU-GMP 인증</p></li>
+                                <li><time datetime="2012-02"><strong>2012</strong><span>02</span></time><p>피라맥스정 EMA 등록</p></li>
+                                <li><time datetime="2013-01"><strong>2013</strong><span>01</span></time><p>세파계 항생제 전용공장 KGMP 인증</p></li>
+                                <li><time datetime="2015-09"><strong>2015</strong><span>09</span></time><p>소아용 피라맥스 과립 EMA 등록</p></li>
+                            </ol>
+                        </article>
                     </div>
                 </div>
             </section>

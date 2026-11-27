@@ -81,7 +81,7 @@ header {
 .gnb a {
     display: block;
     padding: 10px 20px;
-    border-bottom: 2px solid transparent;
+    border-bottom: 1px solid transparent;
     color: var(--text-inverse);
     font-size: 16px;
     transition: border-color 0.3s;
@@ -285,7 +285,7 @@ header {
     height: 70px;
     margin-top: 60px;
     padding: 0 36px;
-    border: 2px solid transparent;
+    border: 1px solid transparent;
     border-radius: 92px;
     background-color: var(--background-subtle);
     color: var(--text-link);
@@ -375,7 +375,7 @@ header {
 .prd-card.thumb {
     aspect-ratio: 282 / 173;
     /* 사진 상자에만 연한 초록 테두리 (선생님 피드백: --accent-emphasis #007a3d를 rgba 투명도 0.2로) */
-    border: 2px solid rgba(0, 122, 61, 0.2);
+    border: 1px solid rgba(0, 122, 61, 0.2);
 }
 /* 마우스를 올리면 검은 막(70%)과 흰 제품 이름이 나타남 */
 .prd-card::after {
@@ -454,7 +454,7 @@ header {
     font-size: 20px;
     line-height: 1.5;
 }
-/* 사업·생산 역량은 기존 흰 카드 규칙으로 사진과 분리하여 읽기 쉽게 */
+/* 선생님 피드백: 사진 위 역량 카드는 흰색 30% 배경과 1px 테두리 */
 .cmp-cap {
     display: flex;
     gap: 21px;
@@ -466,15 +466,15 @@ header {
     padding: 24px;
     border: 1px solid var(--border-subtle);
     border-radius: 25px;
-    background-color: var(--surface-default);
-    color: var(--text-primary);
+    background-color: rgb(255 255 255 / 30%);
+    color: var(--text-inverse);
     text-shadow: none;
     font-size: 16px;
     line-height: 1.6;
 }
 .cmp-cap span {
     display: block;
-    color: var(--text-link);
+    color: var(--text-inverse);
     font-size: 14px;
     font-weight: 600;
 }
@@ -546,13 +546,13 @@ header {
 .ntc-list li[hidden] {
     display: none;
 }
-/* 카드: 회색 테두리 2px, 날짜는 카드 맨 아래에 붙임 */
+/* 카드: 회색 테두리 1px, 날짜는 카드 맨 아래에 붙임 */
 .ntc-card {
     display: flex;
     flex-direction: column;
     height: 400px;
     padding: 36px 35px;
-    border: 2px solid var(--border-input);
+    border: 1px solid var(--border-input);
     border-radius: 25px;
     color: var(--text-secondary);
     font-size: 20px;
@@ -581,12 +581,12 @@ a.ntc-card:hover {
     font-size: 20px;
 }
 
-/* 푸터 (피그마: 높이 325px, 연한 배경) - 글자 위치는 .inner로 맞춤 */
+/* 선생님 피드백: 주 메뉴와 같은 초록 배경, 흰색 텍스트 */
 footer {
     min-height: 325px;
     padding: 65px 20px 40px;
     border-top: 1px solid var(--border-subtle); /* 위 섹션과 배경색이 같아서 경계선 (선생님 피드백) */
-    background-color: var(--background-subtle);
+    background-color: var(--accent-emphasis);
     font-size: 16px;
     line-height: 1.5;
 }
@@ -594,7 +594,7 @@ footer {
     display: flex;
 }
 .ft-links a {
-    color: var(--text-primary);
+    color: var(--text-inverse);
     font-weight: 600;
 }
 /* 개인정보처리방침만 더 굵게 */
@@ -605,23 +605,23 @@ footer {
 .ft-links li + li::before {
     content: "|";
     margin: 0 10px;
-    color: var(--border-subtle);
+    color: var(--text-inverse);
     font-weight: 700;
 }
 .ft-info {
     margin-top: 33px;
-    color: var(--text-secondary);
+    color: var(--text-inverse);
     font-style: normal;
     font-weight: 500;
 }
 .ft-copy {
     margin-top: 24px;
-    color: var(--text-secondary);
+    color: var(--text-inverse);
 }
 /* 포트폴리오 안내 문구 (선생님 체크리스트) */
 .ft-notice {
     margin-top: 8px;
-    color: var(--text-secondary);
+    color: var(--text-inverse);
 }
 
 /* ============================================================
@@ -893,7 +893,7 @@ footer {
     width: 475px;
     max-width: 100%;
     height: 70px;
-    border: 2px solid var(--border-input);
+    border: 1px solid var(--border-input);
     border-radius: 92px;
     overflow: hidden;
 }
@@ -946,7 +946,7 @@ footer {
 
 /* 연혁: 왼쪽 연도, 오른쪽 내용 */
 .hist-list {
-    border-top: 2px solid var(--border-input);
+    border-top: 1px solid var(--border-input);
     text-align: left;
 }
 .hist-list > li {
@@ -1020,7 +1020,7 @@ footer {
     display: flex;
     margin-left: 475px;
     padding-bottom: 20px;
-    border-bottom: 2px solid var(--border-input);
+    border-bottom: 1px solid var(--border-input);
 }
 .pipe-head li {
     flex: 1;
@@ -1110,7 +1110,7 @@ footer {
     flex: 1;
     min-width: 0;
     aspect-ratio: 282 / 173;
-    border: 2px solid rgba(0, 122, 61, 0.2);
+    border: 1px solid rgba(0, 122, 61, 0.2);
     border-radius: 25px;
     overflow: hidden;
 }
@@ -1140,7 +1140,7 @@ footer {
 /* 정보 표: 위 굵은 선 + 줄마다 연한 선, 왼쪽 항목 이름 225px(탭 너비) */
 .info-table {
     margin-top: 60px;
-    border-top: 2px solid var(--text-primary);
+    border-top: 1px solid var(--text-primary);
     text-align: left;
 }
 .info-table div {
@@ -1166,7 +1166,7 @@ footer {
 }
 .view-head {
     padding-bottom: 36px;
-    border-bottom: 2px solid var(--text-primary);
+    border-bottom: 1px solid var(--text-primary);
 }
 .view-date {
     margin-top: 16px;
@@ -1886,10 +1886,80 @@ body.modal-open {
 .article-table caption { padding-bottom: 16px; color: var(--text-secondary); text-align: left; }
 .article-table th, .article-table td { padding: 16px; border-bottom: 1px solid var(--border-subtle); vertical-align: top; }
 .article-table th { white-space: nowrap; word-break: keep-all; font-weight: 600; color: var(--text-primary); }
-.article-table thead { background: var(--background-subtle); border-top: 2px solid var(--text-primary); }
+.article-table thead { background: var(--background-subtle); border-top: 1px solid var(--text-primary); }
 .article-table a { color: var(--text-link); }
 /* 공고·보도 사진은 원본 비율을 유지해 글자나 사진이 잘리지 않게 */
 .article-media { max-width: 720px; margin: 36px auto 0; }
 .article-media img { display: block; width: 100%; height: auto; border-radius: 16px; }
 .article-media figcaption, .view-body .view-source { margin-top: 16px; font-size: 14px; line-height: 1.7; color: var(--text-secondary); }
 .view-source { padding-top: 24px; border-top: 1px solid var(--border-subtle); }
+
+/* 2026-11-27 선생님 피드백. 주요 제목은 PC·모바일 모두 40px로 통일한다. */
+:root { --font-title: 40px; }
+.hero-txt h2, .rnd-txt h2, .prd-title, .cmp-txt h2, .ntc-title,
+.sub-visual h2, .sub-title, .sub-intro-txt h3, .view-title {
+    font-size: var(--font-title);
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+    word-break: keep-all;
+}
+footer { color: var(--text-inverse); }
+.rnd-txt h2 { margin-top: 0; }
+/* 각 스토리에 연구 이미지 또는 해당 제품 사진을 배치한다. */
+.rnd-story .ntc-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.rnd-story .ntc-list li { width: auto; min-width: 0; }
+.rnd-story .ntc-card { height: 100%; padding: 24px; }
+.story-image { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 16px; }
+.story-image.product-image { object-fit: contain; background-color: var(--surface-default); }
+.rnd-story .ntc-name { margin-top: 24px; }
+.rnd-story .ntc-date { padding-top: 24px; }
+/* 막대 폭은 기존 임상 단계를 유지하고, 처음 보일 때만 차오르게 한다. */
+.pipe-motion .pipe-bar { transform: scaleX(0); transform-origin: left; transition: transform 0.8s ease; }
+.pipe-motion .is-visible .pipe-bar { transform: scaleX(1); }
+@media (prefers-reduced-motion: reduce) {
+    .pipe-motion .pipe-bar { transform: none; transition: none; }
+}
+/* 문의 레퍼런스의 풀 배경·중앙 정렬·외곽선 버튼 구성을 브랜드 색으로 적용. */
+.partner-cta { position: relative; isolation: isolate; background: var(--accent-emphasis) url('../img/hero-lab.png') center / cover; }
+.partner-cta::before { content: ''; position: absolute; inset: 0; z-index: -1; background: var(--neutral-900); opacity: 0.8; }
+.partner-cta .sub-title, .partner-cta .sub-desc { color: var(--text-inverse); }
+.partner-cta .cmp-btn { display: inline-flex; align-items: center; justify-content: center; gap: 24px; width: auto; min-width: 225px; padding-inline: 24px; margin-top: 36px; }
+/* 회사소개/연혁으로 구성을 줄이고 시대별 이미지와 연도별 기록을 나란히 배치. */
+.company-nav { display: flex; justify-content: center; gap: 36px; padding: 24px 20px; border-bottom: 1px solid var(--border-subtle); }
+.company-nav a { color: var(--text-link); font-weight: 600; }
+.company-nav a:hover { text-decoration: underline; }
+#about, #history, .history-era { scroll-margin-top: 120px; }
+.history-nav { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin-top: 60px; text-align: left; }
+.history-nav a { padding: 24px; border-top: 1px solid var(--accent-emphasis); color: var(--text-link); font-size: 24px; font-weight: 700; }
+.history-nav span { display: block; margin-top: 12px; color: var(--text-secondary); font-size: 16px; font-weight: 500; }
+.history-nav a:hover { background: var(--surface-default); }
+.history-era { display: grid; grid-template-columns: 1fr 1fr; gap: 65px; padding-top: 81px; text-align: left; }
+.history-range { color: var(--text-link); font-size: 40px; font-weight: 700; }
+.history-summary h3 { margin-top: 16px; font-size: 24px; font-weight: 700; }
+.history-summary img { display: block; width: 100%; aspect-ratio: 513 / 300; margin-top: 32px; object-fit: cover; border-radius: 25px; }
+.history-summary .product-image { object-fit: contain; background: var(--surface-default); }
+.history-events { border-top: 1px solid var(--border-input); }
+.history-events li { display: flex; gap: 24px; padding: 32px 0; border-bottom: 1px solid var(--border-subtle); }
+.history-events time { display: flex; gap: 12px; align-items: baseline; flex-shrink: 0; color: var(--text-link); }
+.history-events strong { font-size: 24px; font-weight: 700; }
+.history-events p { color: var(--text-secondary); line-height: 1.7; }
+@media (max-width: 1024px) {
+    .rnd-story .ntc-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .history-era { gap: 32px; }
+    .history-events li { flex-direction: column; gap: 12px; }
+}
+@media (max-width: 640px) {
+    .rnd-story .ntc-list { grid-template-columns: minmax(0, 1fr); }
+    .history-nav { grid-template-columns: minmax(0, 1fr); gap: 12px; margin-top: 32px; }
+    .history-nav a { padding: 16px; }
+    .history-era { grid-template-columns: minmax(0, 1fr); padding-top: 60px; }
+    .history-summary img { border-radius: 16px; }
+    .history-events li { flex-direction: row; gap: 24px; }
+}
+
+/* 40px 제목이 양옆 연구 사진과 겹치지 않게 가운데 폭을 확보한다. */
+@media (min-width: 1025px) {
+    .rnd-txt { width: 40vw; }
+}
+
+.rnd-txt h2 { text-wrap: balance; }
