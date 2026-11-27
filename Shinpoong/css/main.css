@@ -1961,11 +1961,35 @@ footer { color: var(--text-inverse); }
 
 /* 전 페이지 공통 하위 메뉴: 마우스와 키보드 포커스로 열린다. */
 .gnb > ul > li { position: relative; flex: 1; text-align: center; }
-.gnb .gnb-submenu { position: absolute; top: 100%; left: 50%; z-index: 20; display: flex; flex-direction: column; justify-content: flex-start; width: 225px; padding: 12px 0; margin: 0; border: 1px solid var(--border-subtle); border-radius: 0 0 16px 16px; background: var(--surface-default); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); visibility: hidden; opacity: 0; transform: translate(-50%, 8px); pointer-events: none; transition: opacity 0.2s, transform 0.2s, visibility 0.2s; }
-.gnb > ul > li:hover > .gnb-submenu, .gnb > ul > li:focus-within > .gnb-submenu { visibility: visible; opacity: 1; transform: translate(-50%, 0); pointer-events: auto; }
+.gnb .gnb-submenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    max-width: none;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    border-radius: 0;
+    background: var(--accent-emphasis);
+    visibility: hidden;
+    clip-path: inset(0 0 100% 0);
+    pointer-events: none;
+    transition: clip-path 0.25s ease, visibility 0.25s;
+}
+.gnb > ul > li:hover > .gnb-submenu,
+.gnb > ul > li:focus-within > .gnb-submenu {
+    visibility: visible;
+    clip-path: inset(0);
+    pointer-events: auto;
+}
 .gnb .gnb-submenu li { width: 100%; }
-.gnb .gnb-submenu a { padding: 16px 24px; border: 0; color: var(--text-primary); font-weight: 500; }
-.gnb .gnb-submenu a:hover, .gnb .gnb-submenu a:focus-visible { color: var(--text-link); background: var(--background-subtle); }
+.gnb .gnb-submenu a { padding: 16px 12px; border: 0; color: var(--text-inverse); font-weight: 500; }
+.gnb .gnb-submenu a:hover, .gnb .gnb-submenu a:focus-visible { color: var(--text-inverse); background: var(--accent-emphasis); text-decoration: underline; text-underline-offset: 6px; }
 #best, #all, #research, #story, #pipeline, #investor, #archive, #talent, #process, #jobs, #newsList { scroll-margin-top: 120px; }
 /* 모바일 펼침 메뉴 안에서도 하위 항목을 모두 고를 수 있다. */
 .mobile-menu .mobile-submenu { padding: 0 0 12px 20px; border-bottom: 1px solid var(--border-subtle); }
@@ -1974,8 +1998,3 @@ footer { color: var(--text-inverse); }
     #best, #all, #research, #story, #pipeline, #investor, #archive, #talent, #process, #jobs, #newsList { scroll-margin-top: 56px; }
 }
 @media (prefers-reduced-motion: reduce) { .gnb .gnb-submenu { transition: none; } }
-
-/* 양 끝 드롭다운이 노트북 화면 바깥으로 넘어가지 않게 정렬한다. */
-.gnb > ul > li:first-child > .gnb-submenu { left: 0; transform: translateY(8px); }
-.gnb > ul > li:last-child > .gnb-submenu { left: auto; right: 0; transform: translateY(8px); }
-.gnb > ul > li:first-child:hover > .gnb-submenu, .gnb > ul > li:first-child:focus-within > .gnb-submenu, .gnb > ul > li:last-child:hover > .gnb-submenu, .gnb > ul > li:last-child:focus-within > .gnb-submenu { transform: translateY(0); }
