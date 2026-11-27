@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../css/default.css">
     <link rel="stylesheet" href="../npm/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="../font/css/pretendardvariable.css">
-    <link rel="stylesheet" href="css/main.css?v=20261127">
+    <link rel="stylesheet" href="css/main.css?v=20261127-2">
     <script src="../npm/swiper/swiper-bundle.min.js"></script>
 </head>
 <body>
@@ -56,7 +56,6 @@
                 </div>
                 <button type="button" class="sub-video-toggle" hidden>배경 영상 재생</button>
                 <div class="inner">
-                    <p class="sub-visual-label">PRODUCT</p>
                     <h2>당신의 건강을 위해,<br>신풍이 함께합니다.</h2>
                     <p>신풍제약이 만드는 의약품과 의료제품을 소개합니다.</p>
                 </div>
@@ -77,7 +76,6 @@
                     <div class="view-intro">
                         <div class="view-thumb" id="pvThumb"></div>
                         <div class="view-intro-txt">
-                            <p class="sub-label" id="pvCat"></p>
                             <h2 class="view-title" id="pvName">제품을 찾을 수 없습니다.</h2>
                             <p class="view-desc" id="pvDesc">제품 목록에서 다시 골라 주세요.</p>
                         </div>
@@ -123,7 +121,6 @@
         if (product) {
             document.title = product.name + ' | 신풍제약리뉴얼포트폴리오';
             document.querySelector('#pvPath').textContent = product.name;
-            document.querySelector('#pvCat').textContent = product.cat;
             document.querySelector('#pvName').textContent = product.name;
             fillLines(document.querySelector('#pvDesc'), product.desc);
 

@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../css/default.css">
     <link rel="stylesheet" href="../npm/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="../font/css/pretendardvariable.css">
-    <link rel="stylesheet" href="css/main.css?v=20261127">
+    <link rel="stylesheet" href="css/main.css?v=20261127-2">
     <script src="../npm/swiper/swiper-bundle.min.js"></script>
 </head>
 <body>
@@ -95,7 +95,6 @@
                                     <img class="story-image" src="img/rnd-left2.png" alt="의약품 연구 실험 이미지" loading="lazy" decoding="async">
                                     <strong class="ntc-name">구충제</strong>
                                     <p class="ntc-desc">메벤다졸 등 여러 구충제를 개발하고,<br>세계 2번째로 프라지콴텔 합성<br>대량생산에 성공했습니다.</p>
-                                    <span class="ntc-date">ANTHELMINTIC</span>
                                 </div>
                             </li>
                             <li>
@@ -103,7 +102,6 @@
                                     <img class="story-image" src="img/rnd-right3.png" alt="원료 연구를 위한 피펫 실험 이미지" loading="lazy" decoding="async">
                                     <strong class="ntc-name">원료의약품</strong>
                                     <p class="ntc-desc">진통소염제 록소프로펜 소듐,<br>항암제 독시플루리딘의 원료 합성<br>대량생산에 성공했습니다.</p>
-                                    <span class="ntc-date">API</span>
                                 </div>
                             </li>
                             <li>
@@ -111,7 +109,6 @@
                                     <img class="story-image" src="img/rnd-right2.png" alt="무균 연구 환경 이미지" loading="lazy" decoding="async">
                                     <strong class="ntc-name">항생제</strong>
                                     <p class="ntc-desc">주요 항생제의 합성 대량생산과<br>완제품을 완성하고,<br>세파계 항생제 전용공장을 세웠습니다.</p>
-                                    <span class="ntc-date">ANTIBIOTICS</span>
                                 </div>
                             </li>
                             <li>
@@ -119,7 +116,6 @@
                                     <img class="story-image product-image" src="img/product/rx10.jpg" alt="개량신약 칸데암로 제품 사진" loading="lazy" decoding="async">
                                     <strong class="ntc-name">개량신약</strong>
                                     <p class="ntc-desc">효과와 복약편의성을 높인<br>칸데암로정, 에제로수정 등<br>복합제를 개발했습니다.</p>
-                                    <span class="ntc-date">IMPROVED DRUG</span>
                                 </div>
                             </li>
                             <li>
@@ -127,7 +123,6 @@
                                     <img class="story-image product-image" src="img/product/rx11.jpg" alt="피라맥스 제품 사진" loading="lazy" decoding="async">
                                     <strong class="ntc-name">피라맥스</strong>
                                     <p class="ntc-desc">MMV와 협력해 개발한<br>항말라리아 신약으로<br>EMA 등록을 마쳤습니다.</p>
-                                    <span class="ntc-date">PYRAMAX</span>
                                 </div>
                             </li>
                         </ul>
@@ -356,7 +351,6 @@
     <div class="modal" id="pipeModal" hidden>
         <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="pipeModalTitle">
             <button type="button" class="modal-close" aria-label="닫기">&times;</button>
-            <span class="modal-label"></span>
             <strong class="modal-title" id="pipeModalTitle"></strong>
             <p class="modal-sub"></p>
             <p class="modal-stage"></p>
@@ -565,7 +559,6 @@
         function openModal(item, index) {
             const detail = pipeDetail[index];
             const stage = item.querySelector('.pipe-bar').textContent;
-            modal.querySelector('.modal-label').textContent = item.querySelector('.pipe-name span').textContent;
             modal.querySelector('.modal-title').textContent = item.querySelector('.pipe-name strong').textContent;
             modal.querySelector('.modal-sub').textContent = item.querySelector('.pipe-name p').textContent;
             modal.querySelector('.modal-stage').textContent = detail.note || stage;

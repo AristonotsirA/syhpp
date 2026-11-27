@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../css/default.css">
     <link rel="stylesheet" href="../npm/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="../font/css/pretendardvariable.css">
-    <link rel="stylesheet" href="css/main.css?v=20261127">
+    <link rel="stylesheet" href="css/main.css?v=20261127-2">
     <script src="../npm/swiper/swiper-bundle.min.js"></script>
 </head>
 <body>
@@ -56,7 +56,6 @@
                 </div>
                 <button type="button" class="sub-video-toggle" hidden>배경 영상 재생</button>
                 <div class="inner">
-                    <p class="sub-visual-label" id="vwVisualLabel">NOTICE</p>
                     <h2 id="vwVisualTitle">게시글</h2>
                     <p id="vwVisualDesc"></p>
                 </div>
@@ -76,7 +75,6 @@
                 <div class="inner">
                     <article class="view-article">
                         <div class="view-head">
-                            <p class="sub-label" id="vwLabel"></p>
                             <h2 class="view-title" id="vwTitle">글을 찾을 수 없습니다.</h2>
                             <p class="view-date" id="vwDate"></p>
                         </div>
@@ -133,7 +131,6 @@
             document.querySelectorAll('.gnb a')[menu.gnb].setAttribute('aria-current', 'page');
             document.querySelectorAll('.mobile-menu a')[menu.gnb].setAttribute('aria-current', 'page');
             // 상단 비주얼과 현재 위치는 그 메뉴 페이지와 같게
-            document.querySelector('#vwVisualLabel').textContent = menu.label;
             fillLines(document.querySelector('#vwVisualTitle'), menu.title);
             fillLines(document.querySelector('#vwVisualDesc'), menu.desc);
             const pathMenu = document.querySelector('#vwPathMenu');
@@ -142,7 +139,6 @@
             document.querySelector('#vwPath').textContent = post.title;
             document.querySelector('#vwBack').href = menu.href;
             // 글 내용
-            document.querySelector('#vwLabel').textContent = post.label;
             document.querySelector('#vwTitle').textContent = post.title;
             document.querySelector('#vwDate').textContent = post.date;
             const body = document.querySelector('#vwBody');

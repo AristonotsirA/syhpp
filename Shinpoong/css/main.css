@@ -1963,3 +1963,22 @@ footer { color: var(--text-inverse); }
 }
 
 .rnd-txt h2 { text-wrap: balance; }
+
+/* 2026-11-27 추가 피드백: 중복 라벨 없이 제목과 내용 사이에 여유를 둔다. */
+.sub-title, .sub-visual h2, .sub-intro-txt h3, .view-title { margin-top: 0; }
+.ntc-card > .ntc-name:first-child { margin-top: 0; }
+.rnd-txt h2 { line-height: 1.6; }
+.rnd-txt .rnd-desc { margin-top: 40px; line-height: 1.9; }
+.rnd-txt .rnd-btn { margin-top: 65px; }
+/* 왼쪽 소개 문구와 오른쪽 카드 3개를 두 열로 나란히 놓는다. */
+.cmp-txt { display: grid; grid-template-columns: minmax(0, 1fr) minmax(300px, 420px); align-items: center; gap: 65px; }
+.cmp-copy { min-width: 0; }
+.cmp-cap { flex-direction: column; gap: 24px; max-width: none; margin-top: 0; }
+.cmp-cap li { flex: auto; }
+.cmp-cap strong { margin-top: 0; }
+@media (max-width: 1024px) {
+    .cmp-txt { grid-template-columns: minmax(0, 1fr); gap: 48px; }
+    .cmp-cap { width: 100%; margin-top: 0; }
+    .rnd-txt .rnd-desc { margin-top: 32px; }
+    .rnd-txt .rnd-btn { margin-top: 48px; }
+}
