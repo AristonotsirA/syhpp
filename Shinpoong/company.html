@@ -7,8 +7,9 @@
     <link rel="stylesheet" href="../css/default.css">
     <link rel="stylesheet" href="../npm/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="../font/css/pretendardvariable.css">
-    <link rel="stylesheet" href="css/main.css?v=20261127-2">
+    <link rel="stylesheet" href="css/main.css?v=20261127-3">
     <script src="../npm/swiper/swiper-bundle.min.js"></script>
+    <script src="js/navigation.js?v=20261127" defer></script>
 </head>
 <body>
     <a class="skip-link" href="#mainContent">본문 바로가기</a>
@@ -21,29 +22,45 @@
                     </a>
                 </h1>
             </div>
-            <nav class="gnb" aria-label="주요 메뉴">
-                <ul>
-                    <li><a href="product.html">제품정보</a></li>
-                    <li><a href="rnd.html">R&amp;D</a></li>
-                    <li><a href="ir.html">투자정보</a></li>
-                    <li><a href="recruit.html">채용정보</a></li>
-                    <li class="on"><a href="company.html">기업정보</a></li>
-                    <li><a href="news.html">뉴스</a></li>
-                </ul>
-            </nav>
+            <nav class="gnb" aria-label="주요 메뉴"><ul><li><a href="product.html">제품정보</a>
+                        <ul class="gnb-submenu" aria-label="제품정보 하위 메뉴"><li><a href="product.html#best">대표제품</a></li><li><a href="product.html#all">전체제품</a></li></ul>
+                    </li>
+                    <li><a href="rnd.html">R&amp;D</a>
+                        <ul class="gnb-submenu" aria-label="R&amp;D 하위 메뉴"><li><a href="rnd.html#research">연구개발</a></li><li><a href="rnd.html#story">스토리</a></li><li><a href="rnd.html#pipeline">파이프라인</a></li></ul>
+                    </li>
+                    <li><a href="ir.html">투자정보</a>
+                        <ul class="gnb-submenu" aria-label="투자정보 하위 메뉴"><li><a href="ir.html#investor">투자정보</a></li><li><a href="ir.html#archive">IR 자료실</a></li></ul>
+                    </li>
+                    <li><a href="recruit.html">채용정보</a>
+                        <ul class="gnb-submenu" aria-label="채용정보 하위 메뉴"><li><a href="recruit.html#talent">인재상</a></li><li><a href="recruit.html#process">채용 절차</a></li><li><a href="recruit.html#jobs">채용 공고</a></li></ul>
+                    </li>
+                    <li class="on"><a href="company.html" aria-current="page">기업정보</a>
+                        <ul class="gnb-submenu" aria-label="기업정보 하위 메뉴"><li><a href="company.html#about">회사소개</a></li><li><a href="company.html#history">연혁</a></li></ul>
+                    </li>
+                    <li><a href="news.html">뉴스</a>
+                        <ul class="gnb-submenu" aria-label="뉴스 하위 메뉴"><li><a href="news.html?type=press#newsList">보도자료</a></li><li><a href="news.html?type=notice#newsList">공지사항</a></li></ul>
+                    </li></ul></nav>
             <!-- 모바일에서도 모든 메뉴로 이동할 수 있는 기본 펼침 메뉴 -->
             <details class="mobile-menu">
                 <summary>메뉴</summary>
-                <nav aria-label="모바일 주요 메뉴">
-                    <ul>
-                        <li><a href="product.html">제품정보</a></li>
-                        <li><a href="rnd.html">R&amp;D</a></li>
-                        <li><a href="ir.html">투자정보</a></li>
-                        <li><a href="recruit.html">채용정보</a></li>
-                        <li><a href="company.html" aria-current="page">기업정보</a></li>
-                        <li><a href="news.html">뉴스</a></li>
-                    </ul>
-                </nav>
+                <nav aria-label="모바일 주요 메뉴"><ul><li><a href="product.html">제품정보</a>
+                        <ul class="mobile-submenu" aria-label="제품정보 하위 메뉴"><li><a href="product.html#best">대표제품</a></li><li><a href="product.html#all">전체제품</a></li></ul>
+                    </li>
+                    <li><a href="rnd.html">R&amp;D</a>
+                        <ul class="mobile-submenu" aria-label="R&amp;D 하위 메뉴"><li><a href="rnd.html#research">연구개발</a></li><li><a href="rnd.html#story">스토리</a></li><li><a href="rnd.html#pipeline">파이프라인</a></li></ul>
+                    </li>
+                    <li><a href="ir.html">투자정보</a>
+                        <ul class="mobile-submenu" aria-label="투자정보 하위 메뉴"><li><a href="ir.html#investor">투자정보</a></li><li><a href="ir.html#archive">IR 자료실</a></li></ul>
+                    </li>
+                    <li><a href="recruit.html">채용정보</a>
+                        <ul class="mobile-submenu" aria-label="채용정보 하위 메뉴"><li><a href="recruit.html#talent">인재상</a></li><li><a href="recruit.html#process">채용 절차</a></li><li><a href="recruit.html#jobs">채용 공고</a></li></ul>
+                    </li>
+                    <li><a href="company.html" aria-current="page">기업정보</a>
+                        <ul class="mobile-submenu" aria-label="기업정보 하위 메뉴"><li><a href="company.html#about">회사소개</a></li><li><a href="company.html#history">연혁</a></li></ul>
+                    </li>
+                    <li><a href="news.html">뉴스</a>
+                        <ul class="mobile-submenu" aria-label="뉴스 하위 메뉴"><li><a href="news.html?type=press#newsList">보도자료</a></li><li><a href="news.html?type=notice#newsList">공지사항</a></li></ul>
+                    </li></ul></nav>
             </details>
         </header>
         <main id="mainContent">
@@ -54,7 +71,6 @@
                     <img class="sub-poster" src="video/laboratory.jpg" alt="">
                     <video class="sub-video" src="video/laboratory.mp4" poster="video/laboratory.jpg" muted loop playsinline preload="none" tabindex="-1"></video>
                 </div>
-                <button type="button" class="sub-video-toggle" hidden>배경 영상 재생</button>
                 <div class="inner">
                     <h2>사람을 향한 진심으로<br>건강한 내일을 이어갑니다.</h2>
                     <p>의약품을 통해 더 나은 삶에 기여한다는 마음으로,<br>오늘의 역할에 충실하며 내일의 가능성을 넓혀갑니다.</p>
@@ -126,7 +142,7 @@
                             <div class="history-summary">
                                 <p class="history-range">2010–2015</p>
                                 <h3 id="innovationTitle">항말라리아 신약 개발의 결실</h3>
-                                <img src="img/product/rx11.jpg" alt="피라맥스 제품 사진" loading="lazy" decoding="async" class="product-image">
+                                <img src="img/product/pyramax-history-hq.jpg" alt="피라맥스 제품 사진" loading="lazy" decoding="async" class="product-image">
                             </div>
                             <ol class="history-events">
                                 <li><time datetime="2011-09"><strong>2011</strong><span>09</span></time><p>피라맥스 공장 EU-GMP 인증</p></li>
@@ -159,48 +175,32 @@
     </div>
 
     <script>
-        // 배경 영상은 화면에 보일 때만 재생하고, 모션 감소 설정이면 정지 이미지로 시작
+        // 컨트롤 없이 재생. 모션 감소 설정, 화면 밖, 다른 탭에서는 정지한다.
         (function () {
             const visual = document.querySelector('.sub-visual');
             const video = visual.querySelector('.sub-video');
-            const button = visual.querySelector('.sub-video-toggle');
             const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
-            let userPaused = motion.matches;
             let inView = false;
             video.muted = true;
-            button.hidden = false;
-
-            function updateButton() {
-                button.textContent = video.paused ? '배경 영상 재생' : '배경 영상 일시정지';
-            }
             function syncPlayback() {
-                if (userPaused || !inView || document.hidden) {
+                if (motion.matches || !inView || document.hidden) {
                     video.pause();
                     return;
                 }
-                video.play().catch(updateButton);
+                video.play().catch(function () { /* 자동 재생 불가 시 포스터 유지 */ });
             }
-            button.addEventListener('click', function () {
-                userPaused = !video.paused;
-                syncPlayback();
-            });
-            video.addEventListener('playing', updateButton);
-            video.addEventListener('pause', updateButton);
-            video.addEventListener('error', function () {
-                // 재생할 수 없는 환경에서는 뒤에 놓인 포스터 이미지를 유지
-                video.hidden = true;
-                button.hidden = true;
-            });
+            video.addEventListener('error', function () { video.hidden = true; });
             document.addEventListener('visibilitychange', syncPlayback);
-            motion.addEventListener('change', function () {
-                userPaused = motion.matches;
+            motion.addEventListener('change', syncPlayback);
+            if ('IntersectionObserver' in window) {
+                new IntersectionObserver(function (entries) {
+                    inView = entries[0].isIntersecting;
+                    syncPlayback();
+                }).observe(visual);
+            } else {
+                inView = true;
                 syncPlayback();
-            });
-            const observer = new IntersectionObserver(function (entries) {
-                inView = entries[0].isIntersecting;
-                syncPlayback();
-            });
-            observer.observe(visual);
+            }
         })();
     </script>
 </body>

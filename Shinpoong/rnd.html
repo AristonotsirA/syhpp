@@ -7,8 +7,9 @@
     <link rel="stylesheet" href="../css/default.css">
     <link rel="stylesheet" href="../npm/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="../font/css/pretendardvariable.css">
-    <link rel="stylesheet" href="css/main.css?v=20261127-2">
+    <link rel="stylesheet" href="css/main.css?v=20261127-3">
     <script src="../npm/swiper/swiper-bundle.min.js"></script>
+    <script src="js/navigation.js?v=20261127" defer></script>
 </head>
 <body>
     <a class="skip-link" href="#mainContent">본문 바로가기</a>
@@ -21,29 +22,45 @@
                     </a>
                 </h1>
             </div>
-            <nav class="gnb" aria-label="주요 메뉴">
-                <ul>
-                    <li><a href="product.html">제품정보</a></li>
-                    <li class="on"><a href="rnd.html">R&amp;D</a></li>
-                    <li><a href="ir.html">투자정보</a></li>
-                    <li><a href="recruit.html">채용정보</a></li>
-                    <li><a href="company.html">기업정보</a></li>
-                    <li><a href="news.html">뉴스</a></li>
-                </ul>
-            </nav>
+            <nav class="gnb" aria-label="주요 메뉴"><ul><li><a href="product.html">제품정보</a>
+                        <ul class="gnb-submenu" aria-label="제품정보 하위 메뉴"><li><a href="product.html#best">대표제품</a></li><li><a href="product.html#all">전체제품</a></li></ul>
+                    </li>
+                    <li class="on"><a href="rnd.html" aria-current="page">R&amp;D</a>
+                        <ul class="gnb-submenu" aria-label="R&amp;D 하위 메뉴"><li><a href="rnd.html#research">연구개발</a></li><li><a href="rnd.html#story">스토리</a></li><li><a href="rnd.html#pipeline">파이프라인</a></li></ul>
+                    </li>
+                    <li><a href="ir.html">투자정보</a>
+                        <ul class="gnb-submenu" aria-label="투자정보 하위 메뉴"><li><a href="ir.html#investor">투자정보</a></li><li><a href="ir.html#archive">IR 자료실</a></li></ul>
+                    </li>
+                    <li><a href="recruit.html">채용정보</a>
+                        <ul class="gnb-submenu" aria-label="채용정보 하위 메뉴"><li><a href="recruit.html#talent">인재상</a></li><li><a href="recruit.html#process">채용 절차</a></li><li><a href="recruit.html#jobs">채용 공고</a></li></ul>
+                    </li>
+                    <li><a href="company.html">기업정보</a>
+                        <ul class="gnb-submenu" aria-label="기업정보 하위 메뉴"><li><a href="company.html#about">회사소개</a></li><li><a href="company.html#history">연혁</a></li></ul>
+                    </li>
+                    <li><a href="news.html">뉴스</a>
+                        <ul class="gnb-submenu" aria-label="뉴스 하위 메뉴"><li><a href="news.html?type=press#newsList">보도자료</a></li><li><a href="news.html?type=notice#newsList">공지사항</a></li></ul>
+                    </li></ul></nav>
             <!-- 모바일에서도 모든 메뉴로 이동할 수 있는 기본 펼침 메뉴 -->
             <details class="mobile-menu">
                 <summary>메뉴</summary>
-                <nav aria-label="모바일 주요 메뉴">
-                    <ul>
-                        <li><a href="product.html">제품정보</a></li>
-                        <li><a href="rnd.html" aria-current="page">R&amp;D</a></li>
-                        <li><a href="ir.html">투자정보</a></li>
-                        <li><a href="recruit.html">채용정보</a></li>
-                        <li><a href="company.html">기업정보</a></li>
-                        <li><a href="news.html">뉴스</a></li>
-                    </ul>
-                </nav>
+                <nav aria-label="모바일 주요 메뉴"><ul><li><a href="product.html">제품정보</a>
+                        <ul class="mobile-submenu" aria-label="제품정보 하위 메뉴"><li><a href="product.html#best">대표제품</a></li><li><a href="product.html#all">전체제품</a></li></ul>
+                    </li>
+                    <li><a href="rnd.html" aria-current="page">R&amp;D</a>
+                        <ul class="mobile-submenu" aria-label="R&amp;D 하위 메뉴"><li><a href="rnd.html#research">연구개발</a></li><li><a href="rnd.html#story">스토리</a></li><li><a href="rnd.html#pipeline">파이프라인</a></li></ul>
+                    </li>
+                    <li><a href="ir.html">투자정보</a>
+                        <ul class="mobile-submenu" aria-label="투자정보 하위 메뉴"><li><a href="ir.html#investor">투자정보</a></li><li><a href="ir.html#archive">IR 자료실</a></li></ul>
+                    </li>
+                    <li><a href="recruit.html">채용정보</a>
+                        <ul class="mobile-submenu" aria-label="채용정보 하위 메뉴"><li><a href="recruit.html#talent">인재상</a></li><li><a href="recruit.html#process">채용 절차</a></li><li><a href="recruit.html#jobs">채용 공고</a></li></ul>
+                    </li>
+                    <li><a href="company.html">기업정보</a>
+                        <ul class="mobile-submenu" aria-label="기업정보 하위 메뉴"><li><a href="company.html#about">회사소개</a></li><li><a href="company.html#history">연혁</a></li></ul>
+                    </li>
+                    <li><a href="news.html">뉴스</a>
+                        <ul class="mobile-submenu" aria-label="뉴스 하위 메뉴"><li><a href="news.html?type=press#newsList">보도자료</a></li><li><a href="news.html?type=notice#newsList">공지사항</a></li></ul>
+                    </li></ul></nav>
             </details>
         </header>
         <main id="mainContent">
@@ -69,7 +86,7 @@
                 </div>
             </nav>
             <!-- 연구개발 소개: 사진 + 글 -->
-            <section class="sub-sec">
+            <section class="sub-sec" id="research">
                 <div class="inner">
                     <h2 class="sub-title">연구개발</h2>
                     <div class="sub-body">
@@ -84,7 +101,7 @@
                 </div>
             </section>
             <!-- 연구·제품 이미지를 함께 보여 주는 R&D 스토리 -->
-            <section class="sub-sec subtle rnd-story">
+            <section class="sub-sec subtle rnd-story" id="story">
                 <div class="inner">
                     <h2 class="sub-title">R&amp;D 스토리</h2>
                     <p class="sub-desc">시대에 꼭 필요한 의약품을 만들어 온 신풍제약의 연구 발자취입니다.</p>
@@ -317,15 +334,6 @@
                             </ul>
                         </div>
                     </div>
-                </div>
-            </section>
-
-            <!-- 파트너십: 배경 이미지 위 중앙 정렬 CTA -->
-            <section class="sub-sec partner-cta" aria-labelledby="partnerTitle">
-                <div class="inner">
-                    <h2 class="sub-title" id="partnerTitle">인류의 밝은 미래를 위하여</h2>
-                    <p class="sub-desc">새로운 아이디어와 함께 새로운 치료법을 만들어 갈 파트너를 찾습니다.<br>학계·비영리 단체와의 연구 협력도 열려 있습니다.</p>
-                    <a href="policy.html#customer" class="cmp-btn">파트너십 문의하기</a>
                 </div>
             </section>
         </main>
@@ -610,37 +618,32 @@
     </script>
 
     <script>
-        // 배경 영상은 화면에 보일 때만 재생하고, 모션 감소 설정이면 정지 이미지로 시작
+        // 컨트롤 없이 재생. 모션 감소 설정, 화면 밖, 다른 탭에서는 정지한다.
         (function () {
             const visual = document.querySelector('.sub-visual');
             const video = visual.querySelector('.sub-video');
             const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
-            let userPaused = motion.matches;
             let inView = false;
             video.muted = true;
-
-            function keepPoster() { /* 재생할 수 없으면 뒤의 포스터를 유지 */ }
             function syncPlayback() {
-                if (userPaused || !inView || document.hidden) {
+                if (motion.matches || !inView || document.hidden) {
                     video.pause();
                     return;
                 }
-                video.play().catch(keepPoster);
+                video.play().catch(function () { /* 자동 재생 불가 시 포스터 유지 */ });
             }
-            video.addEventListener('error', function () {
-                // 재생할 수 없는 환경에서는 뒤에 놓인 포스터 이미지를 유지
-                video.hidden = true;
-            });
+            video.addEventListener('error', function () { video.hidden = true; });
             document.addEventListener('visibilitychange', syncPlayback);
-            motion.addEventListener('change', function () {
-                userPaused = motion.matches;
+            motion.addEventListener('change', syncPlayback);
+            if ('IntersectionObserver' in window) {
+                new IntersectionObserver(function (entries) {
+                    inView = entries[0].isIntersecting;
+                    syncPlayback();
+                }).observe(visual);
+            } else {
+                inView = true;
                 syncPlayback();
-            });
-            const observer = new IntersectionObserver(function (entries) {
-                inView = entries[0].isIntersecting;
-                syncPlayback();
-            });
-            observer.observe(visual);
+            }
         })();
     </script>
 </body>

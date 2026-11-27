@@ -7,8 +7,9 @@
     <link rel="stylesheet" href="../css/default.css">
     <link rel="stylesheet" href="../npm/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="../font/css/pretendardvariable.css">
-    <link rel="stylesheet" href="css/main.css?v=20261127-2">
+    <link rel="stylesheet" href="css/main.css?v=20261127-3">
     <script src="../npm/swiper/swiper-bundle.min.js"></script>
+    <script src="js/navigation.js?v=20261127" defer></script>
 </head>
 <body>
     <a class="skip-link" href="#mainContent">본문 바로가기</a>
@@ -21,29 +22,45 @@
                     </a>
                 </h1>
             </div>
-            <nav class="gnb" aria-label="주요 메뉴">
-                <ul>
-                    <li><a href="product.html">제품정보</a></li>
-                    <li><a href="rnd.html">R&amp;D</a></li>
-                    <li><a href="ir.html">투자정보</a></li>
-                    <li><a href="recruit.html">채용정보</a></li>
-                    <li><a href="company.html">기업정보</a></li>
-                    <li><a href="news.html">뉴스</a></li>
-                </ul>
-            </nav>
+            <nav class="gnb" aria-label="주요 메뉴"><ul><li><a href="product.html">제품정보</a>
+                        <ul class="gnb-submenu" aria-label="제품정보 하위 메뉴"><li><a href="product.html#best">대표제품</a></li><li><a href="product.html#all">전체제품</a></li></ul>
+                    </li>
+                    <li><a href="rnd.html">R&amp;D</a>
+                        <ul class="gnb-submenu" aria-label="R&amp;D 하위 메뉴"><li><a href="rnd.html#research">연구개발</a></li><li><a href="rnd.html#story">스토리</a></li><li><a href="rnd.html#pipeline">파이프라인</a></li></ul>
+                    </li>
+                    <li><a href="ir.html">투자정보</a>
+                        <ul class="gnb-submenu" aria-label="투자정보 하위 메뉴"><li><a href="ir.html#investor">투자정보</a></li><li><a href="ir.html#archive">IR 자료실</a></li></ul>
+                    </li>
+                    <li><a href="recruit.html">채용정보</a>
+                        <ul class="gnb-submenu" aria-label="채용정보 하위 메뉴"><li><a href="recruit.html#talent">인재상</a></li><li><a href="recruit.html#process">채용 절차</a></li><li><a href="recruit.html#jobs">채용 공고</a></li></ul>
+                    </li>
+                    <li><a href="company.html">기업정보</a>
+                        <ul class="gnb-submenu" aria-label="기업정보 하위 메뉴"><li><a href="company.html#about">회사소개</a></li><li><a href="company.html#history">연혁</a></li></ul>
+                    </li>
+                    <li><a href="news.html">뉴스</a>
+                        <ul class="gnb-submenu" aria-label="뉴스 하위 메뉴"><li><a href="news.html?type=press#newsList">보도자료</a></li><li><a href="news.html?type=notice#newsList">공지사항</a></li></ul>
+                    </li></ul></nav>
             <!-- 모바일에서도 모든 메뉴로 이동할 수 있는 기본 펼침 메뉴 -->
             <details class="mobile-menu">
                 <summary>메뉴</summary>
-                <nav aria-label="모바일 주요 메뉴">
-                    <ul>
-                        <li><a href="product.html">제품정보</a></li>
-                        <li><a href="rnd.html">R&amp;D</a></li>
-                        <li><a href="ir.html">투자정보</a></li>
-                        <li><a href="recruit.html">채용정보</a></li>
-                        <li><a href="company.html">기업정보</a></li>
-                        <li><a href="news.html">뉴스</a></li>
-                    </ul>
-                </nav>
+                <nav aria-label="모바일 주요 메뉴"><ul><li><a href="product.html">제품정보</a>
+                        <ul class="mobile-submenu" aria-label="제품정보 하위 메뉴"><li><a href="product.html#best">대표제품</a></li><li><a href="product.html#all">전체제품</a></li></ul>
+                    </li>
+                    <li><a href="rnd.html">R&amp;D</a>
+                        <ul class="mobile-submenu" aria-label="R&amp;D 하위 메뉴"><li><a href="rnd.html#research">연구개발</a></li><li><a href="rnd.html#story">스토리</a></li><li><a href="rnd.html#pipeline">파이프라인</a></li></ul>
+                    </li>
+                    <li><a href="ir.html">투자정보</a>
+                        <ul class="mobile-submenu" aria-label="투자정보 하위 메뉴"><li><a href="ir.html#investor">투자정보</a></li><li><a href="ir.html#archive">IR 자료실</a></li></ul>
+                    </li>
+                    <li><a href="recruit.html">채용정보</a>
+                        <ul class="mobile-submenu" aria-label="채용정보 하위 메뉴"><li><a href="recruit.html#talent">인재상</a></li><li><a href="recruit.html#process">채용 절차</a></li><li><a href="recruit.html#jobs">채용 공고</a></li></ul>
+                    </li>
+                    <li><a href="company.html">기업정보</a>
+                        <ul class="mobile-submenu" aria-label="기업정보 하위 메뉴"><li><a href="company.html#about">회사소개</a></li><li><a href="company.html#history">연혁</a></li></ul>
+                    </li>
+                    <li><a href="news.html">뉴스</a>
+                        <ul class="mobile-submenu" aria-label="뉴스 하위 메뉴"><li><a href="news.html?type=press#newsList">보도자료</a></li><li><a href="news.html?type=notice#newsList">공지사항</a></li></ul>
+                    </li></ul></nav>
             </details>
         </header>
         <main id="mainContent">
